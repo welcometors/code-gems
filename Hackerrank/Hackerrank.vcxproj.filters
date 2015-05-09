@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Readings">
+      <UniqueIdentifier>{582dd972-a3b5-47ee-898c-9c5bf9873595}</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Problems">
+      <UniqueIdentifier>{5a7e84d5-1387-4fe2-a045-546971eeeb74}</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Problems\Search">
+      <UniqueIdentifier>{fb211987-5462-4da2-9a00-ea12421c073d}</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Problems\Dynamic Programming">
+      <UniqueIdentifier>{7dedb6d5-4f25-4601-9ae8-072a91e7f845}</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Problems\Combinatorics">
+      <UniqueIdentifier>{1ea95de2-e4a6-43b7-af9c-44e1586e83c6}</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Problems\Graphs">
+      <UniqueIdentifier>{20035d83-f107-44ed-9231-f41e79a20c1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contests">
+      <UniqueIdentifier>{9c047fe9-34ac-4f36-8810-50b60df0cbdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contests\Quora Haqathon">
+      <UniqueIdentifier>{d088237d-7c3e-496e-aac0-ef703a25855a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Readings\On the circle and divisor problems.pdf">
+      <Filter>Readings</Filter>
+    </None>
+    <None Include="Problems\Search\Circle City.cpp">
+      <Filter>Problems\Search</Filter>
+    </None>
+    <None Include="Problems\Dynamic Programming\Lego Blocks.cpp">
+      <Filter>Problems\Dynamic Programming</Filter>
+    </None>
+    <None Include="Problems\Combinatorics\Permutation Problem.cpp">
+      <Filter>Problems\Combinatorics</Filter>
+    </None>
+    <None Include="Problems\Dynamic Programming\Red John is Back.cpp">
+      <Filter>Problems\Dynamic Programming</Filter>
+    </None>
+    <None Include="Problems\Dynamic Programming\The Coin Change Problem.cpp">
+      <Filter>Problems\Dynamic Programming</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Problems\Graphs\Snakes and Ladders.cpp">
+      <Filter>Problems\Graphs</Filter>
+    </Text>
+    <Text Include="Problems\Search\Count Luck.cpp">
+      <Filter>Problems\Search</Filter>
+    </Text>
+    <Text Include="Contests\Quora Haqathon\Archery.cpp">
+      <Filter>Contests\Quora Haqathon</Filter>
+    </Text>
+    <Text Include="Contests\Quora Haqathon\Schedule.cpp">
+      <Filter>Contests\Quora Haqathon</Filter>
+    </Text>
+    <Text Include="Contests\Quora Haqathon\Upvotes.cpp">
+      <Filter>Contests\Quora Haqathon</Filter>
+    </Text>
+    <Text Include="Contests\Quora Haqathon\Related questions.cpp">
+      <Filter>Contests\Quora Haqathon</Filter>
+    </Text>
+    <Text Include="Contests\Quora Haqathon\Ontology.cpp">
+      <Filter>Contests\Quora Haqathon</Filter>
+    </Text>
+    <Text Include="Contests\Quora Haqathon\Wombats.cpp">
+      <Filter>Contests\Quora Haqathon</Filter>
+    </Text>
+    <Text Include="Problems\Combinatorics\Coinage.cpp">
+      <Filter>Problems\Combinatorics</Filter>
+    </Text>
+    <Text Include="Problems\Combinatorics\Choose and Calculate.cpp">
+      <Filter>Problems\Combinatorics</Filter>
+    </Text>
+    <Text Include="Problems\Combinatorics\Lexicographic paths.cpp">
+      <Filter>Problems\Combinatorics</Filter>
+    </Text>
+    <Text Include="Problems\Dynamic Programming\Play Game Bricks.cpp">
+      <Filter>Problems\Dynamic Programming</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

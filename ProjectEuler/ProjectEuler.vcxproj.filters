@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Problems">
+      <UniqueIdentifier>{031a010e-81e7-4129-aef8-8e84a8dce2ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{7dcf972a-b586-456b-a9d0-03f841d94c2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documents">
+      <UniqueIdentifier>{98289f52-c7fb-4721-b7bf-dab278265ad2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Problems\Solution001.cpp">
+      <Filter>Problems</Filter>
+    </None>
+    <None Include="Documents\001_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\002_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\003_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\004_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\005_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\006_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\007_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\009_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\010_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\012_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\021_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\031_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\036_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\053_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\069_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Problems\Solution002.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution003.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution004.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution005.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution006.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution007.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution008.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution009.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
