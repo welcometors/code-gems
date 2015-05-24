@@ -24,3 +24,9 @@ uint32_t __inline __builtin_clz(uint32_t value){
 	return 32;
 }
 #endif
+
+#ifdef _MSC_VER
+uint32_t popcnt(uint32_t x){ return _mm_popcnt_u32(x); }
+#else
+uint32_t popcnt(uint32_t x){ return __builtin_popcount(x); }
+#endif

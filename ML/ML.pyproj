@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>99acf99f-d726-43e5-bd9b-a9e90858858a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>documentClassification.py</StartupFile>
+    <StartupFile>craigslist.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,11 +24,17 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="craigslist.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="documentClassification.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="duplicate.py" />
     <Compile Include="labeler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="QuoraAnswers.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

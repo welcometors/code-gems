@@ -5,6 +5,43 @@
 #include <algorithm>
 using namespace std;
 
+#pragma region "ANAGRAM"
+// USES: unordered_map<AlphabetCounter<26, 'a'>, int, AlphabetCounterHasher<26, 'a'>> substring;
+
+template <size_t n, size_t base>
+struct AlphabetCounter{
+	int count[n];
+
+	AlphabetCounter(const string &s, int start, int end){
+		fill(count, count + n, 0);
+		for (int i = start; i <= end; i++)
+			count[s[i] - base]++;
+	}
+
+	bool operator == (const AlphabetCounter &other) const{
+		for (int i = 0; i < n; i++)
+			if (count[i] != other.count[i])
+				return false;
+		return true;
+	}
+};
+
+template <size_t n, size_t base>
+struct AlphabetCounterHasher
+{
+	std::size_t operator()(const AlphabetCounter<n, base>& k) const
+	{
+		size_t hash = 0;
+		for (auto x : k.count)
+			hash = (hash + (324723947 + x)) ^ 93485734985;
+		return hash;
+	}
+};
+
+#pragma endregion
+
+#pragma region "SPLIT"
+
 vector<string> split(const string &s, const string &delimiter){
 	vector<string> tokens;
 	size_t start = 0, index = 0;
@@ -22,7 +59,6 @@ vector<string> split(const string &s, const string &delimiter){
 
 	return tokens;
 }
-
 vector<string> split(const string &s, const vector<char> &sortedDelimiters){
 	vector<string> tokens;
 	size_t start = 0, length = 0;
@@ -46,7 +82,6 @@ vector<string> split(const string &s, const vector<char> &sortedDelimiters){
 
 	return tokens;
 }
-
 // recommended for large strings
 vector<unsigned char> getDelimiterMapForSplit(const vector<unsigned char> &delimiters){
 	vector<unsigned char> map(256, 0);
@@ -81,6 +116,8 @@ vector<string> fastSplit(const string &s, const vector<unsigned char> &map){
 	return tokens;
 }
 
+#pragma endregion
+
 int main(){
 	string inputWithCommas;
 	std::getline(cin, inputWithCommas);
@@ -96,5 +133,3 @@ int main(){
 
 	return 0;
 }
-
-// 1,2,3
