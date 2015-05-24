@@ -22,7 +22,7 @@ WordsTfs = scipy.sparse(TfIdfVectorizer.fit_transform(docs))
 TrainingWords = WordsTfs[:n]
 PredictWords = WordsTfs[n:]
 
-clf = c(n_estimators=200, learning_rate=.7, max_depth=1)
+clf = GradientBoostingClassifier(n_estimators=200, learning_rate=.7, max_depth=1)
 
 clf.fit(TrainingWords, label)
 
