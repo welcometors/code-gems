@@ -118,6 +118,18 @@ vector<string> fastSplit(const string &s, const vector<unsigned char> &map){
 
 #pragma endregion
 
+std::string replaceAll(const std::string &str, const std::string& oldString, const std::string& newString) {
+	std::string out;
+	size_t startPos = 0, findIdx, templeteLength = oldString.length();
+	while ((findIdx = str.find(oldString, startPos)) != std::string::npos) {
+		out += str.substr(startPos, findIdx - startPos);
+		out += newString;
+		startPos = findIdx + templeteLength;
+	}
+	out += str.substr(startPos);
+	return out;
+}
+
 int main(){
 	string inputWithCommas;
 	std::getline(cin, inputWithCommas);

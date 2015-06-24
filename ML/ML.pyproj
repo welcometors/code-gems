@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>99acf99f-d726-43e5-bd9b-a9e90858858a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>craigslist.py</StartupFile>
+    <StartupFile>dota2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,6 +28,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="documentClassification.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="dota2.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="duplicate.py" />

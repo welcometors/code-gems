@@ -42,6 +42,9 @@
     <Filter Include="Contests\Quora Haqathon">
       <UniqueIdentifier>{d088237d-7c3e-496e-aac0-ef703a25855a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Problems\Misc">
+      <UniqueIdentifier>{6e10e08f-78b0-43be-92c0-6c8366da3663}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,6 +107,9 @@
     </Text>
     <Text Include="Problems\Dynamic Programming\Play Game Bricks.cpp">
       <Filter>Problems\Dynamic Programming</Filter>
+    </Text>
+    <Text Include="Problems\Misc\Fraud Prevention.cpp">
+      <Filter>Problems\Misc</Filter>
     </Text>
   </ItemGroup>
 </Project>

@@ -100,6 +100,7 @@
     <Text Include="Problems\Combinatorics\Lexicographic paths.cpp" />
     <Text Include="Problems\Dynamic Programming\Play Game Bricks.cpp" />
     <Text Include="Problems\Graphs\Snakes and Ladders.cpp" />
+    <Text Include="Problems\Misc\Fraud Prevention.cpp" />
     <Text Include="Problems\Search\Count Luck.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

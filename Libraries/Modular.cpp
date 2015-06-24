@@ -94,13 +94,18 @@ void nCrTableModulusInit(){
 
 	for (int i = 2; i <= nCrTableMaxN; i++){
 		*ptr++ = 1;
-
-		for (int j = 1, l = ((i + 2) >> 1) - 1 + (i & 1); j < l; j++, lptr++)
-			*ptr++ = (*lptr + *(lptr + 1)) % Modulus;
-
-		if (!(i & 1))
-			*ptr++ = (*lptr + *lptr) % Modulus;
-
+		for (int j = 1, l = ((i + 2) >> 1) - 1 + (i & 1); j < l; j++, lptr++){
+			*ptr = *lptr + *(lptr + 1);
+			if (*ptr > Modulus)
+				*ptr -= Modulus;
+			*ptr++;
+		}
+		if (!(i & 1)){
+			*ptr = *lptr + *lptr;
+			if (*ptr > Modulus)
+				*ptr -= Modulus;
+			*ptr++;
+		}
 		lptr++;
 	}
 }
@@ -139,3 +144,79 @@ natural modNCR(int n, int r){
 
 #pragma endregion
 
+#pragma region "MODULAR CLASS"
+template<typename T, T modulus>
+class modular{
+public:
+	T value;
+
+	modular(T val = T(0)) : value{ val } {}
+
+	modular(const modular& m){
+		value = m.value;
+	}
+
+	modular& operator += (const modular& m){
+		value = (value + m.value) % modulus;
+		return *this;
+	}
+
+	modular& operator -= (const modular& m){
+		value = (value + modulus - m.value) % modulus;
+		return *this;
+	}
+
+	modular& operator *= (const modular& m){
+		value = (value*m.value) % modulus;
+		return *this;
+	}
+
+	modular& operator /= (const modular& m){
+		value = (value*m.inv()) % modulus;
+		return *this;
+	}
+
+	modular& pow(T n) const{
+		if (value == T(0))
+			return modular();
+
+		if (value == T(1) || n == T(0))
+			return modular(T(1));
+
+		T p = T(1), i = value;
+		while (n){
+			if (n & T(1))
+				p = (p * i) % modulus;
+			i = (i * i) % modulus;
+			n >>= 1;
+		}
+
+		return modular(p);
+	}
+
+	modular& inv() const{
+		return this->pow(modulus - T(2));
+	}
+};
+
+template<typename T, T modulus>
+modular<T, modulus> operator + (const modular<T, modulus>& a, const modular<T, modulus>& b){
+	return modular<T, modulus>((a.value + b.value) % modulus);
+}
+
+template<typename T, T modulus>
+modular<T, modulus> operator - (const modular<T, modulus>& a, const modular<T, modulus>& b){
+	return modular<T, modulus>((a.value + modulus - b.value) % modulus);
+}
+
+template<typename T, T modulus>
+modular<T, modulus> operator * (const modular<T, modulus>& a, const modular<T, modulus>& b){
+	return modular<T, modulus>((a.value * b.value) % modulus);
+}
+
+template<typename T, T modulus>
+modular<T, modulus> operator / (const modular<T, modulus>& a, const modular<T, modulus>& b){
+	return modular<T, modulus>((a.value * b.inv()) % modulus);
+}
+
+#pragma endregion
