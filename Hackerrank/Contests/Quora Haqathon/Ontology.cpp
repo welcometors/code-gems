@@ -29,6 +29,9 @@ class TopicTree{
 	topicMap topicHash;
 
 	void readChilds(topic* parent, stringstream &ss){
+		if (parent == nullptr)
+			return;
+
 		topic* child = nullptr;
 
 		do {

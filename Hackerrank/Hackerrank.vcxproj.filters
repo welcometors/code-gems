@@ -45,6 +45,9 @@
     <Filter Include="Problems\Misc">
       <UniqueIdentifier>{6e10e08f-78b0-43be-92c0-6c8366da3663}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contests\Booking.com">
+      <UniqueIdentifier>{90e64a76-8c01-4715-9b01-c2568d671d0a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -110,6 +113,21 @@
     </Text>
     <Text Include="Problems\Misc\Fraud Prevention.cpp">
       <Filter>Problems\Misc</Filter>
+    </Text>
+    <Text Include="Contests\Booking.com\Nearby Attractions.cpp">
+      <Filter>Contests\Booking.com</Filter>
+    </Text>
+    <Text Include="Contests\Booking.com\Travel Profiles.cpp">
+      <Filter>Contests\Booking.com</Filter>
+    </Text>
+    <Text Include="Contests\Booking.com\Facilities Extraction.cpp">
+      <Filter>Contests\Booking.com</Filter>
+    </Text>
+    <Text Include="Contests\Booking.com\Similar Destinations.cpp">
+      <Filter>Contests\Booking.com</Filter>
+    </Text>
+    <Text Include="Contests\Booking.com\Budget Friendly.cpp">
+      <Filter>Contests\Booking.com</Filter>
     </Text>
   </ItemGroup>
 </Project>

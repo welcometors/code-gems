@@ -45,6 +45,12 @@
     <ClCompile Include="Misc.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="BigInt.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Trie.cpp">
+      <Filter>Strings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="IO\Enormous Input.cpp">
