@@ -27,9 +27,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Modular.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
     <ClCompile Include="Prime.cpp">
       <Filter>Math</Filter>
     </ClCompile>
@@ -50,6 +47,15 @@
     </ClCompile>
     <ClCompile Include="Trie.cpp">
       <Filter>Strings</Filter>
+    </ClCompile>
+    <ClCompile Include="ModularMacros.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Modular.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

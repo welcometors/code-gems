@@ -110,6 +110,7 @@
     <Text Include="Contests\Quora Haqathon\Wombats.cpp" />
     <Text Include="Problems\Combinatorics\Choose and Calculate.cpp" />
     <Text Include="Problems\Combinatorics\Coinage.cpp" />
+    <Text Include="Problems\Combinatorics\Count Fox Sequences.cpp" />
     <Text Include="Problems\Combinatorics\Lexicographic paths.cpp" />
     <Text Include="Problems\Dynamic Programming\Play Game Bricks.cpp" />
     <Text Include="Problems\Graphs\Snakes and Ladders.cpp" />

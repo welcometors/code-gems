@@ -85,7 +85,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Misc.cpp" />
     <ClCompile Include="Modular.cpp" />
+    <ClCompile Include="ModularMacros.cpp" />
     <ClCompile Include="Prime.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Trie.cpp" />
   </ItemGroup>
   <ItemGroup>

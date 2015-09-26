@@ -1,10 +1,13 @@
-//#include <type_traits>
+// https://www.hackerrank.com/challenges/count-fox-sequences
 
-// this class has exactly same performance as raw calculation
-#pragma region "CLASS"
+#include <iostream>
+#include <vector>
+//#include <chrono>
+//#include <type_traits>
+using namespace std;
 
 template<class T, T Modulus>
-class Modular {
+class Modular{
 private:
 	T value;
 
@@ -20,22 +23,22 @@ public:
 	Modular& operator -= (const Modular &a);
 	Modular& operator *= (const Modular &a);
 	Modular& operator /= (const Modular &a);
-
+	
 	template<class T1, T1 Modulus1>
 	friend Modular<T1, Modulus1> operator + (const Modular<T1, Modulus1> &a, const Modular<T1, Modulus1> &b);
 
 	template<class T1, T1 Modulus1>
 	friend Modular<T1, Modulus1> operator - (const Modular<T1, Modulus1> &a, const Modular<T1, Modulus1> &b);
-
+	
 	template<class T1, T1 Modulus1>
 	friend Modular<T1, Modulus1> operator * (const Modular<T1, Modulus1> &a, const Modular<T1, Modulus1> &b);
 
 	template<class T1, T1 Modulus1>
 	friend Modular<T1, Modulus1> operator / (const Modular<T1, Modulus1> &a, const Modular<T1, Modulus1> &b);
-
+	
 	template<class T1, T1 Modulus1>
 	friend Modular<T1, Modulus1> pow(Modular<T1, Modulus1> i, T1 j);
-
+	
 };
 
 // TODO: not allow 0 and 1 as Modulus
@@ -53,7 +56,7 @@ Modular<T, Modulus>& Modular<T, Modulus>::operator= (const Modular<T, Modulus> &
 
 template<class T, T Modulus>
 Modular<T, Modulus> Modular<T, Modulus>::operator - () const {
-	if (value)
+	if(value)
 		return Modular(Modulus - value);
 	return Modular(0);
 }
@@ -123,7 +126,7 @@ template<class T, T Modulus>
 Modular<T, Modulus> pow(Modular<T, Modulus> i, T j) {
 	if (!i.value)
 		return Modular<T, Modulus>(0);
-
+	
 	if (i.value == T(1) || j == T(0))
 		return Modular<T, Modulus>(1);
 
@@ -142,16 +145,11 @@ Modular<T, Modulus> Modular<T, Modulus>::inv() const {
 	return pow<T, Modulus>(*this, Modulus - 2);
 }
 
-#pragma endregion
-
 typedef unsigned long long natural;
 constexpr natural Limit = 1000000007ULL;
 typedef Modular<natural, Limit> modular;
 
-#pragma region "INCREMENTAL FACTORIAL"
-#include <vector>
-
-std::vector<modular> factorialTableModulus = { 1 };
+vector<modular> factorialTableModulus = { 1 };
 modular fact(size_t v) {
 	auto n = factorialTableModulus.size();
 	if (n > v)
@@ -181,4 +179,48 @@ modular nCr(size_t n, size_t r) {
 	return fact(n) / (fact(r) * fact(n - r));
 }
 
-#pragma endregion
+int main(){
+	std::ios::sync_with_stdio(false);
+	cin.tie(0);
+
+	int t;
+	cin >> t;
+
+	while (t--) {
+		size_t n, lo, hi;
+		cin >> n >> lo >> hi;
+		
+		auto d = hi - lo;
+		if (d) {
+			vector<modular> dCi;
+			for (auto i = 0; i <= d; i++)
+				dCi.push_back((i & 1) ? -nCr(d, i) : nCr(d, i));
+
+			auto b = n + d - 1;
+			modular res(0);
+			for (auto k = 1; k <= n; k++)
+				for (auto i = 0; i <= d; i++) {
+					auto a = (i + 1) * k;
+					if (b < a)
+						break;
+					res += dCi[i] * nCr(b - a, d - 1);
+				}
+			res *= modular(d + 1);
+			cout << res.Value() << endl;
+		}
+		else
+			cout << 1 << endl;
+	}
+	
+	system("pause");
+}
+
+/*
+6
+3 1 4
+2 1 1
+2 1 3
+3 1 2
+4 4 5
+10 2 4
+*/

@@ -129,5 +129,8 @@
     <Text Include="Contests\Booking.com\Budget Friendly.cpp">
       <Filter>Contests\Booking.com</Filter>
     </Text>
+    <Text Include="Problems\Combinatorics\Count Fox Sequences.cpp">
+      <Filter>Problems\Combinatorics</Filter>
+    </Text>
   </ItemGroup>
 </Project>
