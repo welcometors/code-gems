@@ -1,10 +1,12 @@
 //#include <type_traits>
 
-// this class has exactly same performance as raw calculation
+// this class has exact same performance as raw calculation
 #pragma region "CLASS"
 
 template<class T, T Modulus>
 class Modular {
+	static_assert(Modulus >= 2, "Modular arithmatic with base less than 2 is not supported");
+
 private:
 	T value;
 
@@ -37,10 +39,6 @@ public:
 	friend Modular<T1, Modulus1> pow(Modular<T1, Modulus1> i, T1 j);
 
 };
-
-// TODO: not allow 0 and 1 as Modulus
-//template<class T>
-//class Modular < T, std::integral_constant<T, 0>> {};
 
 template<class T, T Modulus>
 Modular<T, Modulus>::Modular(const T &init) : value(init % Modulus) { if (value < 0)value += Modulus; }

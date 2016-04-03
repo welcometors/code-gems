@@ -1,74 +1,90 @@
-// https://www.hackerrank.com/challenges/the-quickest-way-up
+// floydWarshall & dijkstra
 
 #include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
+#include <climits>
 using namespace std;
 
-vector<string> split(const string &s, const string &delimiter){
-	vector<string> tokens;
-	size_t start = 0, index = 0;
+#define Size 100
+#define print(ary,x) for (int i = 0; i < Size; i++)cout << ary[x][i] << " | "; cout << endl
 
-	while ((index = s.find(delimiter, start)) != std::string::npos) {
-		string token = s.substr(start, index - start);
-		if (!token.empty())
-			tokens.push_back(token);
-		start = index + delimiter.length();
-	}
-
-	string token = s.substr(start, s.length() - start);
-	if (!token.empty())
-		tokens.push_back(token);
-
-	return tokens;
+void setShortCut(int x, int y, int adjMat[Size][Size]) {
+	for (int j = 1, k = x + 1; j <= 6 && k < Size; j++, k++)
+		adjMat[x][k] = INT_MAX;
+	adjMat[x][y] = 0;
 }
 
-struct edge{
-	edge(int u, int v, int c) : u(u), v(v), c(c){}
-	
-	int u, v;
-	int c;
-};
+void floydWarshall(int adjMat[Size][Size]) {
+	for (int k = 0; k < Size; k++)
+		for (int i = 0; i < Size; i++)
+			for (int j = 0; j < Size; j++)
+				if (adjMat[i][k] != INT_MAX && adjMat[k][j] != INT_MAX && adjMat[i][j] > adjMat[i][k] + adjMat[k][j])
+					adjMat[i][j] = adjMat[i][k] + adjMat[k][j];
+}
 
-int main(){
+int minDistance(int dist[], bool sptSet[]) {
+	int min = INT_MAX, mini = 0;
+	for (int v = 0; v < Size; v++)
+		if (sptSet[v] == false && dist[v] <= min)
+			min = dist[v], mini = v;
+	return mini;
+}
+
+void dijkstra(int adjMat[Size][Size], int s, int dist[Size]) {
+	bool sptSet[Size] = {};
+	for (int i = 0; i < Size; i++)
+		dist[i] = INT_MAX;
+	dist[s] = 0;
+
+	for (int count = 0; count < Size - 1; count++) {
+		int u = minDistance(dist, sptSet);
+		sptSet[u] = true;
+
+		for (int v = 0; v < Size; v++)
+			if (!sptSet[v] && dist[u] != INT_MAX && adjMat[u][v] != INT_MAX && dist[u] + adjMat[u][v] < dist[v])
+				dist[v] = dist[u] + adjMat[u][v];
+	}
+}
+
+int main() {
+	std::ios::sync_with_stdio(false);
+	cin.tie(0);
+
 	int t;
 	cin >> t;
 
-	while (t--){
-		int numLadders, numSnakes;
-		cin >> numLadders >> numSnakes;
+	while (t--) {
+		int adjMat[Size][Size];
+		for (int i = 0; i < Size; i++)
+			for (int j = 0; j < Size; j++)
+				adjMat[i][j] = (i == j) ? 0 : INT_MAX;
 
-		vector<int> significantSquares = { 1, 100 };
-		vector<pair<int, int>> ladders;
-		vector<pair<int, int>> snakes;
-		
-		for (int i = 0, start, end; i < numLadders; i++){
-			cin >> start >> end;
-			ladders.push_back(make_pair(start, end));
-			significantSquares.push_back(start);
-			significantSquares.push_back(end);
+		for (int i = 0; i < Size - 1; i++)
+			for (int j = i + 1, k = 0; k < 6 && j < Size; j++, k++)
+				adjMat[i][j] = 1;
+
+		int n;
+		cin >> n;
+		for (int i = 0, x, y; i < n; i++) {
+			cin >> x >> y;
+			setShortCut(--x, --y, adjMat);
 		}
 
-		for (int i = 0, head, tail; i < numSnakes; i++){
-			cin >> head >> tail;
-			snakes.push_back(make_pair(head, tail));
-			significantSquares.push_back(head);
-			significantSquares.push_back(tail);
+		int m;
+		cin >> m;
+		for (int i = 0, x, y; i < m; i++) {
+			cin >> x >> y;
+			setShortCut(--x, --y, adjMat);
 		}
 
-		std::sort(significantSquares.begin(), significantSquares.end());
-		vector<edge> edgeList;
+		int dist[Size];
+		dijkstra(adjMat, 0, dist);
+		cout << ((dist[99] == INT_MAX) ? -1 : dist[99]) << endl;
 
-		for( int i=0; i<significantSquares.size(); i++){
-			for (int j = i + 1; j < significantSquares.size(); j++){
-
-			}
-		}
+		//floydWarshall(adjMat);
+		//cout << ((adjMat[0][99] >= INT_MAX) ? -1: adjMat[0][99]) << endl;
 	}
 
+#if _MSC_VER >= 1600
 	system("pause");
-	return 0;
+#endif
 }
-
-// 5 1 3 1 4 4 4 25 11 25 12

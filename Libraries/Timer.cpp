@@ -1,3 +1,5 @@
+#pragma region "Timer"
+
 #include <chrono>
 
 class Timer {
@@ -26,3 +28,5 @@ public:
 private:
 	high_resolution_clock::time_point _start;
 };
+
+#pragma endregion
