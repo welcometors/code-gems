@@ -13,11 +13,11 @@ using namespace std;
 #define modDIV(x, y) (((x) * modINV(y)) % Modulus)
 
 natural modPOW(natural i, natural j){
-	if (i == 1 || j == 0)
+	if (!j)
 		return 1;
 
-	if (i == 0)
-		return 0;
+	if (i < 2)
+		return i;
 
 	natural p = 1;
 

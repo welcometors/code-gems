@@ -335,6 +335,8 @@ public:
 };
 
 BigInt pow(const BigInt& x, int y){
+	if (!y)return 1;
+	if (x<2)return x;
 	BigInt p = 1, cp = x;
 	while (y){
 		if (y & 1)

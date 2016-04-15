@@ -119,11 +119,11 @@ Modular<T, Modulus> operator / (const Modular<T, Modulus> &a, const Modular<T, M
 
 template<class T, T Modulus>
 Modular<T, Modulus> pow(Modular<T, Modulus> i, T j) {
-	if (!i.value)
-		return Modular<T, Modulus>(0);
-
-	if (i.value == T(1) || j == T(0))
+	if (j == T(0))
 		return Modular<T, Modulus>(1);
+
+	if (i.value < T(2))
+		return i;
 
 	Modular<T, Modulus> p(1);
 	while (j) {
