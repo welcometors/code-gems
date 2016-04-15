@@ -97,6 +97,7 @@
     <None Include="Readings\On the circle and divisor problems.pdf" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Codefights Challenge\matchstick equation.cpp" />
     <Text Include="Contests\Booking.com\Facilities Extraction.cpp" />
     <Text Include="Contests\Booking.com\Nearby Attractions.cpp" />
     <Text Include="Contests\Booking.com\Similar Destinations.cpp" />
