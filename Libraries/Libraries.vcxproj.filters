@@ -22,6 +22,12 @@
     <Filter Include="Math">
       <UniqueIdentifier>{f6b5c253-3c08-4822-879b-897728e1d5bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graph">
+      <UniqueIdentifier>{ade2164c-103c-4f2c-9f05-b1b1624185ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arrays">
+      <UniqueIdentifier>{64fddd16-9f4b-417d-ac12-a416a61c8046}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -56,6 +62,15 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mst.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrays\Inversion.cpp">
+      <Filter>Arrays</Filter>
+    </ClCompile>
+    <ClCompile Include="SubArray.cpp">
+      <Filter>Arrays</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

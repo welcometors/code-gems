@@ -6,7 +6,7 @@ of two 2-digit numbers is 9009 = 91 × 99.
 Find the largest palindrome made from the product of two 3-digit numbers.
 
 Solution:
-let palindrome no be abccba
+let abccba be a palindrome number
 abccba = 10^5.a + 10^4.b + 10^3.c + 10^2.c + 10.b + a
 	   = 100001.a + 10010.b + 1100.c
 	   = 11 ( 9091.a + 910.b + 100.c )
