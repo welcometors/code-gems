@@ -81,6 +81,7 @@
     <ClCompile Include="Arrays\Inversion.cpp" />
     <ClCompile Include="BigInt.cpp" />
     <ClCompile Include="Bits.cpp" />
+    <ClCompile Include="ConditionallyBoundedArray.cpp" />
     <ClCompile Include="GCD.cpp" />
     <ClCompile Include="Intrinsics.cpp" />
     <ClCompile Include="main.cpp" />

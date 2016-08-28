@@ -72,6 +72,9 @@
     <ClCompile Include="SubArray.cpp">
       <Filter>Arrays</Filter>
     </ClCompile>
+    <ClCompile Include="ConditionallyBoundedArray.cpp">
+      <Filter>Arrays</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="IO\Enormous Input.cpp">
