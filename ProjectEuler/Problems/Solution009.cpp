@@ -1,74 +1,76 @@
-﻿// https://projecteuler.net/problem=7
-/* 
-By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+﻿// https://projecteuler.net/problem=9
+/*
+A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
 
-What is the 10001st prime number?
+a^2 + b^2 = c^2
+For example, 3^2 + 4^2 = 9 + 16 = 25 = 5^2.
 
-Facts:
-All primes greater than 3 can be written in the form 6.k+/-1.
-Any number n can have only one primefactor greater than n.
+There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+Find the product abc.
 
 Solution:
-we can maintain a prime table so that we'll check wheather a number is prime or not is by only
-checking against prime untill sqrt(n)
 
-to avoid calculating sqrt(n) each time we can use the fact
-(x+1)^2 - x^2 = 2x + 1
-between 1 (1^2) and 4 (2^2) there are 3 (2.1+1) numbers i.e. 3 numbers have sqrt(n) = 1 (1,2,3)
-between 4 (2^2) and 9 (3^2) there are 5 (2.2+1) numbers i.e. 5 numbers have sqrt(n) = 2 (4,5,6,7,8)
-between 9 (3^2) and 16 (4^2) there are 7 (2.3+1) numbers i.e. 7 numbers have sqrt(n) = 3 (9,10,11,12,13,14,15)
-
-so initally sqrt will be 1 (sqrtN) which will represent square roots of numbers till 3 (limN)
-and that will be increased by 5 (2.2+1) next time
-
-Alternate solution:
-we can construct a Sieve of Eratosthenes size of the table will be x
-where x/(log(x)-1) > 10001, the fuction is a lower bound of pi function
 */
 
 #include <iostream>
-#include <cstdint>
-#include <vector>
+#include <cmath>
 
 using namespace std;
-typedef unsigned long natural;
+typedef unsigned long long natural;
 
-vector<natural> primes = { 2, 3, 5, 7 };
-int totalPrimes = 4;
-const int limit = 10001;
+natural GCD(natural u, natural v) {
+	int shift;
+	if (u == 0) return v;
+	if (v == 0) return u;
 
-bool isPrime(natural n, int lim){
-	for (int i = 2; primes[i] <= lim; i++)
-		if (n % primes[i] == 0)
-			return false;
-
-	return true;
-}
-
-int main(){
-	int sqrtN = 1, limN = 3;
-	bool done = false;
-
-	for (int k = 2 * 6; !done; k += 6){
-		// starting from 11
-		for (int i = -1; i <= 1; i += 2){
-			int n = k + i;
-			while (n > limN){
-				sqrtN++;
-				limN += 2 * sqrtN + 1;
-			}
-
-			if (isPrime(n, sqrtN)){
-				primes.push_back(n);
-				if (++totalPrimes == limit){
-					cout << limit << "th prime is " << n << endl;
-					done = true;
-					break;
-				}
-			}
-			//cout << "sqrt of " << n << " is " << sqrtN << endl;
-		}
+	for (shift = 0; ((u | v) & 1) == 0; ++shift) {
+		u >>= 1;
+		v >>= 1;
 	}
 
+	while ((u & 1) == 0)
+		u >>= 1;
+
+	do {
+		while ((v & 1) == 0)
+			v >>= 1;
+		if (u > v) {
+			natural t = v;
+			v = u;
+			u = t;
+		}
+		v = v - u;
+	} while (v != 0);
+
+	return u << shift;
+}
+
+natural getMaxTriplet(natural s) {
+	natural max = 0;
+	natural s2 = s / 2;
+	natural lim = ceil(sqrt(s*.5)) - 1;
+	for (natural m = 2; m <= lim; m++) {
+		if (s2%m == 0) {
+			natural sm = s2 / m;
+			while (sm % 2 == 0)
+				sm /= 2;
+			natural k = m % 2 ? m + 2 : m + 1;
+			while (k < 2 * m && k <= sm) {
+				if (sm%k == 0 && GCD(k, m) == 1) {
+					natural d = s2 / (k*m);
+					natural n = k - m;
+					natural abc = d*(m*m - n*n) * 2 * d*m*n * d*(m*m + n*n);
+					if (abc > max)
+						max = abc;
+				}
+				k += 2;
+			}
+		}
+	}
+	return max;
+}
+
+int main() {
+	cout << getMaxTriplet(1000) << endl;
 	system("pause");
 }

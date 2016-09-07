@@ -1,5 +1,5 @@
 ﻿// https://projecteuler.net/problem=7
-/* 
+/*
 By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
 
 What is the 10001st prime number?
@@ -27,48 +27,52 @@ where x/(log(x)-1) > 10001, the fuction is a lower bound of pi function
 */
 
 #include <iostream>
-#include <cstdint>
 #include <vector>
+#include <memory>
+#include <cstring>
+#include <cmath>
 
 using namespace std;
 typedef unsigned long natural;
 
-vector<natural> primes = { 2, 3, 5, 7 };
-int totalPrimes = 4;
 const int limit = 10001;
 
-bool isPrime(natural n, int lim){
-	for (int i = 2; primes[i] <= lim; i++)
-		if (n % primes[i] == 0)
-			return false;
+vector<int> populatePrimes(int limit) {
+	vector<int> primes;
+	int sqrtLimit = sqrt(limit + 1) + 1, k = 0;
+	unique_ptr<int[]> isPrime(new int[limit + 1]);
 
-	return true;
-}
+	isPrime[0] = isPrime[1] = 0;
+	std::memset(&isPrime[2], 1, sizeof(int)*(limit - 1));
+	primes.clear();
 
-int main(){
-	int sqrtN = 1, limN = 3;
-	bool done = false;
+	for (int i = 2; i <= sqrtLimit; i++) {
+		if (!isPrime[i])
+			continue;
 
-	for (int k = 2 * 6; !done; k += 6){
-		// starting from 11
-		for (int i = -1; i <= 1; i += 2){
-			int n = k + i;
-			while (n > limN){
-				sqrtN++;
-				limN += 2 * sqrtN + 1;
-			}
+		primes.push_back(i);
 
-			if (isPrime(n, sqrtN)){
-				primes.push_back(n);
-				if (++totalPrimes == limit){
-					cout << limit << "th prime is " << n << endl;
-					done = true;
-					break;
-				}
-			}
-			//cout << "sqrt of " << n << " is " << sqrtN << endl;
-		}
+		for (int j = i + i; j <= limit; j += i)
+			isPrime[j] = false;
 	}
 
-	system("pause");
+	for (int i = sqrtLimit + 1; i <= limit; i++) {
+		if (isPrime[i])
+			primes.push_back(i);
+	}
+
+	return primes;
+}
+
+natural piInverse(natural n) {
+	double x = 20;
+	while (x / log(x) < n)
+		x *= 1.5;
+	return x;
+}
+
+int main() {
+	// The 10,001st prime is 104,743.
+	auto primes = populatePrimes(piInverse(limit));
+	cout << primes[limit - 1] << endl;
 }

@@ -33,8 +33,8 @@ const int n = 100;
 
 int main(){
 	natural a = n*(n + 1) / 2;
-	natural b = (3 * n*n - n - 2) / 6;
+	natural b = 3 * n*n - n - 2;
 
-	cout << a*b << endl;
+	cout << a*b/6 << endl;
 	system("pause");
 }

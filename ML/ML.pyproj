@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>99acf99f-d726-43e5-bd9b-a9e90858858a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>dota2.py</StartupFile>
+    <StartupFile>predictEmailOpens.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -14,6 +14,7 @@
     <RootNamespace>ML</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <CommandLineArguments>test</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,6 +36,9 @@
     </Compile>
     <Compile Include="duplicate.py" />
     <Compile Include="labeler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="predictEmailOpens.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="QuoraAnswers.py">

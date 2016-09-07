@@ -106,6 +106,8 @@
     <Text Include="Problems\Solution007.cpp" />
     <Text Include="Problems\Solution008.cpp" />
     <Text Include="Problems\Solution009.cpp" />
+    <Text Include="Problems\Solution010.cpp" />
+    <Text Include="Problems\Solution011.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
