@@ -79,6 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Arrays\Inversion.cpp" />
+    <ClCompile Include="Arrays\Search.cpp" />
     <ClCompile Include="BigInt.cpp" />
     <ClCompile Include="Bits.cpp" />
     <ClCompile Include="ConditionallyBoundedArray.cpp" />

@@ -50,10 +50,12 @@
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>
+      </Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FavorSizeOrSpeed>
+      </FavorSizeOrSpeed>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -96,6 +98,7 @@
     <None Include="Documents\053_overview.pdf" />
     <None Include="Documents\069_overview.pdf" />
     <None Include="Problems\Solution001.cpp" />
+    <None Include="Problems\Solution020.py" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Problems\Solution002.cpp" />
@@ -108,6 +111,15 @@
     <Text Include="Problems\Solution009.cpp" />
     <Text Include="Problems\Solution010.cpp" />
     <Text Include="Problems\Solution011.cpp" />
+    <Text Include="Problems\Solution012.cpp" />
+    <Text Include="Problems\Solution013.cpp" />
+    <Text Include="Problems\Solution014.cpp" />
+    <Text Include="Problems\Solution015.cpp" />
+    <Text Include="Problems\Solution016.cpp" />
+    <Text Include="Problems\Solution017.cpp" />
+    <Text Include="Problems\Solution018.cpp" />
+    <Text Include="Problems\Solution019.py" />
+    <Text Include="Problems\Solution020.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -72,6 +72,9 @@
     <None Include="Documents\069_overview.pdf">
       <Filter>Documents</Filter>
     </None>
+    <None Include="Problems\Solution020.py">
+      <Filter>Problems</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Problems\Solution002.cpp">
@@ -102,6 +105,33 @@
       <Filter>Problems</Filter>
     </Text>
     <Text Include="Problems\Solution011.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution012.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution013.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution014.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution015.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution016.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution017.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution018.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution019.py">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution020.cpp">
       <Filter>Problems</Filter>
     </Text>
   </ItemGroup>
