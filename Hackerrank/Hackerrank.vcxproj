@@ -99,6 +99,7 @@
   <ItemGroup>
     <Text Include="Attribute Parser XML.cpp" />
     <Text Include="Codefights Challenge\matchstick equation.cpp" />
+    <Text Include="CodeForces\problem.cpp" />
     <Text Include="Contests\Booking.com\Facilities Extraction.cpp" />
     <Text Include="Contests\Booking.com\Nearby Attractions.cpp" />
     <Text Include="Contests\Booking.com\Similar Destinations.cpp" />

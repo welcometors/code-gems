@@ -51,6 +51,9 @@
     <Filter Include="Codefights">
       <UniqueIdentifier>{f01c89b2-dcd1-425d-9c98-9004491dca29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CodeForces">
+      <UniqueIdentifier>{0c4ba965-81d7-4612-ac72-43cd93a0b860}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -140,6 +143,9 @@
     </Text>
     <Text Include="Codefights Challenge\matchstick equation.cpp">
       <Filter>Codefights</Filter>
+    </Text>
+    <Text Include="CodeForces\problem.cpp">
+      <Filter>CodeForces</Filter>
     </Text>
   </ItemGroup>
 </Project>

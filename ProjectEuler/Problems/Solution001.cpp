@@ -17,21 +17,19 @@ using inclusion-exclusion principle
 F(3) ∪ F(5) = F(3) + F(5) - F(3 ∩ 5)
 			= F(3) + F(5) - F(15)
 */
-namespace ProjectEuler001 {
-	#include <iostream>
 
-	using namespace std;
-	typedef int natural;
+#include <iostream>
 
-	const natural limit = 999;
+using namespace std;
+typedef int natural;
 
-	natural F(natural x) {
-		natural n = limit / x;
-		return x*(n*(n + 1) / 2);
-	}
+const natural limit = 999;
 
-	int main() {
-		cout << F(3) + F(5) - F(15) << endl;
-		system("pause");
-	}
+natural F(natural x) {
+	natural n = limit / x;
+	return x*(n*(n + 1) / 2);
+}
+
+int main() {
+	cout << F(3) + F(5) - F(15) << endl;
 }

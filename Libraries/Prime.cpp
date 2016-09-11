@@ -6,7 +6,7 @@ using namespace std;
 #include <memory>
 
 void populatePrimes(int limit, vector<int> &primes){
-	int sqrtLimit = sqrt(limit + 1) + 1, k = 0;
+	int sqrtLimit = (int)sqrt(limit + 1) + 1, k = 0;
 	unique_ptr<int[]> isPrime(new int[limit + 1]);
 
 	isPrime[0] = isPrime[1] = 0;

@@ -16,11 +16,11 @@
     <Filter Include="Problems">
       <UniqueIdentifier>{031a010e-81e7-4129-aef8-8e84a8dce2ba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Data">
-      <UniqueIdentifier>{7dcf972a-b586-456b-a9d0-03f841d94c2f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Documents">
       <UniqueIdentifier>{98289f52-c7fb-4721-b7bf-dab278265ad2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{d63a18fa-1c32-430f-a6c4-8ddf1e611052}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +132,33 @@
       <Filter>Problems</Filter>
     </Text>
     <Text Include="Problems\Solution020.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Data\p022_names.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Problems\Solution022.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution021.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution023.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution024.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution025.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution026.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution027.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution028.cpp">
       <Filter>Problems</Filter>
     </Text>
   </ItemGroup>

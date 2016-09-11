@@ -101,6 +101,7 @@
     <None Include="Problems\Solution020.py" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Data\p022_names.txt" />
     <Text Include="Problems\Solution002.cpp" />
     <Text Include="Problems\Solution003.cpp" />
     <Text Include="Problems\Solution004.cpp" />
@@ -120,6 +121,14 @@
     <Text Include="Problems\Solution018.cpp" />
     <Text Include="Problems\Solution019.py" />
     <Text Include="Problems\Solution020.cpp" />
+    <Text Include="Problems\Solution021.cpp" />
+    <Text Include="Problems\Solution022.cpp" />
+    <Text Include="Problems\Solution023.cpp" />
+    <Text Include="Problems\Solution024.cpp" />
+    <Text Include="Problems\Solution025.cpp" />
+    <Text Include="Problems\Solution026.cpp" />
+    <Text Include="Problems\Solution027.cpp" />
+    <Text Include="Problems\Solution028.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

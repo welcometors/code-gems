@@ -193,3 +193,6 @@ ModelManifest.xml
 /ML/src
 /ML/hackerrank-predict-email-opens-dataset.zip
 /ML/src.zip
+/Hackerrank/input
+/Hackerrank/main.exe
+*.exe
