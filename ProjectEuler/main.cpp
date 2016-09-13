@@ -1,62 +1,51 @@
-// https://projecteuler.net/problem=28
+// https://projecteuler.net/problem=66
 /*
-Number spiral diagonals
-
-Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:
-
-21 22 23 24 25
-20  7  8  9 10
-19  6  1  2 11
-18  5  4  3 12
-17 16 15 14 13
-
-It can be verified that the sum of the numbers on the diagonals is 101 = 21+7+1+3+13+25+9+5+17.
-
-What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
+Diophantine equation
 
 Solution:
-Let diagonal sum from bottom left to top right = S
-S = 1 + [3*3 + 5*5 + 7*7 + ... + (2n+1)*(2n+1)] + [2*2+1 + 4*4+1 + 6*6+1 + ... + (2n)*(2n)+1]
-  = 1*1 + 2*2 + 3*3 + 4*4 + ... + (2n)*(2n) + (2n+1)*(2n+1) + (n/2)
-  = n*(n+1)*(2n+1)/6 + n/2
-
-Let diagonal sum from top left to mid(exclusive) = Stl
-Stl = (2*2+1+3*3)/2 + (4*4+1+5*5)/2 + ... + ((2n)*(2n)+1+(2n+1)*(2n+1))/2 
-	= (S-1)/2
-
-Let diagonal sum from mid(exclusive) to bottom right = Sbr
-Sbr = (2*2+1+1*1)/2 + (4*4+1+3*3)/2 + ... + ((2n)*(2n)+1+(2n-1)*(2n-1))/2 
-	= (S-(2n+1)*(2n+1))/2
-
-Stl + Sbr = S - (1+(2n+1)*(2n+1))/2
-Total sum = 2*S - (1+(2n+1)*(2n+1))/2
 */
 
 #include <iostream>
+#include <cmath>
+#include <chrono>
+#include <boost\multiprecision\cpp_int.hpp>
+using namespace boost::multiprecision;
 using namespace std;
-typedef unsigned long long natural;
+typedef unsigned int natural;
 
-#define Modulus 1000000007ULL
-#define modADD(x, y) (((x) + (y)) % Modulus)
-#define modSUB(x, y) (((x) + Modulus - (y)) % Modulus)
-#define modMUL(x, y) (((x) * (y)) % Modulus)
+cpp_int solve(natural n) {
+	natural sqrtn = sqrt(n);
+	if (sqrtn*sqrtn == n)
+		return 0;
+
+	natural m = 0, d = 1, a = sqrtn;
+	cpp_int num_1 = 1, den_1 = 0;
+	cpp_int num0 = a, den0 = 1;
+	while (num0*num0 - den0*den0*n != 1) {
+		m = d*a - m;
+		d = (n - m*m) / d;
+		a = (sqrtn + m) / d;
+
+		cpp_int num_2 = num_1;
+		num_1 = num0;
+		num0 = a*num_1 + num_2;
+		cpp_int den_2 = den_1;
+		den_1 = den0;
+		den0 = a*den_1 + den_2;
+	}
+
+	return num0;
+}
 
 int main() {
-	int t;
-	cin >> t;
-	while (t--) {
-		natural n, t;
-		cin >> n;
-		natural s = 2 * (n / 2);
-		n %= Modulus;
-		t = modMUL(n, n + 1);
-		t = modMUL(t, 2 * n + 1);
-		t = modMUL(t, 333333336);
-		s = modADD(s, t);
-		t = modMUL(n, n);
-		t = modADD(t, 1);
-		t = modMUL(t, 500000004);
-		s = modSUB(s, t);
-		cout << s << endl;
-	}
+	auto begin = chrono::high_resolution_clock::now();
+
+	cpp_int max = 0, val;
+	natural maxd = 0;
+	for (natural d = 2; d <= 1000; d++)
+		if ((val = solve(d)) > max)
+			max = val, maxd = d;
+	cout << maxd << ": " << max << endl;
+
+	cout << "Done in " << chrono::duration_cast<chrono::nanoseconds>(chrono::high_resolution_clock::now() - begin).count() / 1000000.0 << " miliseconds." << endl;
 }

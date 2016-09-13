@@ -161,6 +161,18 @@
     <Text Include="Problems\Solution028.cpp">
       <Filter>Problems</Filter>
     </Text>
+    <Text Include="Problems\Solution029.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution060.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution061.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution064.cpp">
+      <Filter>Problems</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
