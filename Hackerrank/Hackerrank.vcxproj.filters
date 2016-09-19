@@ -147,5 +147,8 @@
     <Text Include="CodeForces\problem.cpp">
       <Filter>CodeForces</Filter>
     </Text>
+    <Text Include="Problems\Search\Gravity Tree.cpp">
+      <Filter>Problems\Search</Filter>
+    </Text>
   </ItemGroup>
 </Project>

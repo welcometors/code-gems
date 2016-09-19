@@ -97,6 +97,9 @@
     <None Include="Documents\036_overview.pdf" />
     <None Include="Documents\053_overview.pdf" />
     <None Include="Documents\069_overview.pdf" />
+    <None Include="Documents\071_overview.pdf" />
+    <None Include="Documents\072_overview.pdf" />
+    <None Include="Documents\073_overview.pdf" />
     <None Include="Problems\Solution001.cpp" />
     <None Include="Problems\Solution020.py" />
   </ItemGroup>
@@ -130,9 +133,26 @@
     <Text Include="Problems\Solution027.cpp" />
     <Text Include="Problems\Solution028.cpp" />
     <Text Include="Problems\Solution029.cpp" />
+    <Text Include="Problems\Solution030.cpp" />
+    <Text Include="Problems\Solution031.cpp" />
+    <Text Include="Problems\Solution032.cpp" />
+    <Text Include="Problems\Solution033.cpp" />
+    <Text Include="Problems\Solution034.cpp" />
+    <Text Include="Problems\Solution035.cpp" />
+    <Text Include="Problems\Solution036.cpp" />
+    <Text Include="Problems\Solution037.cpp" />
+    <Text Include="Problems\Solution038.cpp" />
+    <Text Include="Problems\Solution039.cpp" />
     <Text Include="Problems\Solution060.cpp" />
     <Text Include="Problems\Solution061.cpp" />
     <Text Include="Problems\Solution064.cpp" />
+    <Text Include="Problems\Solution066.cpp" />
+    <Text Include="Problems\Solution070.cpp" />
+    <Text Include="Problems\Solution071.cpp" />
+    <Text Include="Problems\Solution072.cpp" />
+    <Text Include="Problems\Solution073.cpp" />
+    <Text Include="Problems\Solution085.cpp" />
+    <Text Include="Problems\Solution206.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

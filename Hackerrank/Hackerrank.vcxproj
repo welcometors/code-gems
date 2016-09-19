@@ -119,6 +119,7 @@
     <Text Include="Problems\Graphs\Snakes and Ladders.cpp" />
     <Text Include="Problems\Misc\Fraud Prevention.cpp" />
     <Text Include="Problems\Search\Count Luck.cpp" />
+    <Text Include="Problems\Search\Gravity Tree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

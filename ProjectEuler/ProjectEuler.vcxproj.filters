@@ -75,6 +75,15 @@
     <None Include="Problems\Solution020.py">
       <Filter>Problems</Filter>
     </None>
+    <None Include="Documents\071_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\072_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
+    <None Include="Documents\073_overview.pdf">
+      <Filter>Documents</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Problems\Solution002.cpp">
@@ -171,6 +180,57 @@
       <Filter>Problems</Filter>
     </Text>
     <Text Include="Problems\Solution064.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution066.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution070.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution071.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution072.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution073.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution085.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution206.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution030.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution031.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution032.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution033.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution034.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution035.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution036.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution037.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution038.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution039.cpp">
       <Filter>Problems</Filter>
     </Text>
   </ItemGroup>

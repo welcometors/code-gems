@@ -6,7 +6,7 @@ using namespace std;
 #include <memory>
 #include <cstring>
 
-void populatePrimes(int limit, vector<int> &primes){
+void populatePrimes(int limit, vector<unsigned> &primes){
 	int sqrtLimit = (int)sqrt(limit + 1) + 1, k = 0;
 	unique_ptr<int[]> isPrime(new int[limit + 1]);
 
@@ -30,8 +30,8 @@ void populatePrimes(int limit, vector<int> &primes){
 	}
 }
 
-vector<int> populatePrimes(int limit){
-	vector<int> primes;
+vector<unsigned> populatePrimes(int limit){
+	vector<unsigned> primes;
 	int sqrtLimit = (int)sqrt(limit + 1) + 1, k = 0;
 	unique_ptr<int[]> isPrime(new int[limit + 1]);
 
@@ -57,7 +57,7 @@ vector<int> populatePrimes(int limit){
 	return primes;
 }
 
-int totient(int n, vector<int> &primes){
+int totient(int n, const vector<unsigned> &primes){
 	int l = 0, r = primes.size() - 1;
 
 	while (l <= r){
@@ -72,6 +72,71 @@ int totient(int n, vector<int> &primes){
 	}
 
 	return l;
+}
+
+template<class T>
+T totient(T n, const vector<unsigned> &primes) {
+	T tot = 1;
+	for (auto prime : primes) {
+		unsigned power = 0;
+		T powerMul = 1;
+		while (n % prime == 0) {
+			if (power++)
+				powerMul *= prime;
+			n /= prime;
+		}
+		if (power)
+			tot *= powerMul * (prime - 1);
+		if (n == 1)
+			break;
+	}
+	if (n > 1)
+		tot *= n - 1;
+	return tot;
+}
+
+unique_ptr<int[]> populateMobius(int limit) {
+	int sqrtLimit = (int)sqrt(limit) + 1;
+	unique_ptr<int[]> sieve(new int[limit + 1]);
+	for (int i = 1; i <= limit; i++)
+		sieve[i] = 1;
+
+	for (int i = 2; i <= sqrtLimit; i++) {
+		if (sieve[i] == 1) {
+			for (int j = i; j <= limit; j += i)
+				sieve[j] *= -i;
+			for (int j = i * i; j <= limit; j += i * i)
+				sieve[j] = 0;
+		}
+	}
+
+	for (int i = 2; i <= limit; i++)
+		if (sieve[i] == i)
+			sieve[i] = 1;
+		else if (sieve[i] == -i)
+			sieve[i] = -1;
+		else if (sieve[i] < 0)
+			sieve[i] = 1;
+		else if (sieve[i] > 0)
+			sieve[i] = -1;
+
+	return sieve;
+}
+
+unique_ptr<int[]> populateTotient(int limit) {
+	int sqrtLimit = (int)sqrt(limit) + 1;
+
+	unique_ptr<int[]> sieve(new int[limit + 1]);
+	sieve[0] = 1;
+	for (int i = 1; i <= limit; i++)
+		sieve[i] = i;
+
+	for (int i = 2; i <= limit; i++)
+		if (sieve[i] == i)
+			for (int j = i; j <= limit; j += i)
+				sieve[j] -= sieve[j] / i;
+
+	return sieve;
 }
 
 #pragma endregion
