@@ -104,7 +104,9 @@
     <None Include="Problems\Solution020.py" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="copying.txt" />
     <Text Include="Data\p022_names.txt" />
+    <Text Include="Data\p042_words.txt" />
     <Text Include="Problems\Solution002.cpp" />
     <Text Include="Problems\Solution003.cpp" />
     <Text Include="Problems\Solution004.cpp" />
@@ -143,6 +145,9 @@
     <Text Include="Problems\Solution037.cpp" />
     <Text Include="Problems\Solution038.cpp" />
     <Text Include="Problems\Solution039.cpp" />
+    <Text Include="Problems\Solution040.cpp" />
+    <Text Include="Problems\Solution041.cpp" />
+    <Text Include="Problems\Solution042.cpp" />
     <Text Include="Problems\Solution060.cpp" />
     <Text Include="Problems\Solution061.cpp" />
     <Text Include="Problems\Solution064.cpp" />

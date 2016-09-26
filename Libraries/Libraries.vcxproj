@@ -92,6 +92,7 @@
     <ClCompile Include="ModularMacros.cpp" />
     <ClCompile Include="mst.cpp" />
     <ClCompile Include="Prime.cpp" />
+    <ClCompile Include="Sieves.cpp" />
     <ClCompile Include="SubArray.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Trie.cpp" />

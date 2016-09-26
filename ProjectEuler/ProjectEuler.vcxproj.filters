@@ -233,6 +233,19 @@
     <Text Include="Problems\Solution039.cpp">
       <Filter>Problems</Filter>
     </Text>
+    <Text Include="Problems\Solution040.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Data\p042_words.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Problems\Solution042.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution041.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="copying.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

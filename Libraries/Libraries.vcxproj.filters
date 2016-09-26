@@ -81,6 +81,9 @@
     <ClCompile Include="Math\Permutation.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="Sieves.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="IO\Enormous Input.cpp">
