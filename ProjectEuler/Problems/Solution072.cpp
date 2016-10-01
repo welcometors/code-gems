@@ -88,7 +88,7 @@ unique_ptr<int[]> populatePhi(int limit) {
 	return sieve;
 }
 
-long long compute2() {
+long long compute() {
 	long long n = 1000000;
 	auto phi = populatePhi(n);
 
@@ -100,7 +100,7 @@ long long compute2() {
 
 int main() {
 	auto begin = chrono::high_resolution_clock::now();
-	auto result = compute2();
+	auto result = compute();
 	cout << "Done in "
 		<< chrono::duration_cast<chrono::nanoseconds>(chrono::high_resolution_clock::now() - begin).count() / 1000000.0
 		<< " miliseconds." << endl;

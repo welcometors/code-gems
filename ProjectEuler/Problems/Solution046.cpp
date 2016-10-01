@@ -1,7 +1,33 @@
+// https://projecteuler.net/problem=46
+/*
+Goldbach's other conjecture
+
+It was proposed by Christian Goldbach that every odd composite number
+can be written as the sum of a prime and twice a square.
+
+ 9 =  7 + 2×12
+15 =  7 + 2×22
+21 =  3 + 2×32
+25 =  7 + 2×32
+27 = 19 + 2×22
+33 = 31 + 2×12
+
+It turns out that the conjecture was false.
+
+What is the smallest odd composite that cannot be written as the sum of a
+prime and twice a square?
+
+Solution:
+
+*/
+
+#include <iostream>
 #include <cstdint>
 #include <cstring>
 #include <memory>
 #include <cmath>
+#include <chrono>
+using namespace std;
 
 namespace Sieves {
 	constexpr size_t compileTimeLogBase2(size_t n) {
@@ -35,26 +61,32 @@ namespace Sieves {
 			return m_sieve[number >> logSizeOfElementInBits] & (1 << (number&(sizeOfElementInBits - 1)));
 		}
 	};
+}
 
-	class FactorCountSieve {
-		std::unique_ptr<uint8_t[]> m_sieve;
-	public:
-		FactorCountSieve(const size_t limit) : m_sieve(new uint8_t[limit + 1]) {
-			uint8_t* const sieve = m_sieve.get();
-			std::memset(sieve, 0, limit + 1);
-			const size_t sqrtLimit = std::sqrt(limit + 1);
-			for (size_t i = 2; i <= limit; ++i)
-				if (!sieve[i])
-					for (size_t j = i + i; j <= limit; j += i)
-						sieve[j]++;
-		}
+using natural = uint32_t;
+constexpr natural limit = 10000;
+Sieves::PrimeSieve sieve(limit);
 
-		inline uint8_t numOfFactors(size_t number) const {
-			return m_sieve[number];
-		}
+bool check(natural n) {
+	for (natural ii2 = 2, d = 6; n > ii2; ii2 += d, d += 4)
+		if (sieve.isPrime(n - ii2))
+			return true;
+	return false;
+}
 
-		inline uint8_t* get() const {
-			return m_sieve.get();
-		}
-	};
+natural compute() {
+	for (natural x = 9; ; x += 2)
+		if (!sieve.isPrime(x) && !check(x))
+			return x;
+}
+
+int main() {
+	using namespace chrono;
+	auto start = high_resolution_clock::now();
+	auto result = compute();
+	auto end = high_resolution_clock::now();
+	cout << result << '\n';
+	cout << "Done in "
+		<< duration_cast<nanoseconds>(end - start).count() / 1000000.0
+		<< " miliseconds." << '\n';
 }

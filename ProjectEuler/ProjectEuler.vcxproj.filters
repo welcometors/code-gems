@@ -246,6 +246,30 @@
       <Filter>Problems</Filter>
     </Text>
     <Text Include="copying.txt" />
+    <Text Include="Problems\Solution043.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution044.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution045.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution046.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution047.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution048.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution049.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution050.cpp">
+      <Filter>Problems</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

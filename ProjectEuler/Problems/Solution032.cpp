@@ -59,7 +59,7 @@ bool check(unsigned i, unsigned j, unsigned k) {
 		digits ^= mask;
 		j /= 10;
 	}
-	return digits == 0x3FE;
+	return digits == 0b1111111110;
 }
 
 natural compute() {

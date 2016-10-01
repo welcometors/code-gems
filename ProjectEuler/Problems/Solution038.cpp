@@ -54,7 +54,7 @@ pair<int, unsigned> check(unsigned n, unsigned k) {
 			product /= 10;
 		}
 	}
-	return{ numOfDigits > 9 ? -1 : (digits == 0x3FE), number };
+	return{ numOfDigits > 9 ? -1 : (digits == 0b1111111110), number };
 }
 
 unsigned compute() {
