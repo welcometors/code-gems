@@ -19,7 +19,7 @@ typedef unsigned long long natural;
 const natural limit = 2000000;
 
 natural populatePrimes(int limit) {
-	int sqrtLimit = sqrt(limit + 1) + 1, k = 0;
+	int sqrtLimit = sqrt(limit + 1) + 1;
 	unique_ptr<int[]> isPrime(new int[limit + 1]);
 	natural sum = 0;
 

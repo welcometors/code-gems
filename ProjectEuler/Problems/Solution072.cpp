@@ -73,8 +73,6 @@ long long compute1() {
 }
 
 unique_ptr<int[]> populatePhi(int limit) {
-	int sqrtLimit = (int)sqrt(limit) + 1;
-
 	unique_ptr<int[]> sieve(new int[limit + 1]);
 	sieve[0] = 1;
 	for (int i = 1; i <= limit; i++)

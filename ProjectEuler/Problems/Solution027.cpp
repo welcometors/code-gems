@@ -35,7 +35,7 @@ typedef unsigned int natural;
 unique_ptr<int[]> isPrime;
 vector<int> populatePrimes(int limit) {
 	vector<int> primes;
-	int sqrtLimit = (int)sqrt(limit + 1) + 1, k = 0;
+	int sqrtLimit = (int)sqrt(limit + 1) + 1;
 	isPrime = move(unique_ptr<int[]>(new int[limit + 1]));
 
 	isPrime[0] = isPrime[1] = 0;

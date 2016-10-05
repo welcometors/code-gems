@@ -33,7 +33,7 @@ Solution:
 using namespace std;
 typedef unsigned long long natural;
 
-struct SetHash {
+struct EdgeHash {
 	size_t operator() (const pair<int, int> &data) const { // Cantor pairing
 		return (data.first + data.second)*(data.first + data.second + 1) / 2 + data.second;
 	}
@@ -45,7 +45,7 @@ int getChainLength(int n) {
 		return 0;
 
 	int a = sqrtn, b = 1; // form is b/[sqrt(n)-a]
-	unordered_set<pair<int, int>, SetHash> mem = { { a,b } };
+	unordered_set<pair<int, int>, EdgeHash> mem = { { a,b } };
 	for (int i = 1; ; i++) {
 		b = (n - a*a) / b;
 		a = ((sqrtn + a) / b)*b - a;

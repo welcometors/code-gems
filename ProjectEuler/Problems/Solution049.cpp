@@ -51,7 +51,7 @@ namespace Sieves {
 	class PrimePermutationMap {
 		std::unordered_map<std::string, std::vector<uint32_t>> primePerm;
 	public:
-		PrimePermutationMap(const size_t minSieveSize) {
+		explicit PrimePermutationMap(const size_t minSieveSize) {
 			std::unique_ptr<uint32_t[]> m_sieve;
 			const size_t numOfElementsInArray = 1 + minSieveSize / sizeOfElementInBits;
 			m_sieve = std::make_unique<uint32_t[]>(numOfElementsInArray);
@@ -96,7 +96,7 @@ bool containsAP(const vector<uint32_t>& ary, size_t ans[3], size_t mid = 1) {
 	const size_t n = ary.size();
 	for (size_t m = mid; m < n - 1; m++) {
 		size_t s = m - 1, e = m + 1;
-		while (s >= 0 && e <= n - 1) {
+		while (e <= n - 1) {
 			size_t sum = ary[s] + ary[e];
 			if (sum == 2 * ary[m]) {
 				ans[0] = s;

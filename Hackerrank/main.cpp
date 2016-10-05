@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 #define sort(x) sort(x.begin(), x.end())
 #define input(type, var) type var; cin >> var
 
 int main() {
-	std::ios::sync_with_stdio(false);
+	using namespace std;
+	ios::sync_with_stdio(false);
 	cin.tie(0);
 
 	input(int, t);

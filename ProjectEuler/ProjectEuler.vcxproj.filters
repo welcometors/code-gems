@@ -270,6 +270,39 @@
     <Text Include="Problems\Solution050.cpp">
       <Filter>Problems</Filter>
     </Text>
+    <Text Include="Problems\Solution051.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution052.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution053.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Data\p054_poker.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Problems\Solution054.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution055.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution056.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution057.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Problems\Solution058.cpp">
+      <Filter>Problems</Filter>
+    </Text>
+    <Text Include="Data\p059_cipher.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Problems\Solution059.cpp">
+      <Filter>Problems</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

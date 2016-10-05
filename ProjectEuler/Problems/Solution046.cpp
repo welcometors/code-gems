@@ -41,7 +41,7 @@ namespace Sieves {
 	class PrimeSieve {
 		std::unique_ptr<uint32_t[]> m_sieve;
 	public:
-		PrimeSieve(const size_t minSieveSize) {
+		explicit PrimeSieve(const size_t minSieveSize) {
 			const size_t numOfElementsInArray = 1 + minSieveSize / sizeOfElementInBits;
 			m_sieve = std::make_unique<uint32_t[]>(numOfElementsInArray);
 			const size_t limit = numOfElementsInArray*sizeOfElementInBytes;

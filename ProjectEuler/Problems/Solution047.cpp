@@ -32,10 +32,9 @@ namespace Sieves {
 	class FactorCountSieve {
 		std::unique_ptr<uint8_t[]> m_sieve;
 	public:
-		FactorCountSieve(const size_t limit) : m_sieve(new uint8_t[limit + 1]) {
+		explicit FactorCountSieve(const size_t limit) : m_sieve(new uint8_t[limit + 1]) {
 			uint8_t* const sieve = m_sieve.get();
 			std::memset(sieve, 0, limit + 1);
-			const size_t sqrtLimit = std::sqrt(limit + 1);
 			for (size_t i = 2; i <= limit; ++i)
 				if (!sieve[i])
 					for (size_t j = i + i; j <= limit; j += i)

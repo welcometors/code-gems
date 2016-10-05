@@ -54,7 +54,7 @@ natural getMaxTriplet(natural s) {
 			natural sm = s2 / m;
 			while (sm % 2 == 0)
 				sm /= 2;
-			natural k = m % 2 ? m + 2 : m + 1;
+			natural k = m + 1 + (m & 1);
 			while (k < 2 * m && k <= sm) {
 				if (sm%k == 0 && GCD(k, m) == 1) {
 					natural d = s2 / (k*m);
