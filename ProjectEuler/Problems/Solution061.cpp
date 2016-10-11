@@ -10,7 +10,7 @@ Pentagonal	 	P5,n=n(3n-1)/2	 	1, 5, 12, 22, 35, ...
 Hexagonal	 	P6,n=n(2n-1)	 	1, 6, 15, 28, 45, ...
 Heptagonal	 	P7,n=n(5n-3)/2	 	1, 7, 18, 34, 55, ...
 Octagonal	 	P8,n=n(3n-2)	 	1, 8, 21, 40, 65, ...
-The ordered set of three 4-digit numbers: 8128, 2882, 8281, has three interesting properties.
+The ordered set of three 4-digit numbers: 8128, 2882, 8281, has three uint32_teresting properties.
 
 The set is cyclic, in that the last two digits of each number is the first two digits of the next number
 (including the last number with the first).
@@ -24,16 +24,18 @@ Solution:
 */
 
 #include <iostream>
+#include <cstdint>
 #include <vector>
 #include <algorithm>
+#include <functional>
+#include <numeric>
 #include <chrono>
 using namespace std;
-typedef unsigned long long natural;
 
-vector<vector<int>> polyNumbers;
-void pushPolygonalNumbers(int a, int b) {
-	vector<int> set;
-	int n = 1, i = a;
+vector<vector<uint32_t>> polyNumbers;
+void pushPolygonalNumbers(uint32_t a, uint32_t b) {
+	vector<uint32_t> set;
+	uint32_t n = 1, i = a;
 	while (n < 1000) {
 		n += i;
 		i += b;
@@ -47,52 +49,66 @@ void pushPolygonalNumbers(int a, int b) {
 	polyNumbers.emplace_back(set);
 }
 
-inline void generateAll4DigitPolygonalNumbers() {
-	pushPolygonalNumbers(2, 1);	// Triangle
-	pushPolygonalNumbers(3, 2); // Square
-	pushPolygonalNumbers(4, 3); // Pentagonal
-	pushPolygonalNumbers(5, 4); // Hexagonal
-	pushPolygonalNumbers(6, 5); // Heptagonal
-	pushPolygonalNumbers(7, 6); // Octagonal
+template<class T>
+inline auto getIndex(const vector<T>& ary, const T& val) {
+	return lower_bound(begin(ary), end(ary), val) - begin(ary);
 }
 
-bool dfs(vector<int>& numbers, int matched) {
-	if (numbers.size() == 6 && matched == 63 && numbers[0] / 100 == numbers[5] % 100)
-		return true;
-	int last2 = numbers.back() % 100;
-	numbers.push_back(0);
-	for (int i = 4; i >= 0; i--) {
+vector<uint32_t> cyclicNumbers;
+bool dfs(const uint32_t matched, const uint32_t idx = 0) {
+	const auto n = cyclicNumbers.size();
+	if (matched == (1 << n) - 1) {
+		if ((cyclicNumbers.front() / 100) == (cyclicNumbers.back() % 100)) {
+			// check for duplicate numbers
+			sort(begin(cyclicNumbers), end(cyclicNumbers));
+			for (size_t i = 1; i < n; ++i)
+				if (cyclicNumbers[i] == cyclicNumbers[i - 1])
+					return false;
+			return true;
+		}
+		return false;
+	}
+
+	uint32_t last2 = cyclicNumbers[idx] % 100;
+	for (uint32_t i = 1; i < n; ++i) {
 		if (!(matched & (1 << i))) {
-			int str = lower_bound(polyNumbers[i].begin(), polyNumbers[i].end(), last2 * 100) - polyNumbers[i].begin();
-			int end = lower_bound(polyNumbers[i].begin(), polyNumbers[i].end(), (last2 + 1) * 100) - polyNumbers[i].begin();
-			for (int j = str; j < end; j++) {
-				numbers.back() = polyNumbers[i][j];
-				if (dfs(numbers, matched | (1 << i)))
+			const uint32_t str = getIndex(polyNumbers[i], last2 * 100);
+			const uint32_t end = getIndex(polyNumbers[i], (last2 + 1) * 100);
+			for (uint32_t j = str; j < end; ++j) {
+				cyclicNumbers[idx + 1] = polyNumbers[i][j];
+				if (dfs(matched | (1 << i), idx + 1))
 					return true;
 			}
 		}
 	}
-	numbers.pop_back();
 	return false;
 }
 
-int main() {
-	auto begin = chrono::high_resolution_clock::now();
-	generateAll4DigitPolygonalNumbers();
+auto get(const vector<uint32_t> &set) {
+	for (const auto& val : set)
+		pushPolygonalNumbers(val - 1, val - 2);
 
-	int str = lower_bound(polyNumbers[5].begin(), polyNumbers[5].end(), 1000) - polyNumbers[5].begin();
-	vector<int> numbers = { 0 };
-	for (int i = str, n = polyNumbers[5].size(); i < n; i++) {
-		numbers[0] = polyNumbers[5][i];
-		if (dfs(numbers, 1 << 5))
+	cyclicNumbers.resize(set.size());
+	for (uint32_t i = getIndex(polyNumbers[0], 1000U), n = polyNumbers[0].size(); i < n; ++i) {
+		cyclicNumbers[0] = polyNumbers[0][i];
+		if (dfs(1))
 			break;
 	}
 
-	cout << "Done in " << chrono::duration_cast<chrono::nanoseconds>(chrono::high_resolution_clock::now() - begin).count() / 1000000.0 << " miliseconds." << endl;
-	int sum = 0;
-	for (auto x : numbers) {
-		cout << x << endl;
-		sum += x;
-	}
-	cout << "sum = " << sum << endl;
+	return accumulate(begin(cyclicNumbers), end(cyclicNumbers), 0);
+}
+
+auto compute() {
+	return get({ 8,7,6,5,4,3 });
+}
+
+int main() {
+	using namespace std;
+	using namespace chrono;
+	auto start = high_resolution_clock::now();
+	auto result = compute();
+	cout << "Done in "
+		<< duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1000000.0
+		<< " miliseconds." << endl;
+	cout << result << endl;
 }

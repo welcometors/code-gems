@@ -1,39 +1,35 @@
-// https://projecteuler.net/problem=66
+// https://projecteuler.net/problem=65
 /*
-Diophantine equation
+Convergents of e
 
-Consider quadratic Diophantine equations of the form:
+The square root of 2 can be written as an infinite continued fraction.
 
-x^2 – Dy^2 = 1
+2^1/2 = 1 + 1/(2 + 1/(2 + 1/(2 + ... ))) = 1.414213...
+<visit page>
 
-For example, when D=13, the minimal solution in x is 649^2 – 13×180^2 = 1.
+Hence the sequence of the first ten convergents for sqrt(2) are:
+1, 3/2, 7/5, 17/12, 41/29, 99/70, 239/169, 577/408, 1393/985, 3363/2378, ...
 
-It can be assumed that there are no solutions in positive integers when D is square.
+What is most surprising is that the important mathematical constant,
+e = [2; 1,2,1, 1,4,1, 1,6,1 , ... , 1,2k,1, ...].
 
-By finding minimal solutions in x for D = {2, 3, 5, 6, 7}, we obtain the following:
+The first ten terms in the sequence of convergents for e are:
 
-32 – 2×22 = 1
-22 – 3×12 = 1
-92 – 5×42 = 1
-52 – 6×22 = 1
-82 – 7×32 = 1
+2, 3, 8/3, 11/4, 19/7, 87/32, 106/39, 193/71, 1264/465, 1457/536, ...
+The sum of digits in the numerator of the 10th convergent is 1+4+5+7=17.
 
-Hence, by considering minimal solutions in x for D <= 7, the largest x is obtained when D=5.
-
-Find the value of D <= 1000 in minimal solutions of x for which the largest value of x is obtained.
+Find the sum of digits in the numerator of the 100th convergent of the continued fraction for e.
 
 Solution:
-Pell Equation
-https://www.uni-oldenburg.de/fileadmin/user_upload/mathe/personen/steffen.mueller/01lenstra.pdf
 */
 
 #include <iostream>
-#include <cmath>
+#include <cstdint>
+#include <boost/multiprecision/cpp_int.hpp>
 #include <chrono>
-#include <boost\multiprecision\cpp_int.hpp>
+
 using namespace boost::multiprecision;
-using namespace std;
-typedef unsigned int natural;
+using natural = unsigned int;
 
 cpp_int solve(natural n) {
 	natural sqrtn = sqrt(n);
@@ -59,15 +55,26 @@ cpp_int solve(natural n) {
 	return num0;
 }
 
-int main() {
-	auto begin = chrono::high_resolution_clock::now();
-
+auto compute() {
 	cpp_int max = 0, val;
 	natural maxd = 0;
-	for (natural d = 2; d <= 1000; d++)
-		if ((val = solve(d)) > max)
-			max = val, maxd = d;
-	cout << maxd << ": " << max << endl;
+	for (natural d = 2; d <= 1000; ++d) {
+		if ((val = solve(d)) > max) {
+			max = val;
+			maxd = d;
+		}
+	}
+	//std ::cout << maxd << ": " << max << endl;
+	return maxd;
+}
 
-	cout << "Done in " << chrono::duration_cast<chrono::nanoseconds>(chrono::high_resolution_clock::now() - begin).count() / 1000000.0 << " miliseconds." << endl;
+int main() {
+	using namespace std;
+	using namespace chrono;
+	auto start = high_resolution_clock::now();
+	auto result = compute();
+	cout << "Done in "
+		<< duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1000000.0
+		<< " miliseconds." << endl;
+	cout << result << endl;
 }
