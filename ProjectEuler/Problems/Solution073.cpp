@@ -17,63 +17,106 @@ Solution:
 
 #include <iostream>
 #include <cmath>
+#include <memory>
+#include <cstring>
+#include <vector>
 #include <chrono>
 using namespace std;
-typedef unsigned long long natural;
-typedef unsigned long long ull;
 
-constexpr natural limit = 12000;
-
-template<class T>
-T GCD(T u, T v) {
-	int shift;
-	if (u == 0) return v;
-	if (v == 0) return u;
-
-	for (shift = 0; ((u | v) & 1) == 0; ++shift) {
-		u >>= 1;
-		v >>= 1;
+namespace Sieves {
+	constexpr size_t compileTimeLogBase2(size_t n) {
+		return (n <= 1) ? 0 : 1 + compileTimeLogBase2(n / 2);
 	}
 
-	while ((u & 1) == 0)
-		u >>= 1;
+	constexpr size_t sizeOfElementInBytes = sizeof(uint32_t);
+	constexpr size_t sizeOfElementInBits = 8 * sizeOfElementInBytes;
+	constexpr size_t logSizeOfElementInBits = compileTimeLogBase2(sizeOfElementInBits);
 
-	do {
-		while ((v & 1) == 0)
-			v >>= 1;
-		if (u > v) {
-			T t = v;
-			v = u;
-			u = t;
+	class PrimeSieve {
+		std::unique_ptr<uint32_t[]> m_sieve;
+	public:
+		PrimeSieve(const PrimeSieve&) = default;
+		PrimeSieve(PrimeSieve&&) = default;
+		PrimeSieve& operator=(const PrimeSieve&) = default;
+		PrimeSieve& operator=(PrimeSieve&&) = default;
+
+		explicit PrimeSieve(const size_t minSieveSize) {
+			const size_t numOfElementsInArray = 1 + minSieveSize / sizeOfElementInBits;
+			m_sieve = std::make_unique<uint32_t[]>(numOfElementsInArray);
+			const size_t totalSizeInBytes = numOfElementsInArray*sizeOfElementInBytes;
+
+			uint32_t* const sieve = m_sieve.get();
+			std::memset(sieve, 0xAA, totalSizeInBytes);
+			sieve[0] ^= 6;
+
+			const size_t limit = numOfElementsInArray*sizeOfElementInBits;
+			const size_t sqrtLimit = std::sqrt(limit - 1);
+			for (size_t i = 3; i <= sqrtLimit; i += 2)
+				if (sieve[i >> logSizeOfElementInBits] & (1 << (i&(sizeOfElementInBits - 1))))
+					for (size_t j = i + i; j < limit; j += i)
+						sieve[j >> logSizeOfElementInBits] &= ~(1 << (j&(sizeOfElementInBits - 1)));
 		}
-		v = v - u;
-	} while (v != 0);
 
-	return u << shift;
+		inline bool isPrime(size_t number) const {
+			return m_sieve[number >> logSizeOfElementInBits] & (1 << (number&(sizeOfElementInBits - 1)));
+		}
+	};
 }
 
-ull indexDiff(pair<unsigned, unsigned> str, pair<unsigned, unsigned> end) {
-	ull sum = 0;
-	for (unsigned d = 2; d <= limit; d++) {
-		unsigned s = (d*str.first + str.second - 1) / str.second;
-		unsigned e = (d*end.first - 1) / end.second;
-		for (unsigned i = s; i <= e; i++)
-			if (GCD(i, d) == 1)
-				sum++;
-	}
-	return sum - 1;
+using ull = unsigned long long;
+vector<unsigned> primes;
+
+inline unsigned primesBelowN(unsigned n) {
+	return 1.25506 * n / log(n);	// valid for x >= 17
 }
 
-natural compute() {
-	return indexDiff({ 1,3 }, { 1,2 });
+auto generatePrimes(unsigned n) {
+	Sieves::PrimeSieve sieve(n);
+	vector<unsigned> primes = { 2 };
+	primes.reserve(primesBelowN(n));
+	for (unsigned i = 3; i <= n; i += 2)
+		if (sieve.isPrime(i))
+			primes.push_back(i);
+	return primes;
+}
+
+inline ull sumTillNbyA(ull n, ull a) {
+	const ull q = n / a, r = n % a;
+	if (q == 0)
+		return 0;
+	return (q*(q - 1) / 2)*a + q*(r + 1);
+}
+
+inline ull allTillN(ull n) {
+	return sumTillNbyA(n - 1, 2) - sumTillNbyA(n, 3);
+}
+
+ull inclusionExclusion(ull limit, ull index) {
+	ull count = allTillN(limit);
+	for (; 5 * primes[index] <= limit; ++index)
+		count -= inclusionExclusion(limit / primes[index], index + 1);
+	return count;
+}
+
+auto compute() {
+	constexpr ull limit = 12'000;
+	primes = generatePrimes(limit);
+	return inclusionExclusion(limit, 0);
+}
+
+template <class T>
+inline void DoNotOptimize(const T &value) {
+	__asm { lea ebx, value }
 }
 
 int main() {
+	using namespace std;
 	using namespace chrono;
 	auto start = high_resolution_clock::now();
 	auto result = compute();
+	DoNotOptimize(result);
 	cout << "Done in "
-		<< duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1000000.0
+		<< duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1e6
 		<< " miliseconds." << endl;
 	cout << result << endl;
 }

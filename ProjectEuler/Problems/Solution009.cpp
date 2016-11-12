@@ -18,7 +18,8 @@ Solution:
 using namespace std;
 typedef unsigned long long natural;
 
-natural GCD(natural u, natural v) {
+template<class T>
+T GCD(T u, T v) {
 	int shift;
 	if (u == 0) return v;
 	if (v == 0) return u;
@@ -35,7 +36,7 @@ natural GCD(natural u, natural v) {
 		while ((v & 1) == 0)
 			v >>= 1;
 		if (u > v) {
-			natural t = v;
+			T t = v;
 			v = u;
 			u = t;
 		}

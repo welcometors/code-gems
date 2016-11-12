@@ -30,7 +30,7 @@ using namespace std;
 #include <memory>
 #include <cstring>
 
-unique_ptr<int[]> populateMobius(int limit) {
+auto populateMobius(int limit) {
 	int sqrtLimit = (int)sqrt(limit) + 1;
 	unique_ptr<int[]> sieve(new int[limit + 1]);
 	for (int i = 1; i <= limit; i++)
@@ -58,8 +58,8 @@ unique_ptr<int[]> populateMobius(int limit) {
 	return sieve;
 }
 
-long long compute1() {
-	long long n = 1000000;
+auto compute1() {
+	constexpr long long n = 1000000;
 	auto mobius = populateMobius(n);
 
 	long long sum = 1;
@@ -72,7 +72,7 @@ long long compute1() {
 	return sum / 2 - 1;
 }
 
-unique_ptr<int[]> populatePhi(int limit) {
+auto populatePhi(int limit) {
 	unique_ptr<int[]> sieve(new int[limit + 1]);
 	sieve[0] = 1;
 	for (int i = 1; i <= limit; i++)
@@ -86,8 +86,8 @@ unique_ptr<int[]> populatePhi(int limit) {
 	return sieve;
 }
 
-long long compute() {
-	long long n = 1000000;
+auto compute() {
+	constexpr long long n = 1000000;
 	auto phi = populatePhi(n);
 
 	long long sum = 0;
@@ -96,11 +96,19 @@ long long compute() {
 	return sum;
 }
 
+template <class T>
+inline void DoNotOptimize(const T &value) {
+	__asm { lea ebx, value }
+}
+
 int main() {
-	auto begin = chrono::high_resolution_clock::now();
+	using namespace std;
+	using namespace chrono;
+	auto start = high_resolution_clock::now();
 	auto result = compute();
+	DoNotOptimize(result);
 	cout << "Done in "
-		<< chrono::duration_cast<chrono::nanoseconds>(chrono::high_resolution_clock::now() - begin).count() / 1000000.0
+		<< duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1e6
 		<< " miliseconds." << endl;
 	cout << result << endl;
 }

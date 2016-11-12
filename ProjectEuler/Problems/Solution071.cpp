@@ -15,44 +15,72 @@ By listing the set of reduced proper fractions for d <= 1,000,000 in ascending o
 find the numerator of the fraction immediately to the left of 3/7.
 
 Solution:
+http://math.stackexchange.com/questions/39582/how-to-compute-next-previous-representable-rational-number
+
 */
-
 #include <iostream>
-#include <cmath>
+#include <cstdint>
 #include <chrono>
+
 using namespace std;
-typedef unsigned long long natural;
+typedef long long natural;
 
-constexpr natural limit = 1000000;
+struct fraction {
+	natural numerator;
+	natural denominator;
+};
 
-pair<natural, natural> prev2(pair<natural, natural> fraction) {
-	natural maxNum = 0, maxDen = 1;
-	for (natural d = limit, md = 1; d >= md; d--) {
-		natural n = (d*fraction.first - 1) / fraction.second;
-		if (n*maxDen > d*maxNum)
-			maxNum = n, maxDen = d, md = d / (fraction.first*d - fraction.second*n) + 1;
+template<class T>
+T modInverse(T a, T m) {
+	if (m == 1)
+		return 0;
+
+	T m0 = m;
+	T x0 = 0, x1 = 1;
+	while (a > 1) {
+		T q = a / m;
+		T t = m;
+		m = a % m;
+		a = t;
+
+		t = x0;
+		x0 = x1 - q * x0;
+		x1 = t;
 	}
-	return{ maxNum, maxDen };
+
+	if (x1 < 0)
+		x1 += m0;
+	return x1;
 }
 
-natural compute() {
-	natural num = 3, den = 7;
-	natural maxNum = 0, maxDen = 1;
+auto previous(const fraction& f, natural n) {
+	natural pinv = modInverse(f.numerator, f.denominator);
+	natural mod = n % f.denominator;
+	natural b = n - mod + pinv;
+	if (mod < pinv)
+		b -= f.denominator;
+	natural a = (b * f.numerator - 1) / f.denominator;
+	return fraction{ a, b };
+}
 
-	for (natural d = 2; d <= limit; d++) {
-		natural x = (d*num - 1) / den;
-		if (x*maxDen > d*maxNum)
-			maxNum = x, maxDen = d;
-	}
+auto compute() {
+	const auto result = previous({ 3,7 }, 1'000'000ULL);
+	return result.numerator;
+}
 
-	return maxNum;
+template <class T>
+inline void DoNotOptimize(const T &value) {
+	__asm { lea ebx, value }
 }
 
 int main() {
-	auto begin = chrono::high_resolution_clock::now();
+	using namespace std;
+	using namespace chrono;
+	auto start = high_resolution_clock::now();
 	auto result = compute();
+	DoNotOptimize(result);
 	cout << "Done in "
-		<< chrono::duration_cast<chrono::nanoseconds>(chrono::high_resolution_clock::now() - begin).count() / 1000000.0
+		<< duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1e6
 		<< " miliseconds." << endl;
 	cout << result << endl;
 }

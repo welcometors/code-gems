@@ -254,6 +254,8 @@
     <Text Include="Problems\Solution071.cpp" />
     <Text Include="Problems\Solution072.cpp" />
     <Text Include="Problems\Solution073.cpp" />
+    <Text Include="Problems\Solution074.cpp" />
+    <Text Include="Problems\Solution075.cpp" />
     <Text Include="Problems\Solution085.cpp" />
     <Text Include="Problems\Solution206.cpp" />
   </ItemGroup>

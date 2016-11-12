@@ -54,6 +54,9 @@
     <Filter Include="CodeForces">
       <UniqueIdentifier>{0c4ba965-81d7-4612-ac72-43cd93a0b860}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contests\WeekOfCode">
+      <UniqueIdentifier>{4169f532-3017-4b45-8e52-d624f82298c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -149,6 +152,12 @@
     </Text>
     <Text Include="Problems\Search\Gravity Tree.cpp">
       <Filter>Problems\Search</Filter>
+    </Text>
+    <Text Include="Contests\WeekOfCode\minichess.cpp">
+      <Filter>Contests\WeekOfCode</Filter>
+    </Text>
+    <Text Include="Contests\WeekOfCode\gravitytree.cpp">
+      <Filter>Contests\WeekOfCode</Filter>
     </Text>
   </ItemGroup>
 </Project>

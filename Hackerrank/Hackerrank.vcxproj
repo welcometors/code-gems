@@ -111,6 +111,8 @@
     <Text Include="Contests\Quora Haqathon\Schedule.cpp" />
     <Text Include="Contests\Quora Haqathon\Upvotes.cpp" />
     <Text Include="Contests\Quora Haqathon\Wombats.cpp" />
+    <Text Include="Contests\WeekOfCode\gravitytree.cpp" />
+    <Text Include="Contests\WeekOfCode\minichess.cpp" />
     <Text Include="Problems\Combinatorics\Choose and Calculate.cpp" />
     <Text Include="Problems\Combinatorics\Coinage.cpp" />
     <Text Include="Problems\Combinatorics\Count Fox Sequences.cpp" />
