@@ -159,5 +159,8 @@
     <Text Include="Contests\WeekOfCode\gravitytree.cpp">
       <Filter>Contests\WeekOfCode</Filter>
     </Text>
+    <Text Include="Contests\WeekOfCode\poles.cpp">
+      <Filter>Contests\WeekOfCode</Filter>
+    </Text>
   </ItemGroup>
 </Project>
