@@ -57,6 +57,9 @@
     <Filter Include="Contests\WeekOfCode">
       <UniqueIdentifier>{4169f532-3017-4b45-8e52-d624f82298c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GeeksForGeeks">
+      <UniqueIdentifier>{31563857-e882-4a3b-8948-30ef060f6ec8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -161,6 +164,51 @@
     </Text>
     <Text Include="Contests\WeekOfCode\poles.cpp">
       <Filter>Contests\WeekOfCode</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\01_largestSumContinuousSubarray.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\02_uglyNumber.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\03_maximumSubSquareMatrixWithAll1s.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\04_longestMonotonicallyIncreasingSubsequence.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\05_longestCommonSubsequence.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\06_editDistance.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\07_minCostPath.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\08_longestSubstringWithoutRepeatingCharacters.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\09_minimumJumpsToEnd.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\10_coinChange.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\11_matrixChainMultiplication.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\12_eggDropping.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\13_longestPalindromicSubsequence.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\14_rodCutting.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\15_maximumSumMonotonicallyIncreasingSubsequence.cpp">
+      <Filter>GeeksForGeeks</Filter>
     </Text>
   </ItemGroup>
 </Project>

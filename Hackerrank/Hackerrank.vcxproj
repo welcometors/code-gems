@@ -97,6 +97,12 @@
     <None Include="Readings\On the circle and divisor problems.pdf" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="GeeksForGeeks\06_editDistance.cpp" />
+    <Text Include="GeeksForGeeks\01_largestSumContinuousSubarray.cpp" />
+    <Text Include="GeeksForGeeks\05_longestCommonSubsequence.cpp" />
+    <Text Include="GeeksForGeeks\04_longestMonotonicallyIncreasingSubsequence.cpp" />
+    <Text Include="GeeksForGeeks\07_minCostPath.cpp" />
+    <Text Include="GeeksForGeeks\08_longestSubstringWithoutRepeatingCharacters.cpp" />
     <Text Include="Attribute Parser XML.cpp" />
     <Text Include="Codefights Challenge\matchstick equation.cpp" />
     <Text Include="CodeForces\problem.cpp" />
@@ -114,6 +120,15 @@
     <Text Include="Contests\WeekOfCode\gravitytree.cpp" />
     <Text Include="Contests\WeekOfCode\minichess.cpp" />
     <Text Include="Contests\WeekOfCode\poles.cpp" />
+    <Text Include="GeeksForGeeks\03_maximumSubSquareMatrixWithAll1s.cpp" />
+    <Text Include="GeeksForGeeks\02_uglyNumber.cpp" />
+    <Text Include="GeeksForGeeks\09_minimumJumpsToEnd.cpp" />
+    <Text Include="GeeksForGeeks\10_coinChange.cpp" />
+    <Text Include="GeeksForGeeks\11_matrixChainMultiplication.cpp" />
+    <Text Include="GeeksForGeeks\12_eggDropping.cpp" />
+    <Text Include="GeeksForGeeks\13_longestPalindromicSubsequence.cpp" />
+    <Text Include="GeeksForGeeks\14_rodCutting.cpp" />
+    <Text Include="GeeksForGeeks\15_maximumSumMonotonicallyIncreasingSubsequence.cpp" />
     <Text Include="Problems\Combinatorics\Choose and Calculate.cpp" />
     <Text Include="Problems\Combinatorics\Coinage.cpp" />
     <Text Include="Problems\Combinatorics\Count Fox Sequences.cpp" />

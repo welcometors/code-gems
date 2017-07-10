@@ -28,6 +28,9 @@
     <Filter Include="Arrays">
       <UniqueIdentifier>{64fddd16-9f4b-417d-ac12-a416a61c8046}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{6a403a2a-c4c0-4249-80b7-db50670c0ee7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -83,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="Sieves.cpp">
       <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Map\hash.cpp">
+      <Filter>Map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
