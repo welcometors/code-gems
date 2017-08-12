@@ -80,13 +80,13 @@
   <ItemGroup>
     <ClCompile Include="Arrays\Inversion.cpp" />
     <ClCompile Include="Arrays\Search.cpp" />
-    <ClCompile Include="BigInt.cpp" />
     <ClCompile Include="Bits.cpp" />
     <ClCompile Include="ConditionallyBoundedArray.cpp" />
     <ClCompile Include="GCD.cpp" />
     <ClCompile Include="Intrinsics.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map\hash.cpp" />
+    <ClCompile Include="Math\Integer.cpp" />
     <ClCompile Include="Math\Permutation.cpp" />
     <ClCompile Include="Misc.cpp" />
     <ClCompile Include="Modular.cpp" />

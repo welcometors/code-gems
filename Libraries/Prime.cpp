@@ -6,53 +6,25 @@ using namespace std;
 #include <memory>
 #include <cstring>
 
-void populatePrimes(int limit, vector<unsigned> &primes){
-	int sqrtLimit = (int)sqrt(limit + 1) + 1, k = 0;
-	unique_ptr<int[]> isPrime(new int[limit + 1]);
-
-	isPrime[0] = isPrime[1] = 0;
-	std::memset(&isPrime[2], 1, sizeof(int)*(limit - 1));
-	primes.clear();
-
-	for (int i = 2; i <= sqrtLimit; i++){
-		if (!isPrime[i])
-			continue;
-
-		primes.push_back(i);
-
-		for (int j = i + i; j <= limit; j += i)
-			isPrime[j] = false;
-	}
-
-	for (int i = sqrtLimit + 1; i <= limit; i++){
-		if (isPrime[i])
-			primes.push_back(i);
-	}
-}
-
-vector<unsigned> populatePrimes(int limit){
+vector<unsigned> populatePrimes(int limit) {
 	vector<unsigned> primes;
-	int sqrtLimit = (int)sqrt(limit + 1) + 1, k = 0;
+	int sqrtLimit = (int)sqrt(limit + 1) + 1;
 	unique_ptr<int[]> isPrime(new int[limit + 1]);
 
 	isPrime[0] = isPrime[1] = 0;
 	std::memset(&isPrime[2], 1, sizeof(int)*(limit - 1));
 	primes.clear();
 
-	for (int i = 2; i <= sqrtLimit; i++){
-		if (!isPrime[i])
-			continue;
+	for (int i = 2; i <= sqrtLimit; i++)
+		if (isPrime[i]) {
+			primes.push_back(i);
+			for (int j = i + i; j <= limit; j += i)
+				isPrime[j] = false;
+		}
 
-		primes.push_back(i);
-
-		for (int j = i + i; j <= limit; j += i)
-			isPrime[j] = false;
-	}
-
-	for (int i = sqrtLimit + 1; i <= limit; i++){
+	for (int i = sqrtLimit + 1; i <= limit; i++)
 		if (isPrime[i])
 			primes.push_back(i);
-	}
 
 	return primes;
 }

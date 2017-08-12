@@ -22,11 +22,23 @@
     <Filter Include="Data">
       <UniqueIdentifier>{d63a18fa-1c32-430f-a6c4-8ddf1e611052}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Problems\problem001_025">
+      <UniqueIdentifier>{d53c1a2e-02e3-42cf-b25d-6f792e877738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problems\problem026_050">
+      <UniqueIdentifier>{3a91ce39-7d01-46b5-9482-5fd1b9fa8a8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problems\problem051_075">
+      <UniqueIdentifier>{e18afea4-48d5-4992-b4c4-8e56212f9f4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problems\problem076_100">
+      <UniqueIdentifier>{6ae24fd2-221e-408c-8971-d1cfdac76530}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problems\problem201_225">
+      <UniqueIdentifier>{81558925-6995-4df4-bc4d-8672eb8bd2ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Problems\Solution001.cpp">
-      <Filter>Problems</Filter>
-    </None>
     <None Include="Documents\001_overview.pdf">
       <Filter>Documents</Filter>
     </None>
@@ -72,9 +84,6 @@
     <None Include="Documents\069_overview.pdf">
       <Filter>Documents</Filter>
     </None>
-    <None Include="Problems\Solution020.py">
-      <Filter>Problems</Filter>
-    </None>
     <None Include="Documents\071_overview.pdf">
       <Filter>Documents</Filter>
     </None>
@@ -84,251 +93,261 @@
     <None Include="Documents\073_overview.pdf">
       <Filter>Documents</Filter>
     </None>
-    <None Include="Problems\Solution065.py">
-      <Filter>Problems</Filter>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Problems\Solution002.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution003.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution004.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution005.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution006.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution007.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution008.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution009.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution010.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution011.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution012.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution013.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution014.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution015.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution016.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution017.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution018.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution019.py">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution020.cpp">
-      <Filter>Problems</Filter>
-    </Text>
     <Text Include="Data\p022_names.txt">
       <Filter>Data</Filter>
-    </Text>
-    <Text Include="Problems\Solution022.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution021.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution023.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution024.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution025.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution026.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution027.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution028.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution029.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution060.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution061.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution064.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution066.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution070.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution071.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution072.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution073.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution085.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution206.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution030.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution031.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution032.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution033.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution034.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution035.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution036.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution037.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution038.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution039.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution040.cpp">
-      <Filter>Problems</Filter>
     </Text>
     <Text Include="Data\p042_words.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="Problems\Solution042.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution041.cpp">
-      <Filter>Problems</Filter>
-    </Text>
     <Text Include="copying.txt" />
-    <Text Include="Problems\Solution043.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution044.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution045.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution046.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution047.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution048.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution049.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution050.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution051.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution052.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution053.cpp">
-      <Filter>Problems</Filter>
-    </Text>
     <Text Include="Data\p054_poker.txt">
       <Filter>Data</Filter>
-    </Text>
-    <Text Include="Problems\Solution054.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution055.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution056.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution057.cpp">
-      <Filter>Problems</Filter>
-    </Text>
-    <Text Include="Problems\Solution058.cpp">
-      <Filter>Problems</Filter>
     </Text>
     <Text Include="Data\p059_cipher.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="Problems\Solution059.cpp">
-      <Filter>Problems</Filter>
+    <Text Include="Problems\problem001_025\Solution001.cpp">
+      <Filter>Problems\problem001_025</Filter>
     </Text>
-    <Text Include="Problems\Solution062.cpp">
-      <Filter>Problems</Filter>
+    <Text Include="Problems\problem001_025\Solution002.cpp">
+      <Filter>Problems\problem001_025</Filter>
     </Text>
-    <Text Include="Problems\Solution063.cpp">
-      <Filter>Problems</Filter>
+    <Text Include="Problems\problem001_025\Solution003.cpp">
+      <Filter>Problems\problem001_025</Filter>
     </Text>
-    <Text Include="Problems\Solution065.cpp">
-      <Filter>Problems</Filter>
+    <Text Include="Problems\problem001_025\Solution004.cpp">
+      <Filter>Problems\problem001_025</Filter>
     </Text>
-    <Text Include="Problems\Solution066.py">
-      <Filter>Problems</Filter>
+    <Text Include="Problems\problem001_025\Solution005.cpp">
+      <Filter>Problems\problem001_025</Filter>
     </Text>
-    <Text Include="Problems\Solution068.cpp">
-      <Filter>Problems</Filter>
+    <Text Include="Problems\problem001_025\Solution006.cpp">
+      <Filter>Problems\problem001_025</Filter>
     </Text>
-    <Text Include="Problems\Solution069.cpp">
-      <Filter>Problems</Filter>
+    <Text Include="Problems\problem001_025\Solution007.cpp">
+      <Filter>Problems\problem001_025</Filter>
     </Text>
-    <Text Include="Problems\Solution074.cpp">
-      <Filter>Problems</Filter>
+    <Text Include="Problems\problem001_025\Solution008.cpp">
+      <Filter>Problems\problem001_025</Filter>
     </Text>
-    <Text Include="Problems\Solution075.cpp">
-      <Filter>Problems</Filter>
+    <Text Include="Problems\problem001_025\Solution009.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution010.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution011.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution012.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution013.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution014.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution015.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution016.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution017.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution018.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution020.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution021.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution022.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution023.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution024.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution025.cpp">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution026.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution027.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution028.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution029.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution030.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution031.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution032.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution033.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution034.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution035.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution036.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution037.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution038.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution039.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution040.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution041.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution042.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution043.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution044.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution045.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution046.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution047.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution048.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution049.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem026_050\Solution050.cpp">
+      <Filter>Problems\problem026_050</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution051.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution052.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution053.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution054.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution055.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution056.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution057.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution058.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution059.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution060.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution061.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution062.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution063.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution064.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution065.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution066.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution068.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution069.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution070.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution071.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution072.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution073.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution074.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution075.cpp">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution076.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution085.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem201_225\Solution206.cpp">
+      <Filter>Problems\problem201_225</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution019.py">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem001_025\Solution020.py">
+      <Filter>Problems\problem001_025</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution065.py">
+      <Filter>Problems\problem051_075</Filter>
+    </Text>
+    <Text Include="Problems\problem051_075\Solution066.py">
+      <Filter>Problems\problem051_075</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

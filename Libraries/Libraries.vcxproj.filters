@@ -51,9 +51,6 @@
     <ClCompile Include="Misc.cpp">
       <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="BigInt.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
     <ClCompile Include="Trie.cpp">
       <Filter>Strings</Filter>
     </ClCompile>
@@ -89,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="Map\hash.cpp">
       <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Integer.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

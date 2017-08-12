@@ -74,6 +74,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <Linkage-mpir>static</Linkage-mpir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -120,7 +121,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\libs\boost_1_60_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>true</OmitFramePointers>
     </ClCompile>
@@ -129,7 +130,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\libs\boost_1_60_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,6 +156,82 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <Text Include="Problems\problem001_025\Solution001.cpp" />
+    <Text Include="Problems\problem001_025\Solution002.cpp" />
+    <Text Include="Problems\problem001_025\Solution003.cpp" />
+    <Text Include="Problems\problem001_025\Solution004.cpp" />
+    <Text Include="Problems\problem001_025\Solution005.cpp" />
+    <Text Include="Problems\problem001_025\Solution006.cpp" />
+    <Text Include="Problems\problem001_025\Solution007.cpp" />
+    <Text Include="Problems\problem001_025\Solution008.cpp" />
+    <Text Include="Problems\problem001_025\Solution009.cpp" />
+    <Text Include="Problems\problem001_025\Solution010.cpp" />
+    <Text Include="Problems\problem001_025\Solution011.cpp" />
+    <Text Include="Problems\problem001_025\Solution012.cpp" />
+    <Text Include="Problems\problem001_025\Solution013.cpp" />
+    <Text Include="Problems\problem001_025\Solution014.cpp" />
+    <Text Include="Problems\problem001_025\Solution015.cpp" />
+    <Text Include="Problems\problem001_025\Solution016.cpp" />
+    <Text Include="Problems\problem001_025\Solution017.cpp" />
+    <Text Include="Problems\problem001_025\Solution018.cpp" />
+    <Text Include="Problems\problem001_025\Solution020.cpp" />
+    <Text Include="Problems\problem001_025\Solution021.cpp" />
+    <Text Include="Problems\problem001_025\Solution022.cpp" />
+    <Text Include="Problems\problem001_025\Solution023.cpp" />
+    <Text Include="Problems\problem001_025\Solution024.cpp" />
+    <Text Include="Problems\problem001_025\Solution025.cpp" />
+    <Text Include="Problems\problem026_050\Solution026.cpp" />
+    <Text Include="Problems\problem026_050\Solution027.cpp" />
+    <Text Include="Problems\problem026_050\Solution028.cpp" />
+    <Text Include="Problems\problem026_050\Solution029.cpp" />
+    <Text Include="Problems\problem026_050\Solution030.cpp" />
+    <Text Include="Problems\problem026_050\Solution031.cpp" />
+    <Text Include="Problems\problem026_050\Solution032.cpp" />
+    <Text Include="Problems\problem026_050\Solution033.cpp" />
+    <Text Include="Problems\problem026_050\Solution034.cpp" />
+    <Text Include="Problems\problem026_050\Solution035.cpp" />
+    <Text Include="Problems\problem026_050\Solution036.cpp" />
+    <Text Include="Problems\problem026_050\Solution037.cpp" />
+    <Text Include="Problems\problem026_050\Solution038.cpp" />
+    <Text Include="Problems\problem026_050\Solution039.cpp" />
+    <Text Include="Problems\problem026_050\Solution040.cpp" />
+    <Text Include="Problems\problem026_050\Solution041.cpp" />
+    <Text Include="Problems\problem026_050\Solution042.cpp" />
+    <Text Include="Problems\problem026_050\Solution043.cpp" />
+    <Text Include="Problems\problem026_050\Solution044.cpp" />
+    <Text Include="Problems\problem026_050\Solution045.cpp" />
+    <Text Include="Problems\problem026_050\Solution046.cpp" />
+    <Text Include="Problems\problem026_050\Solution047.cpp" />
+    <Text Include="Problems\problem026_050\Solution048.cpp" />
+    <Text Include="Problems\problem026_050\Solution049.cpp" />
+    <Text Include="Problems\problem026_050\Solution050.cpp" />
+    <Text Include="Problems\problem051_075\Solution051.cpp" />
+    <Text Include="Problems\problem051_075\Solution052.cpp" />
+    <Text Include="Problems\problem051_075\Solution053.cpp" />
+    <Text Include="Problems\problem051_075\Solution054.cpp" />
+    <Text Include="Problems\problem051_075\Solution055.cpp" />
+    <Text Include="Problems\problem051_075\Solution056.cpp" />
+    <Text Include="Problems\problem051_075\Solution057.cpp" />
+    <Text Include="Problems\problem051_075\Solution058.cpp" />
+    <Text Include="Problems\problem051_075\Solution059.cpp" />
+    <Text Include="Problems\problem051_075\Solution060.cpp" />
+    <Text Include="Problems\problem051_075\Solution061.cpp" />
+    <Text Include="Problems\problem051_075\Solution062.cpp" />
+    <Text Include="Problems\problem051_075\Solution063.cpp" />
+    <Text Include="Problems\problem051_075\Solution064.cpp" />
+    <Text Include="Problems\problem051_075\Solution065.cpp" />
+    <Text Include="Problems\problem051_075\Solution066.cpp" />
+    <Text Include="Problems\problem051_075\Solution068.cpp" />
+    <Text Include="Problems\problem051_075\Solution069.cpp" />
+    <Text Include="Problems\problem051_075\Solution070.cpp" />
+    <Text Include="Problems\problem051_075\Solution071.cpp" />
+    <Text Include="Problems\problem051_075\Solution072.cpp" />
+    <Text Include="Problems\problem051_075\Solution073.cpp" />
+    <Text Include="Problems\problem051_075\Solution074.cpp" />
+    <Text Include="Problems\problem051_075\Solution075.cpp" />
+    <Text Include="Problems\problem076_100\Solution076.cpp" />
+    <Text Include="Problems\problem076_100\Solution085.cpp" />
+    <Text Include="Problems\problem201_225\Solution206.cpp" />
     <None Include="Documents\001_overview.pdf" />
     <None Include="Documents\002_overview.pdf" />
     <None Include="Documents\003_overview.pdf" />
@@ -172,9 +250,11 @@
     <None Include="Documents\071_overview.pdf" />
     <None Include="Documents\072_overview.pdf" />
     <None Include="Documents\073_overview.pdf" />
-    <None Include="Problems\Solution001.cpp" />
-    <None Include="Problems\Solution020.py" />
-    <None Include="Problems\Solution065.py" />
+    <None Include="packages.config" />
+    <Text Include="Problems\problem001_025\Solution019.py" />
+    <Text Include="Problems\problem001_025\Solution020.py" />
+    <Text Include="Problems\problem051_075\Solution065.py" />
+    <Text Include="Problems\problem051_075\Solution066.py" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="copying.txt" />
@@ -182,84 +262,15 @@
     <Text Include="Data\p042_words.txt" />
     <Text Include="Data\p054_poker.txt" />
     <Text Include="Data\p059_cipher.txt" />
-    <Text Include="Problems\Solution002.cpp" />
-    <Text Include="Problems\Solution003.cpp" />
-    <Text Include="Problems\Solution004.cpp" />
-    <Text Include="Problems\Solution005.cpp" />
-    <Text Include="Problems\Solution006.cpp" />
-    <Text Include="Problems\Solution007.cpp" />
-    <Text Include="Problems\Solution008.cpp" />
-    <Text Include="Problems\Solution009.cpp" />
-    <Text Include="Problems\Solution010.cpp" />
-    <Text Include="Problems\Solution011.cpp" />
-    <Text Include="Problems\Solution012.cpp" />
-    <Text Include="Problems\Solution013.cpp" />
-    <Text Include="Problems\Solution014.cpp" />
-    <Text Include="Problems\Solution015.cpp" />
-    <Text Include="Problems\Solution016.cpp" />
-    <Text Include="Problems\Solution017.cpp" />
-    <Text Include="Problems\Solution018.cpp" />
-    <Text Include="Problems\Solution019.py" />
-    <Text Include="Problems\Solution020.cpp" />
-    <Text Include="Problems\Solution021.cpp" />
-    <Text Include="Problems\Solution022.cpp" />
-    <Text Include="Problems\Solution023.cpp" />
-    <Text Include="Problems\Solution024.cpp" />
-    <Text Include="Problems\Solution025.cpp" />
-    <Text Include="Problems\Solution026.cpp" />
-    <Text Include="Problems\Solution027.cpp" />
-    <Text Include="Problems\Solution028.cpp" />
-    <Text Include="Problems\Solution029.cpp" />
-    <Text Include="Problems\Solution030.cpp" />
-    <Text Include="Problems\Solution031.cpp" />
-    <Text Include="Problems\Solution032.cpp" />
-    <Text Include="Problems\Solution033.cpp" />
-    <Text Include="Problems\Solution034.cpp" />
-    <Text Include="Problems\Solution035.cpp" />
-    <Text Include="Problems\Solution036.cpp" />
-    <Text Include="Problems\Solution037.cpp" />
-    <Text Include="Problems\Solution038.cpp" />
-    <Text Include="Problems\Solution039.cpp" />
-    <Text Include="Problems\Solution040.cpp" />
-    <Text Include="Problems\Solution041.cpp" />
-    <Text Include="Problems\Solution042.cpp" />
-    <Text Include="Problems\Solution043.cpp" />
-    <Text Include="Problems\Solution044.cpp" />
-    <Text Include="Problems\Solution045.cpp" />
-    <Text Include="Problems\Solution046.cpp" />
-    <Text Include="Problems\Solution047.cpp" />
-    <Text Include="Problems\Solution048.cpp" />
-    <Text Include="Problems\Solution049.cpp" />
-    <Text Include="Problems\Solution050.cpp" />
-    <Text Include="Problems\Solution051.cpp" />
-    <Text Include="Problems\Solution052.cpp" />
-    <Text Include="Problems\Solution053.cpp" />
-    <Text Include="Problems\Solution054.cpp" />
-    <Text Include="Problems\Solution055.cpp" />
-    <Text Include="Problems\Solution056.cpp" />
-    <Text Include="Problems\Solution057.cpp" />
-    <Text Include="Problems\Solution058.cpp" />
-    <Text Include="Problems\Solution059.cpp" />
-    <Text Include="Problems\Solution060.cpp" />
-    <Text Include="Problems\Solution061.cpp" />
-    <Text Include="Problems\Solution062.cpp" />
-    <Text Include="Problems\Solution063.cpp" />
-    <Text Include="Problems\Solution064.cpp" />
-    <Text Include="Problems\Solution065.cpp" />
-    <Text Include="Problems\Solution066.cpp" />
-    <Text Include="Problems\Solution066.py" />
-    <Text Include="Problems\Solution068.cpp" />
-    <Text Include="Problems\Solution069.cpp" />
-    <Text Include="Problems\Solution070.cpp" />
-    <Text Include="Problems\Solution071.cpp" />
-    <Text Include="Problems\Solution072.cpp" />
-    <Text Include="Problems\Solution073.cpp" />
-    <Text Include="Problems\Solution074.cpp" />
-    <Text Include="Problems\Solution075.cpp" />
-    <Text Include="Problems\Solution085.cpp" />
-    <Text Include="Problems\Solution206.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\boost.1.64.0.0\build\native\boost.targets" Condition="Exists('..\packages\boost.1.64.0.0\build\native\boost.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\boost.1.64.0.0\build\native\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.64.0.0\build\native\boost.targets'))" />
+  </Target>
 </Project>
