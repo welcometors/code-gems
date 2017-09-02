@@ -15,6 +15,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WebScrapping", "WebScrappin
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProjectEuler", "ProjectEuler\ProjectEuler.vcxproj", "{FBC88679-6091-4300-99E7-77FAC202F7A7}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "RL", "RL\RL.pyproj", "{544CD56E-476A-4E1D-8709-4E393AFFD979}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,14 @@ Global
 		{FBC88679-6091-4300-99E7-77FAC202F7A7}.Release|Win32.Build.0 = Release|Win32
 		{FBC88679-6091-4300-99E7-77FAC202F7A7}.Release|x64.ActiveCfg = Release|x64
 		{FBC88679-6091-4300-99E7-77FAC202F7A7}.Release|x64.Build.0 = Release|x64
+		{544CD56E-476A-4E1D-8709-4E393AFFD979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{544CD56E-476A-4E1D-8709-4E393AFFD979}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{544CD56E-476A-4E1D-8709-4E393AFFD979}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{544CD56E-476A-4E1D-8709-4E393AFFD979}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{544CD56E-476A-4E1D-8709-4E393AFFD979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{544CD56E-476A-4E1D-8709-4E393AFFD979}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{544CD56E-476A-4E1D-8709-4E393AFFD979}.Release|Win32.ActiveCfg = Release|Any CPU
+		{544CD56E-476A-4E1D-8709-4E393AFFD979}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
