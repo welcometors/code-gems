@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <None Include="packages.config" />
     <Text Include="Data\p081_matrix.txt" />
     <Text Include="Data\p089_roman.txt" />
     <Text Include="Problems\problem001_025\Solution001.cpp" />
@@ -270,7 +271,6 @@
     <None Include="Documents\071_overview.pdf" />
     <None Include="Documents\072_overview.pdf" />
     <None Include="Documents\073_overview.pdf" />
-    <None Include="packages.config" />
     <Text Include="Problems\problem001_025\Solution019.py" />
     <Text Include="Problems\problem001_025\Solution020.py" />
     <Text Include="Problems\problem051_075\Solution065.py" />
@@ -285,12 +285,12 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\boost.1.64.0.0\build\native\boost.targets" Condition="Exists('..\packages\boost.1.64.0.0\build\native\boost.targets')" />
+    <Import Project="..\packages\boost.1.65.0.0\build\native\boost.targets" Condition="Exists('..\packages\boost.1.65.0.0\build\native\boost.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\boost.1.64.0.0\build\native\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.64.0.0\build\native\boost.targets'))" />
+    <Error Condition="!Exists('..\packages\boost.1.65.0.0\build\native\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.65.0.0\build\native\boost.targets'))" />
   </Target>
 </Project>

@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProjectEuler", "ProjectEule
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "RL", "RL\RL.pyproj", "{544CD56E-476A-4E1D-8709-4E393AFFD979}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RLcpp", "RLcpp\RLcpp.vcxproj", "{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,20 @@ Global
 		{544CD56E-476A-4E1D-8709-4E393AFFD979}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{544CD56E-476A-4E1D-8709-4E393AFFD979}.Release|Win32.ActiveCfg = Release|Any CPU
 		{544CD56E-476A-4E1D-8709-4E393AFFD979}.Release|x64.ActiveCfg = Release|Any CPU
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Debug|Win32.Build.0 = Debug|Win32
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Debug|x64.ActiveCfg = Debug|x64
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Debug|x64.Build.0 = Debug|x64
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Release|Any CPU.ActiveCfg = Release|Win32
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Release|Win32.ActiveCfg = Release|Win32
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Release|Win32.Build.0 = Release|Win32
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Release|x64.ActiveCfg = Release|x64
+		{CEEB9BA9-DE45-4208-A166-15FBB68ADD65}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
