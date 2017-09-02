@@ -349,6 +349,66 @@
     <Text Include="Problems\problem051_075\Solution066.py">
       <Filter>Problems\problem051_075</Filter>
     </Text>
+    <Text Include="Problems\problem076_100\Solution077.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution078.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution079.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution080.py">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution080.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Data\p081_matrix.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution081.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution082.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution083.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution084.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution086.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution087.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution088.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Data\p089_roman.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution089.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution090.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution091.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution092.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution093.py">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution094.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

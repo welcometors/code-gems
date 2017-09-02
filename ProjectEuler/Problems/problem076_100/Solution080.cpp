@@ -1,11 +1,31 @@
+// https://projecteuler.net/problem=80
+/*
+Square root digital expansion
+
+It is well known that if the square root of a natural number is not an integer, 
+then it is irrational. The decimal expansion of such square roots is infinite 
+without any repeating pattern at all.
+
+The square root of two is 1.41421356237309504880..., and the digital sum of the 
+first one hundred decimal digits is 475.
+
+For the first one hundred natural numbers, find the total of the digital sums of 
+the first one hundred decimal digits for all the irrational square roots.
+
+Solution:
+Computing square roots will be costly. So, compute square roots of only the 
+primes and use them to get others.
+
+*/
+
 #include <iostream>
-#include <chrono>
 #include <vector>
+#include <cmath>
 #include <iterator>
 #include <limits>
 #include <bitset>
 #include <algorithm>
-#include <cassert>
+#include <chrono>
 
 namespace mathLib {
 
@@ -49,6 +69,8 @@ namespace mathLib {
 		value |= value >> 16;
 		return log2TableFor32Bit[(uint32_t)(value * 0x07C4ACDD) >> 27];
 	}
+
+	size_t cnt = 0;
 
 	class integer {
 	private:
@@ -493,51 +515,6 @@ namespace mathLib {
 			return joinToomCook3(slice, vi, v2, v1, vm1, v0);
 		}
 
-		/*
-		static void appendBits(vBaseType &a, size_t aBitLength, const vBaseType &b, size_t bStart, size_t bBitLength) {
-		size_t aIdx = a.size() - 1 - aBitLength / baseBits;
-		size_t bit32 = aBitLength & (baseBits - 1);
-		size_t bIdx = b.size() - 1 - bStart;
-		const size_t bIdxStop = bIdx - bBitLength / baseBits;
-
-		if (bit32) {
-		for (; bIdx > bIdxStop; --bIdx) {
-		a[aIdx] |= b[bIdx] << bit32;
-		aIdx--;
-		a[aIdx] = b[bIdx] >> (baseBits - bit32);
-		}
-		}
-		else {
-		std::copy(b.begin() + bIdxStop)
-		for (; bIdx > bIdxStop; --bIdx) {
-		a[aIdx] = b[bIdx];
-		aIdx--;
-		}
-		}
-
-		if (bBitLength % 32 > 0) {
-		int bi = b[bIdx];
-		bi &= -1 >> > (32 - bBitLength % 32);
-		a[aIdx] |= bi << bit32;
-		if (bit32 + (bBitLength % 32) > 32)
-		a[aIdx - 1] = bi >> > (32 - bit32);
-		}
-		}
-
-		static vBaseType mulSchoenhageStrassen(const vBaseType &a, const vBaseType &b) {
-		const auto len1 = a.size();
-		const auto len2 = b.size();
-
-		bool isSqr = &a == &b;
-		size_t m = log2_32(2 * std::max(len1, len2) * baseBits - 1 - 1);
-		size_t n = (m >> 1) + 1;
-		size_t numPieces = (m & 1) ? (1 << n) : (1 << (n + 1));
-		size_t pieceSize = 1 << (n - 1 - 5);
-		size_t numPiecesA = (len1 + pieceSize) / pieceSize;
-		int[] u = new int[(numPiecesA*(3 * n + 5) + 31) / 32];
-		}
-		*/
-
 		// returns a*b
 		static vBaseType iMul(const vBaseType &a, const vBaseType &b) {
 			const size_t len1 = a.size(), len2 = b.size();
@@ -721,22 +698,18 @@ namespace mathLib {
 			if (a.size() <= 3 * n)
 				return divide3n2n(a, b, q);
 
-			const size_t nBits = n * baseBits;
 			vBaseType q1;
-			auto a123 = shiftRight(a, nBits);
-			auto r1 = divide3n2n(a123, b, q1);
-			auto a0 = subValue(a, 0, n - 1);
-			concatBlock(a0, r1, n);
-			auto r2 = divide3n2n(a0, b, q);
+			auto r1 = divide3n2n(subValue(a, n), b, q1);
+			auto a3 = subValue(a, 0, n - 1);
+			concatBlock(a3, r1, n);
+			auto r2 = divide3n2n(a3, b, q);
 			concatBlock(q, q1, n);
 			return r2;
 		}
 
 		static vBaseType divide3n2n(const vBaseType &a, const vBaseType &b, vBaseType &q) {
 			const size_t n = b.size() / 2;
-			const size_t nBits = n * baseBits;
-
-			vBaseType a12 = shiftRight(a, nBits);
+			vBaseType a12 = subValue(a, n);
 			vBaseType b1 = subValue(b, n, 2 * n - 1);
 			vBaseType r = divide2n1n(a12, b1, q);
 			vBaseType a3 = subValue(a, 0, n - 1);
@@ -782,7 +755,7 @@ namespace mathLib {
 		}
 
 		// returns square root
-		integer sqrt() const {
+		integer sqrt() const{
 			if (sign < 0)
 				throw std::overflow_error("sqrt of negative integer.");
 
@@ -791,14 +764,18 @@ namespace mathLib {
 
 			if (digits.size() == 1)
 				return integer(int(std::sqrt(digits.front())));
-
+			
 			vBaseType two = { 2 }, y = shiftLeft({ 1 }, (bitLength(digits) + 1) / 2), q;
+			iAdd(y, shiftRight(digits, (bitLength(digits) - 1) / 2));
 			iSub(y, { 1 });
+			shiftRightShort(y, 1);
+
 			iDiv(digits, y, q);
 			while (compare(y, q) > 0) {
 				iAdd(y, q);
 				shiftRightShort(y, 1);
 				iDiv(digits, y, q);
+				cnt++;
 			}
 
 			return integer(y);
@@ -1009,6 +986,22 @@ namespace mathLib {
 			return integer(product, sign*other.sign);
 		}
 
+		integer& operator *= (const integer &other){
+			*this = *this * other;
+			return *this;
+		}
+
+		inline integer operator / (const integer &other) const {
+			vBaseType quotient;
+			iDiv(digits, other.digits, quotient);
+			return integer(quotient, sign*other.sign);
+		}
+
+		inline integer operator % (const integer &other) const {
+			vBaseType quotient;
+			return integer(iDiv(digits, other.digits, quotient), sign*other.sign);
+		}
+
 		integer operator << (size_t bits) const {
 			return integer(shiftLeft(digits, bits), sign);
 		}
@@ -1060,6 +1053,100 @@ namespace mathLib {
 			return output;
 		}
 	};
-
+	
 	std::vector<vBaseType> integer::tenPow2PowNs = { { 10 } };
 };
+
+using namespace std;
+auto getDigitSum(const mathLib::integer& x, int p) {
+	string s = x.toString();
+	unsigned t = 0;
+	for (size_t i = 0; i < p; i++)
+		t += s[i] - '0';
+	return t;
+}
+
+auto getPower(size_t p) {
+	using namespace mathLib;
+	integer p10(10);
+	for (int i = 1; i <= p; i <<= 1)
+		p10 *= p10;
+	return p10;
+}
+
+const vector<int> primes = {
+	2,      3,      5,      7,     11,     13,     17,     19,     23,     29,
+	31,     37,     41,     43,     47,     53,     59,     61,     67,     71,
+	73,     79,     83,     89,     97,    101,    103,    107,    109,    113,
+	127,    131,    137,    139,    149,    151,    157,    163,    167,    173,
+	179,    181,    191,    193,    197,    199,    211,    223,    227,    229,
+	233,    239,    241,    251,    257,    263,    269,    271,    277,    281,
+	283,    293,    307,    311,    313,    317,    331,    337,    347,    349,
+	353,    359,    367,    373,    379,    383,    389,    397,    401,    409,
+	419,    421,    431,    433,    439,    443,    449,    457,    461,    463,
+	467,    479,    487,    491,    499,    503,    509,    521,    523,    541,
+	547,    557,    563,    569,    571,    577,    587,    593,    599,    601,
+	607,    613,    617,    619,    631,    641,    643,    647,    653,    659,
+	661,    673,    677,    683,    691,    701,    709,    719,    727,    733,
+	739,    743,    751,    757,    761,    769,    773,    787,    797,    809,
+	811,    821,    823,    827,    829,    839,    853,    857,    859,    863,
+	877,    881,    883,    887,    907,    911,    919,    929,    937,    941,
+	947,    953,    967,    971,    977,    983,    991,    997,    1009
+};
+
+auto getSum(int n, int p) {
+	using namespace mathLib;
+	auto p10 = getPower(2 * (p + 10));
+	unsigned s = 0;
+	vector<integer> map(n + 1);
+
+	for (int i = 0; primes[i] <= n; i++) {
+		auto x = (p10 * integer(primes[i])).sqrt();
+		s += getDigitSum(x, p);
+		map[primes[i]] = move(x);
+	}
+
+	for (int i = 2, k; i <= n; i++) {
+		int r = sqrt(i);
+		if (r*r == i) {
+			map[i] = integer(r);
+		}
+		else if(map[i].isZero()) {
+			for (k = 0; i % primes[k]; k++)
+				;
+			int val = 1;
+			for (int j = i; j % primes[k] == 0 && j / primes[k] > 1; j /= primes[k])
+				val *= primes[k];
+			
+			integer x = map[i / val] * map[val];
+			if (x.size() > 2 * p10.size())
+				x = x >> (p10.size() * 32);
+			s += getDigitSum(x, p);
+			map[i] = move(x);
+		}
+	}
+
+	// cout << mathLib::cnt << '\n';
+	return s;
+}
+
+auto compute() {
+	return getSum(100, 100);
+}
+
+template <class T>
+inline void DoNotOptimize(const T &value) {
+	__asm { lea ebx, value }
+}
+
+int main() {
+	using namespace std;
+	using namespace chrono;
+	auto start = high_resolution_clock::now();
+	auto result = compute();
+	DoNotOptimize(result);
+	cout << "Done in "
+		<< duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1e6
+		<< " miliseconds." << endl;
+	cout << result << endl;
+}

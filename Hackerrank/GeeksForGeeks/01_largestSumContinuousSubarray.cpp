@@ -3,12 +3,14 @@
 
 #include <iostream>
 #include <vector>
-#include <limits>
 using namespace std;
 
 template<class T>
 auto largestSumContinuousSubarray(const vector<T>& ary) {
-	T maxSoFar = numeric_limits<T>::min(), currentMax = T(0);
+	if (!ary.size())
+		return T(0);
+
+	T maxSoFar = *ary.front(), currentMax = T(0);
 
 	for (auto x: ary) {
 		currentMax += x;

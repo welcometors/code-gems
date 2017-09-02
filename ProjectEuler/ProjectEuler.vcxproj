@@ -156,6 +156,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <Text Include="Data\p081_matrix.txt" />
+    <Text Include="Data\p089_roman.txt" />
     <Text Include="Problems\problem001_025\Solution001.cpp" />
     <Text Include="Problems\problem001_025\Solution002.cpp" />
     <Text Include="Problems\problem001_025\Solution003.cpp" />
@@ -230,7 +232,25 @@
     <Text Include="Problems\problem051_075\Solution074.cpp" />
     <Text Include="Problems\problem051_075\Solution075.cpp" />
     <Text Include="Problems\problem076_100\Solution076.cpp" />
+    <Text Include="Problems\problem076_100\Solution077.cpp" />
+    <Text Include="Problems\problem076_100\Solution078.cpp" />
+    <Text Include="Problems\problem076_100\Solution079.cpp" />
+    <Text Include="Problems\problem076_100\Solution080.py" />
+    <Text Include="Problems\problem076_100\Solution080.cpp" />
+    <Text Include="Problems\problem076_100\Solution081.cpp" />
+    <Text Include="Problems\problem076_100\Solution082.cpp" />
+    <Text Include="Problems\problem076_100\Solution083.cpp" />
+    <Text Include="Problems\problem076_100\Solution084.cpp" />
     <Text Include="Problems\problem076_100\Solution085.cpp" />
+    <Text Include="Problems\problem076_100\Solution086.cpp" />
+    <Text Include="Problems\problem076_100\Solution087.cpp" />
+    <Text Include="Problems\problem076_100\Solution088.cpp" />
+    <Text Include="Problems\problem076_100\Solution089.cpp" />
+    <Text Include="Problems\problem076_100\Solution090.cpp" />
+    <Text Include="Problems\problem076_100\Solution091.cpp" />
+    <Text Include="Problems\problem076_100\Solution092.cpp" />
+    <Text Include="Problems\problem076_100\Solution093.py" />
+    <Text Include="Problems\problem076_100\Solution094.cpp" />
     <Text Include="Problems\problem201_225\Solution206.cpp" />
     <None Include="Documents\001_overview.pdf" />
     <None Include="Documents\002_overview.pdf" />

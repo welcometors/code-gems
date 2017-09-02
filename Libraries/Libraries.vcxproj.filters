@@ -31,6 +31,9 @@
     <Filter Include="Map">
       <UniqueIdentifier>{6a403a2a-c4c0-4249-80b7-db50670c0ee7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tree">
+      <UniqueIdentifier>{2fa8608d-827d-4a4f-9e10-e8947103ecdb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -90,6 +93,9 @@
     <ClCompile Include="Math\Integer.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="Arrays\BitArray.cpp">
+      <Filter>Arrays</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="IO\Enormous Input.cpp">
@@ -97,6 +103,12 @@
     </Text>
     <Text Include="Strings\Common Strings.cpp">
       <Filter>Strings</Filter>
+    </Text>
+    <Text Include="Tree\binaryheap.cpp">
+      <Filter>Tree</Filter>
+    </Text>
+    <Text Include="Math\Fraction.cpp">
+      <Filter>Math</Filter>
     </Text>
   </ItemGroup>
 </Project>

@@ -48,15 +48,15 @@ natural collatz(natural n) {
 
 int prepareTable() {
 	table[1] = 1;
-	natural max = 0, num = 0;
+	natural max = 0, natural = 0;
 	for (int i = 2; i < limit; i++) {
 		natural len = collatz(i);
 		if (len > max) {
 			max = len;
-			num = i;
+			natural = i;
 		}
 	}
-	return num;
+	return natural;
 }
 
 int main() {

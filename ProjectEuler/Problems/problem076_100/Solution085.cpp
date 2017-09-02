@@ -3,7 +3,7 @@
 Counting rectangles
 By counting carefully it can be seen that a rectangular grid measuring 3 by 2 contains eighteen rectangles:
 
-Although there exists no rectangular grid that contains exactly two million rectangles, 
+Although there exists no rectangular grid that contains exactly two million rectangles,
 find the area of the grid with the nearest solution.
 
 Solution:
@@ -29,10 +29,14 @@ ll compute() {
 	ll best = 0, w = 0, h = 0, n = 2000000, sqrtsqrtK = sqrt(sqrt(4 * n)) + 1;
 	for (ll x = 2; x <= sqrtsqrtK; x++) {
 		ll p = (x + 1)*x / 2;
-		ll y = (sqrt(1 + 8.0 * n / p) - 1) / 2;
-		ll rectangles = ((x + 1)*x / 2)*((y + 1)*y / 2);
-		if (abs(n - rectangles) < abs(n - best))
-			best = rectangles, w = x, h = y;
+		ll yi = (sqrt(1 + 8.0 * n / p) - 1) / 2;
+		for (ll y = yi; y <= yi + 1; y++) {
+			ll rectangles = ((x + 1)*x / 2)*((y + 1)*y / 2);
+			if (abs(n - rectangles) < abs(n - best))
+				best = rectangles, w = x, h = y;
+			else if (abs(n - rectangles) == abs(n - best) && x*y > w*h)
+				w = x, h = y;
+		}
 	}
 	cout << w << "x" << h << " has " << best << " rectangles." << endl;
 	return w*h;

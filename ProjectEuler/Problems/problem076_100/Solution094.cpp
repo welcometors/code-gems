@@ -4,15 +4,15 @@ Problem 94
 
 Almost equilateral triangles
 
-It is easily proved that no equilateral triangle exists with integral length 
-sides and integral area. However, the almost equilateral triangle 5-5-6 has 
+It is easily proved that no equilateral triangle exists with integral length
+sides and integral area. However, the almost equilateral triangle 5-5-6 has
 an area of 12 square units.
 
-We shall define an almost equilateral triangle to be a triangle for which two 
+We shall define an almost equilateral triangle to be a triangle for which two
 sides are equal and the third differs by no more than one unit.
 
-Find the sum of the perimeters of all almost equilateral triangles with integral 
-side lengths and area and whose perimeters do not exceed one billion 
+Find the sum of the perimeters of all almost equilateral triangles with integral
+side lengths and area and whose perimeters do not exceed one billion
 (1,000,000,000).
 
 Solution:
@@ -77,7 +77,7 @@ auto calc(natural limit) {
 			break;
 		if (a3 % 3 == 0 && (y % 3 == 0 || (x - 2) % 3 == 0))
 			p += a3 - 1;
-		
+
 		a3 += 2;
 		// a3 = 2 * x + 1, area*3 = y*(x + 2);
 		if (a3 + 1 >= limit)

@@ -34,12 +34,12 @@ auto compute() {
 	using namespace boost::multiprecision;
 	constexpr uint32_t limit = 1000;
 
-	cpp_int num = 3, den = 2;
+	cpp_int natural = 3, den = 2;
 	uint32_t count = 0;
 	for (uint32_t t = 2; t <= limit; ++t) {
-		num += den << 1;
-		den = num - den;
-		if (num.str().length() > den.str().length()) {
+		natural += den << 1;
+		den = natural - den;
+		if (natural.str().length() > den.str().length()) {
 			++count;
 			//std::cout << t << ',';
 		}

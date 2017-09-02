@@ -4,7 +4,6 @@ using namespace std;
 
 #include <vector>
 #include <memory>
-#include <cstring>
 
 vector<unsigned> populatePrimes(int limit) {
 	vector<unsigned> primes;
@@ -12,7 +11,7 @@ vector<unsigned> populatePrimes(int limit) {
 	unique_ptr<int[]> isPrime(new int[limit + 1]);
 
 	isPrime[0] = isPrime[1] = 0;
-	std::memset(&isPrime[2], 1, sizeof(int)*(limit - 1));
+	fill_n(&isPrime[2], limit - 1, 1);
 	primes.clear();
 
 	for (int i = 2; i <= sqrtLimit; i++)
