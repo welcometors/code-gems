@@ -34,7 +34,9 @@ class environment():
 
 
 def experiment(n_runs, n_machines, n_steps, exploration):
+    rewards = np.zeros((n_runs, n_steps))
     optimals = np.zeros((n_runs, n_steps))
+
     for run in range(n_runs):
         env = environment(n_machines)
         aj = agent(n_machines, exploration)
@@ -42,16 +44,32 @@ def experiment(n_runs, n_machines, n_steps, exploration):
             action = aj.action()
             if action == env.optimal_action():
                 optimals[run,step] = 100
-            aj.update(action, env.reward(action))
-    return np.mean(optimals, 0)
+            rewards[run,step] = env.reward(action)
+            aj.update(action, rewards[run,step])
+    
+    return np.mean(rewards, 0), np.mean(optimals, 0)
 
 
 def main():
-    for e in (0, .01, .1):
-        plt.plot(experiment(n_runs=1000, n_machines=10, n_steps=1000, exploration=e))
+    parameters = [0, .01, .10]
+    avg_rewards, optimal_actions = [], []
 
-    plt.gca().set_ylim([0,100])
+    for e in parameters:
+        r, a = experiment(n_runs=1000, n_machines=10, n_steps=1000, exploration=e)
+        avg_rewards.append(r)
+        optimal_actions.append(a)
+
+    for avg_reward in avg_rewards:
+        plt.plot(avg_reward)
+    # plt.gca().set_ylim([0,100])
     plt.legend(['greedy', 'explore 1%', 'explore 10%'], loc='upper left')
+    plt.ylabel('Average Reward')
+    plt.show()
+
+    for optimal_action in optimal_actions:
+        plt.plot(optimal_action)
+    plt.gca().set_ylim([0,100])
+    plt.ylabel('% Optimal Action')
     plt.show()
 
 
