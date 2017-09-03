@@ -14,7 +14,7 @@ class agent():
 
     def action(self):
         best = self.machines.argmax()
-        # exponen decay
+        # exponential decay
         e = self.exploration * np.exp(self.steps*self.decay)
         if np.random.random_sample() < e:
             chosen = np.random.random_integers(0, len(self.machines) - 2)
@@ -61,7 +61,7 @@ def main():
     legends = []
 
     for e,r in parameters:
-        ar, oa = experiment(n_runs=1000, n_machines=10, n_steps=1000, exploration=e, decay_rate=r)
+        ar, oa = experiment(n_runs=2000, n_machines=10, n_steps=1000, exploration=e, decay_rate=r)
         avg_rewards.append(ar)
         optimal_actions.append(oa)
         legends.append('explore {0}%, rate = {1}'.format(e*100, r))

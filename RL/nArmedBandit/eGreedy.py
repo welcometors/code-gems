@@ -49,7 +49,7 @@ def experiment(n_runs, n_machines, n_steps, exploration):
 
 
 def main():
-    n_runs = 10000
+    n_runs = 2000
     n_machines = 10
     n_steps = 1000
     parameters = [0, .01, .10]

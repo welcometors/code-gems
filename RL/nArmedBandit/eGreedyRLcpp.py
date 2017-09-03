@@ -1,20 +1,20 @@
 import sys
 sys.path.append('../x64/Release')
 
+# using cpp implementation for around 15x speed-up
 import RLcpp as rl
 from matplotlib import pyplot as plt
 
 
 def main():
-    n_runs = 2000
+    n_runs = 10000
     n_machines = 10
     n_steps = 1000
-    parameters = [0, .01, .10]
+    parameters = [0, .01, .05, .10, .20]
     avg_rewards, optimal_actions = [], []
     legends = []
 
     for e in parameters:
-        #r, a = experiment(n_runs, n_machines, n_steps, exploration=e)
         r, a = rl.e_greedy(n_runs, n_machines, n_steps, e)
         avg_rewards.append(r)
         optimal_actions.append(a)
