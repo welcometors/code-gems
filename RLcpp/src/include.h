@@ -2,15 +2,6 @@
 #include "nArmedBandit\eGreedy.h"
 
 static PyObject*
-RLcpp_func(PyObject *self, PyObject *args)
-{
-	int i = 5;
-	if (PyArg_ParseTuple(args, "i", &i))
-		return PyLong_FromLong(i + 1);
-	return 0;
-}
-
-static PyObject*
 RLcpp_e_greedy(PyObject *self, PyObject *args)
 {
 	int n_runs, n_machines, n_steps;
@@ -35,7 +26,6 @@ RLcpp_e_greedy(PyObject *self, PyObject *args)
 }
 
 static PyMethodDef RLcppMethods[] = {
-	{ "add_1", RLcpp_func, METH_VARARGS, "adds one." },
 	{ "e_greedy", RLcpp_e_greedy, METH_VARARGS, "e-Greedy n-Armed-Bandit" },
 	{ NULL,NULL,0,NULL }
 };

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>544cd56e-476a-4e1d-8709-4e393affd979</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>nArmedBandit\eGreedy.py</StartupFile>
+    <StartupFile>nArmedBandit\eGreedySoftMax.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,6 +23,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="nArmedBandit\eDecrease.py" />
+    <Compile Include="nArmedBandit\eGreedyRLcpp.py" />
+    <Compile Include="nArmedBandit\eGreedySoftMax.py" />
     <Compile Include="nArmedBandit\eGreedy.py" />
     <Compile Include="RL.py" />
   </ItemGroup>

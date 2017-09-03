@@ -4,8 +4,10 @@ import numpy as np
 
 
 class agent():
-    def __init__(self, machines, exploration):
+    def __init__(self, machines, method='uniform', exploration=0, temperature=.1):
+        self.method = method
         self.exploration = exploration
+        self.temperature = temperature
         # creats an estimate of n machines
         self.machines = np.zeros(machines)
         self.counts = [0] * machines
@@ -13,10 +15,17 @@ class agent():
     def action(self):
         best = self.machines.argmax()
         if np.random.random_sample() < self.exploration:
-            chosen = np.random.random_integers(0, len(self.machines) - 2)
-            return chosen if chosen < best else chosen + 1
+            choices = list(range(len(self.machines)))
+            choices.remove(best)
+            if self.method == 'uniform':
+                return np.random.choice(choices)
+            else:
+                probabilities = np.exp(self.machines / self.temperature)
+                probabilities = np.delete(probabilities, best)
+                probabilities = probabilities / sum(probabilities)
+                return np.random.choice(choices, p=probabilities)
         return best
-
+    
     def update(self, machine, reward):
         self.counts[machine] += 1
         self.machines[machine] += (reward - self.machines[machine]) / self.counts[machine]
@@ -31,13 +40,13 @@ class environment():
         return self.machines[action] + np.random.normal()
 
 
-def experiment(n_runs, n_machines, n_steps, exploration):
+def experiment(n_runs, n_machines, n_steps, method, exploration, temperature):
     rewards = np.zeros((n_runs, n_steps))
     optimals = np.zeros((n_runs, n_steps))
 
     for run in range(n_runs):
         env = environment(n_machines)
-        aj = agent(n_machines, exploration)
+        aj = agent(n_machines, method, exploration, temperature)
         for step in range(n_steps):
             action = aj.action()
             if action == env.optimal_action:
@@ -49,18 +58,18 @@ def experiment(n_runs, n_machines, n_steps, exploration):
 
 
 def main():
-    n_runs = 10000
+    n_runs = 2000
     n_machines = 10
     n_steps = 1000
-    parameters = [0, .01, .10]
+    parameters = [('softmax', .1, 1), ('uniform', 0, None), ('uniform', .1, None)]
     avg_rewards, optimal_actions = [], []
     legends = []
 
-    for e in parameters:
-        r, a = experiment(n_runs, n_machines, n_steps, exploration=e)
+    for m, e, t in parameters:
+        r, a = experiment(n_runs, n_machines, n_steps, method=m, exploration=e, temperature=t)
         avg_rewards.append(r)
         optimal_actions.append(a)
-        legends.append('explore {0}%'.format(e*100))
+        legends.append('{0} exploration= {1}% {2}'.format(m, 100*e, '' if t is None else 'temperature= {0}'.format(t)))
 
     for avg_reward in avg_rewards:
         plt.plot(avg_reward)
