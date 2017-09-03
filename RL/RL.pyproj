@@ -24,6 +24,7 @@
   <ItemGroup>
     <Compile Include="nArmedBandit\eDecrease.py" />
     <Compile Include="nArmedBandit\eGreedyRLcpp.py" />
+    <Compile Include="nArmedBandit\eGreedySoftMaxOptimistic.py" />
     <Compile Include="nArmedBandit\eGreedySoftMax.py" />
     <Compile Include="nArmedBandit\eGreedy.py" />
     <Compile Include="RL.py" />
