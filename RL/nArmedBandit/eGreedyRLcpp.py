@@ -10,7 +10,7 @@ def main():
     n_runs = 10000
     n_machines = 10
     n_steps = 1000
-    parameters = [0, .01, .05, .10, .20]
+    parameters = [.0, .01, .10]
     avg_rewards, optimal_actions = [], []
     legends = []
 
@@ -25,6 +25,7 @@ def main():
     plt.legend(legends, loc='upper left')
     plt.ylabel('Average Reward')
     plt.xlabel('Steps')
+    plt.title('Machines = {0}, Runs = {1}'.format(n_machines, n_runs))
     plt.show()
 
     for optimal_action in optimal_actions:
@@ -33,6 +34,7 @@ def main():
     plt.legend(legends, loc='upper left')
     plt.ylabel('% Optimal Action')
     plt.xlabel('Steps')
+    plt.title('Machines = {0}, Runs = {1}'.format(n_machines, n_runs))
     plt.show()
 
 

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>544cd56e-476a-4e1d-8709-4e393affd979</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>nArmedBandit\eGreedySoftMax.py</StartupFile>
+    <StartupFile>nArmedBandit\eGreedy.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -31,6 +31,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="nArmedBandit\" />
+    <Folder Include="nArmedBandit\plots\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="nArmedBandit\plots\eGreedy_averageReward.png" />
+    <Content Include="nArmedBandit\plots\eGreedy_percentOptimal.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
