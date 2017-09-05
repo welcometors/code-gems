@@ -89,6 +89,5 @@ int main(){
 			max = mul;
 	}
 
-	cout << max << endl;
-	system("pause");
+	cout << max << '\n';
 }

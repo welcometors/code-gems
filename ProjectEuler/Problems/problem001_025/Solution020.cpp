@@ -16,7 +16,7 @@ Solution:
 #include <cmath>
 using namespace std;
 
-vector<int> digitSumOfFactorial(int n) {
+auto digitSumOfFactorial(int n) {
 	const int numberOfMaxdigits = ceil(n * log10(n));
 	vector<int> digits(numberOfMaxdigits, 0);
 	digits[0] = 1;
@@ -24,17 +24,12 @@ vector<int> digitSumOfFactorial(int n) {
 	for (int i = 2, l = 1; i <= n; i++) {
 		int sum = 0, carry = 0;
 		for (int j = 0; j < l; j++) {
-			int val = digits[j] * i + carry;
-			carry = val / 10;
-			val %= 10;
-			digits[j] = val;
-			sum += val;
-		}
-		while (carry) {
-			digits[l++] = carry % 10;
-			sum += carry % 10;
+			carry += digits[j] * i;
+			sum += (digits[j] = carry % 10);
 			carry /= 10;
 		}
+		for (; carry; carry /= 10)
+			sum += (digits[l++] = carry % 10);
 		sumVector.push_back(sum);
 	}
 	return sumVector;
@@ -42,5 +37,5 @@ vector<int> digitSumOfFactorial(int n) {
 
 int main() {
 	auto table = digitSumOfFactorial(100);
-	cout << table.back() << endl;
+	cout << table.back() << '\n';
 }

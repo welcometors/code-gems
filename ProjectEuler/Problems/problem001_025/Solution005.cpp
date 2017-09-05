@@ -29,6 +29,5 @@ int main(){
 		n *= pow(p, (int)(logN / log(p)));
 	}
 
-	cout << n << endl;
-	system("pause");
+	cout << n << '\n';
 }

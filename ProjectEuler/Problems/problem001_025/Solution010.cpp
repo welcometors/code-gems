@@ -15,7 +15,7 @@ Solution:
 #include <cmath>
 using namespace std;
 
-typedef unsigned long long natural;
+using natural = unsigned long long;
 const natural limit = 2000000;
 
 natural populatePrimes(int limit) {

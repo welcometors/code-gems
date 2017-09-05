@@ -49,6 +49,5 @@ int main(){
 		}
 	}
 
-	cout << max << endl;
-	system("pause");
+	cout << max << '\n';
 }

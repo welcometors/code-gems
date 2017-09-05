@@ -40,5 +40,4 @@ int main(){
 	}
 
 	cout << sum << endl;
-	system("pause");
 }

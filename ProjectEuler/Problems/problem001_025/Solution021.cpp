@@ -21,7 +21,9 @@ const int am[] = {
 
 int main() {
 	int sum = 0;
+
 	for (int x : am)
 		sum += x;
-	cout << sum << endl;
+
+	cout << sum << '\n';
 }

@@ -53,5 +53,5 @@ T getNthPermutation(const T& s, natural n) {
 
 int main() {
 	string s = "0123456789";
-	cout << getNthPermutation(s, 1000000 - 1) << endl;
+	cout << getNthPermutation(s, 1000000 - 1) << '\n';
 }

@@ -52,10 +52,11 @@ string toWords(uint64_t n) {
 
 int main() {
 	int sum = 0;
-	for (int i = 1; i <= 1000; i++) {
+
+	for (int i = 1; i <= 1000; i++)
 		for (auto c : toWords(i))
 			if (c != ' ')
 				sum++;
-	}
-	cout << sum << endl;
+
+	cout << sum << '\n';
 }

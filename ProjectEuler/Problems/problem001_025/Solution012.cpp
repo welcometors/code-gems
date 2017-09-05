@@ -26,8 +26,9 @@ Solution:
 #include <vector>
 using namespace std;
 
-typedef unsigned int natural;
+using natural = unsigned int;
 constexpr natural limit = 1000;
+
 // 41040th triangle number has over 1000 factors. sqrt(41040) = 202
 const natural primes[] = { 
   2,   3,   5,   7,  11,  13,  17,  19,  23,  29,  31,  37,  41,
@@ -60,7 +61,7 @@ natural getFactorsTN(natural n) {
 		return getFactors(n)*getFactors((n + 1) / 2);
 }
 
-vector<natural> getTable() {
+auto getTable() {
 	vector<natural> table = { 1 };
 	natural max = 1, n = 1;
 	while (max < limit) {
@@ -73,8 +74,6 @@ vector<natural> getTable() {
 	}
 	return table;
 }
-
-#define input(type, var) type var; cin >> var
 
 int main() {
 	auto table = getTable();

@@ -44,5 +44,5 @@ So, n = ceil(1000 - 1 + log(sqrt(5))) / log(phi)
 using namespace std;
 
 int main() {
-	cout << ceil((1000 - 1 + log10(sqrt(5))) / log10((1 + sqrt(5)) / 2)) << endl;
+	cout << ceil((1000 - 1 + log10(sqrt(5))) / log10((1 + sqrt(5)) / 2)) << '\n';
 }

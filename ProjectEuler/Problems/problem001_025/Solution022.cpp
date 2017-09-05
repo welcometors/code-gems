@@ -40,13 +40,15 @@ int main() {
 	else {
 		cout << "File not found" << endl;
 	}
+
 	sort(names.begin(), names.end());
-	int sum = 0, i=1;
+
+	int sum = 0, i = 1;
 	for (auto& name : names) {
 		int score = 0;
 		for (char c : name)
 			score += c - 'A' + 1;
-		sum += score*i++;
+		sum += score * i++;
 	}
-	cout << sum << endl;
+	cout << sum << '\n';
 }

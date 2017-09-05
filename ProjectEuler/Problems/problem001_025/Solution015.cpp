@@ -16,11 +16,13 @@ This is same as arrenging 2 V and 2 H. Which is 2C2 = 6
 
 #include <iostream>
 using namespace std;
+using natural = uint64_t;
 
-typedef uint64_t natural;
 int main() {
 	natural ncr = 40;
+	
 	for (int i = 39, j = 2; j <= 20; i--, j++)
 		ncr = (ncr / j)*i;
-	cout << ncr << endl;
+
+	cout << ncr << '\n';
 }

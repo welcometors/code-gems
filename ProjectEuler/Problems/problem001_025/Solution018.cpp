@@ -44,5 +44,5 @@ int maxSum(int n) {
 }
 
 int main() {
-	cout << maxSum(15) << endl;
+	cout << maxSum(15) << '\n';
 }

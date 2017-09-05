@@ -25,13 +25,15 @@ In the 20×20 grid below, four numbers along a diagonal line have been marked in 
 
 The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
 
-What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+What is the greatest product of four adjacent numbers in the same direction 
+(up, down, left, right, or diagonally) in the 20×20 grid?
 
 Solution:
 
 */
 
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int getHorizontal(int grid[20][20]) {
@@ -130,10 +132,10 @@ int main() {
 			gridM[j][19-i] = grid[i][j];
 		}
 	}
-	int max = 0;
-	int hm = getHorizontal(grid);	max = max < hm ? hm : max;
-	int vm = getHorizontal(gridT);	max = max < vm ? vm : max;
-	int dm = getDiagonal(grid);		max = max < dm ? dm : max;
-	int om = getDiagonal(gridM);	max = max < om ? om : max;
-	cout << max << endl;
+	int m = 0;
+	m = max(m, getHorizontal(grid));
+	m = max(m, getHorizontal(gridT));
+	m = max(m, getDiagonal(grid));
+	m = max(m, getDiagonal(gridM));
+	cout << m << endl;
 }

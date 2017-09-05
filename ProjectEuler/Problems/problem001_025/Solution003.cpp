@@ -41,6 +41,5 @@ auto getMaxFactor(natural n) {
 
 int main(){
 	using namespace std;
-	cout << getMaxFactor(600851475143ULL) << endl;
-	system("pause");
+	cout << getMaxFactor(600851475143ULL) << '\n';
 }

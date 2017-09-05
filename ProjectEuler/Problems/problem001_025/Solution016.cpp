@@ -22,11 +22,9 @@ vector<int> digitSumOf2Powers(int n) {
 	for (int i = 0, l = 1; i < n; i++) {
 		int sum = 0, carry = 0;
 		for (int j = 0; j < l; j++) {
-			int val = digits[j] * 2 + carry;
-			carry = val / 10;
-			val %= 10;
-			digits[j] = val;
-			sum += val;
+			carry += digits[j] << 1;
+			sum += (digits[j] = carry % 10);
+			carry /= 10;
 		}
 		if (carry)
 			digits[l++] = carry;
@@ -37,5 +35,5 @@ vector<int> digitSumOf2Powers(int n) {
 
 int main() {
 	auto table = digitSumOf2Powers(1000);
-	cout << table.back() << endl;
+	cout << table.back() << '\n';
 }

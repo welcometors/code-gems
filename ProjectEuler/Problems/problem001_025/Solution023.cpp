@@ -49,7 +49,7 @@ natural getFactorsSum(natural n) {
 	return factorsSum;
 }
 
-vector<int> getAbundantNumbers() {
+auto getAbundantNumbers() {
 	vector<int> numbers;
 	for (int i = 1; i <= limit; i++)
 		if (getFactorsSum(i) - i > i)
@@ -70,5 +70,5 @@ int main() {
 	for (int i = 1; i <= limit; i++)
 		if (!check(table, i))
 			sum += i;
-	cout << sum << endl;
+	cout << sum << '\n';
 }

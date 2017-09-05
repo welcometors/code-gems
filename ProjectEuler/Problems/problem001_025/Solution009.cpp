@@ -16,10 +16,10 @@ Solution:
 #include <cmath>
 
 using namespace std;
-typedef unsigned long long natural;
+using natural = unsigned;
 
 template<class T>
-T GCD(T u, T v) {
+typename std::enable_if<std::is_unsigned<T>::value, T>::type GCD(T u, T v) {
 	int shift;
 	if (u == 0) return v;
 	if (v == 0) return u;
@@ -72,6 +72,5 @@ natural getMaxTriplet(natural s) {
 }
 
 int main() {
-	cout << getMaxTriplet(1000) << endl;
-	system("pause");
+	cout << getMaxTriplet(1000) << '\n';
 }

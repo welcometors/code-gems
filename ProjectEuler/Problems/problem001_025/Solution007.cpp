@@ -74,5 +74,5 @@ natural piInverse(natural n) {
 int main() {
 	// The 10,001st prime is 104,743.
 	auto primes = populatePrimes(piInverse(limit));
-	cout << primes[limit - 1] << endl;
+	cout << primes[limit - 1] << '\n';
 }
