@@ -23,18 +23,17 @@ Solution:
 #include <iostream>
 #include <vector>
 #include <memory>
-#include <cstring>
 #include <algorithm>
 using namespace std;
 typedef unsigned int natural;
 
-vector<int> populatePrimes(int limit) {
+auto populatePrimes(int limit) {
 	vector<int> primes;
 	int sqrtLimit = sqrt(limit + 1) + 1;
 	unique_ptr<int[]> isPrime(new int[limit + 1]);
 
 	isPrime[0] = isPrime[1] = 0;
-	std::memset(&isPrime[2], 1, sizeof(int)*(limit - 1));
+	fill_n(&isPrime[2], limit - 1, 1);
 	primes.clear();
 
 	for (int i = 2; i <= sqrtLimit; i++) {
@@ -70,7 +69,7 @@ natural getRecurringLength(natural n) {
 	return -1;
 }
 
-vector<natural> getChainTable(natural limit) {
+auto getChainTable(natural limit) {
 	auto primes = populatePrimes(limit);
 	vector<natural> table = { 0 };
 	natural max = 0;
@@ -87,5 +86,5 @@ vector<natural> getChainTable(natural limit) {
 int main() {
 	constexpr natural limit = 1000;
 	auto table = getChainTable(limit);
-	cout << *(lower_bound(table.begin(), table.end(), 1000) - 1) << endl;
+	cout << *(lower_bound(table.begin(), table.end(), 1000) - 1) << '\n';
 }

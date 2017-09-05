@@ -27,19 +27,18 @@ b must be prime to satify condition for n=0
 #include <iostream>
 #include <vector>
 #include <memory>
-#include <cstring>
 #include <algorithm>
 using namespace std;
 typedef unsigned int natural;
 
 unique_ptr<int[]> isPrime;
-vector<int> populatePrimes(int limit) {
+auto populatePrimes(int limit) {
 	vector<int> primes;
 	int sqrtLimit = (int)sqrt(limit + 1) + 1;
 	isPrime = move(unique_ptr<int[]>(new int[limit + 1]));
 
 	isPrime[0] = isPrime[1] = 0;
-	std::memset(&isPrime[2], 1, sizeof(int)*(limit - 1));
+	fill_n(&isPrime[2], limit - 1, 1);
 	primes.clear();
 
 	for (int i = 2; i <= sqrtLimit; i++) {
@@ -83,5 +82,5 @@ int main() {
 			}
 		}
 	}
-	cout << result.first*result.second << endl;
+	cout << result.first * result.second << '\n';
 }

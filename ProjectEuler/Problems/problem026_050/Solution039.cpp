@@ -27,7 +27,7 @@ typedef unsigned long long ull;
 typedef long long ll;
 
 template<class T>
-T GCD(T u, T v) {
+typename std::enable_if<std::is_unsigned<T>::value, T>::type GCD(T u, T v) {
 	int shift;
 	if (u == 0) return v;
 	if (v == 0) return u;
@@ -97,13 +97,26 @@ natural compute() {
 	return maxTable.back();
 }
 
+#ifdef _MSC_VER
+	template <class T>
+	inline void DoNotOptimize(const T &value) {
+		__asm { lea ebx, value }
+	}
+#else
+	template <class T>
+	__attribute__((always_inline)) inline void DoNotOptimize(const T &value) {
+		asm volatile("" : "+m"(const_cast<T &>(value)));
+	}
+#endif
+
 int main() {
+	using namespace std;
 	using namespace chrono;
 	auto start = high_resolution_clock::now();
 	auto result = compute();
-	auto end = high_resolution_clock::now();
-	cout << result << '\n';
+	DoNotOptimize(result);
 	cout << "Done in "
-		<< duration_cast<nanoseconds>(end - start).count() / 1000000.0
-		<< " miliseconds." << '\n';
+		<< duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1e6
+		<< " miliseconds." << endl;
+	cout << result << endl;
 }

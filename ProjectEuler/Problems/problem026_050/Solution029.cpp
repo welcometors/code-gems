@@ -8,7 +8,8 @@ Consider all integer combinations of ab for 2 <= a <= 5 and 2 <= b <= 5:
 3^2=9,	3^3=27,  3^4=81,  3^5=243
 4^2=16, 4^3=64,  4^4=256, 4^5=1024
 5^2=25, 5^3=125, 5^4=625, 5^5=3125
-If they are then placed in numerical order, with any repeats removed, we get the following sequence of 15 distinct terms:
+If they are then placed in numerical order, with any repeats removed, we get the following 
+sequence of 15 distinct terms:
 
 4, 8, 9, 16, 25, 27, 32, 64, 81, 125, 243, 256, 625, 1024, 3125
 
@@ -25,7 +26,7 @@ using namespace std;
 typedef unsigned long long natural;
 
 template<class T>
-T GCD(T u, T v) {
+typename std::enable_if<std::is_unsigned<T>::value, T>::type GCD(T u, T v) {
 	int shift;
 	if (u == 0) return v;
 	if (v == 0) return u;
@@ -86,5 +87,5 @@ int main() {
 	natural total = (n - 1)*(n - 1);
 	for (natural p = 2; p <= maxPower; p++)
 		total -= numPowers[p] * dupPerPower[p];
-	cout << total << endl;
+	cout << total << '\n';
 }

@@ -40,5 +40,5 @@ int main() {
 	natural n = 1001;
 	natural s = ((n*(n + 1) / 2)*(2 * n + 1)) / 3 + n / 2;
 	s += s - (1 + n*n) / 2;
-	cout << s << endl;
+	cout << s << '\n';
 }
