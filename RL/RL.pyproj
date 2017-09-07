@@ -36,6 +36,8 @@
   <ItemGroup>
     <Content Include="nArmedBandit\plots\eGreedy_averageReward.png" />
     <Content Include="nArmedBandit\plots\eGreedy_percentOptimal.png" />
+    <Content Include="nArmedBandit\plots\softmax_averageReward.png" />
+    <Content Include="nArmedBandit\plots\softmax_percentOptimal.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
