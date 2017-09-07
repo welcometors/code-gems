@@ -29,5 +29,8 @@
     <ClInclude Include="src\nArmedBandit\eGreedy.h">
       <Filter>Source Files\nArmedBandit</Filter>
     </ClInclude>
+    <ClInclude Include="src\nArmedBandit\softmax.h">
+      <Filter>Source Files\nArmedBandit</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,11 +2,12 @@
 #include <vector>
 #include <random>
 #include <algorithm>
+#include <numeric>
 #include <thread>
 #include <future>
 #include <chrono>
 
-namespace eGreedy {
+namespace softmax {
 	using namespace std;
 	using real = double;
 	using number = uint32_t;
@@ -37,51 +38,57 @@ namespace eGreedy {
 
 	class agent {
 		default_random_engine eng;
-		uniform_int_distribution<number> choice;
 		uniform_real_distribution<real> uniform;
-		number bestAction;
-		real bestActionValue;
 
-		real _exploration;
+		real _temperature;
 		vector<number> _counts;
 		vector<real> _machines;
+		vector<real> exponent;
+		real exponentSum;
+		size_t updates;
 
 	public:
-		agent(number machines, real exploration) {
+		agent(number machines, real temperature) {
 			eng.seed(chrono::system_clock::now().time_since_epoch().count());
-			_exploration = exploration;
+			_temperature = temperature;
 			_counts.resize(machines, 0);
 			_machines.resize(machines, 0.0);
-			bestAction = 0;
-			bestActionValue = 0.0;
-			choice = uniform_int_distribution<number>(0, machines - 2);
+			exponent.resize(machines, 1.0);
+			exponentSum = machines;
+			updates = 0;
 		}
 
-		inline auto action() {
-			if (uniform(eng) < _exploration) {
-				auto chosen = choice(eng);
-				return chosen < bestAction ? chosen : chosen + 1;
+		inline size_t action() {
+			const auto n = _machines.size();
+			real cdf = exponent[0], choice = uniform(eng)*exponentSum;
+			for (size_t i = 1; i < n; i++) {
+				if (cdf > choice)
+					return i - 1;
+				cdf += exponent[i];
 			}
-			return bestAction;
+			return n - 1;
 		}
 
 		inline void update(number machine, real reward) {
 			_counts[machine]++;
 			_machines[machine] += (reward - _machines[machine]) / _counts[machine];
-			if (machine == bestAction && _machines[machine] < bestActionValue)
-				bestActionValue = _machines[bestAction = max_element(_machines.begin(), _machines.end()) - _machines.begin()];
-			else if (_machines[machine] > bestActionValue)
-				bestActionValue = _machines[bestAction = machine];
+			exponentSum -= exponent[machine];
+			exponent[machine] = exp(_machines[machine] / _temperature);
+			if (!(++updates & 0xFFF))
+				// refresh needed as floating point operations my loose precision
+				exponentSum = accumulate(exponent.begin(), exponent.end(), 0.0);
+			else
+				exponentSum += exponent[machine];
 		}
 	};
-	
-	auto conductExperiment(number n_runs, number n_machines, number n_steps, real exploration) {
+
+	auto conductExperiment(number n_runs, number n_machines, number n_steps, real temperature) {
 		vector<real> rewards(n_steps, 0.0);
 		vector<real> optimals(n_steps, 0.0);
 
 		for (number run = 0; run < n_runs; run++) {
 			environment env(n_machines);
-			agent aj(n_machines, exploration);
+			agent aj(n_machines, temperature);
 			for (number step = 0; step < n_steps; step++) {
 				auto action = aj.action();
 				if (action == env.optimal_action())
@@ -94,7 +101,7 @@ namespace eGreedy {
 
 		return make_pair(rewards, optimals);
 	}
-
+	
 	auto conductExperiments(number n_runs, number n_machines, number n_steps, real temperature) {
 		unsigned n_threads = thread::hardware_concurrency();
 

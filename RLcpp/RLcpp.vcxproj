@@ -163,6 +163,7 @@
   <ItemGroup>
     <ClInclude Include="src\include.h" />
     <ClInclude Include="src\nArmedBandit\eGreedy.h" />
+    <ClInclude Include="src\nArmedBandit\softmax.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
