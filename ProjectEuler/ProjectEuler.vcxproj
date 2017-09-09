@@ -159,6 +159,9 @@
     <None Include="packages.config" />
     <Text Include="Data\p081_matrix.txt" />
     <Text Include="Data\p089_roman.txt" />
+    <Text Include="Data\p096_sudoku.txt" />
+    <Text Include="Data\p098_words.txt" />
+    <Text Include="Data\p099_base_exp.txt" />
     <Text Include="Problems\problem001_025\Solution001.cpp" />
     <Text Include="Problems\problem001_025\Solution002.cpp" />
     <Text Include="Problems\problem001_025\Solution003.cpp" />
@@ -252,6 +255,12 @@
     <Text Include="Problems\problem076_100\Solution092.cpp" />
     <Text Include="Problems\problem076_100\Solution093.py" />
     <Text Include="Problems\problem076_100\Solution094.cpp" />
+    <Text Include="Problems\problem076_100\Solution095.cpp" />
+    <Text Include="Problems\problem076_100\Solution096.cpp" />
+    <Text Include="Problems\problem076_100\Solution097.cpp" />
+    <Text Include="Problems\problem076_100\Solution098.cpp" />
+    <Text Include="Problems\problem076_100\Solution099.cpp" />
+    <Text Include="Problems\problem076_100\Solution100.cpp" />
     <Text Include="Problems\problem201_225\Solution206.cpp" />
     <None Include="Documents\001_overview.pdf" />
     <None Include="Documents\002_overview.pdf" />

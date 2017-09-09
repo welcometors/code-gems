@@ -409,6 +409,33 @@
     <Text Include="Problems\problem076_100\Solution094.cpp">
       <Filter>Problems\problem076_100</Filter>
     </Text>
+    <Text Include="Problems\problem076_100\Solution095.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Data\p098_words.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution098.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Data\p096_sudoku.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution096.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution097.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Data\p099_base_exp.txt">
+      <Filter>Data</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution099.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
+    <Text Include="Problems\problem076_100\Solution100.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

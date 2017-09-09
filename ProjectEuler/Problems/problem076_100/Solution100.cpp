@@ -4,15 +4,15 @@ Problem 100
 
 Arranged probability
 
-If a box contains twenty-one coloured discs, composed of fifteen blue discs 
-and six red discs, and two discs were taken at random, it can be seen that 
+If a box contains twenty-one coloured discs, composed of fifteen blue discs
+and six red discs, and two discs were taken at random, it can be seen that
 the probability of taking two blue discs, P(BB) = (15/21)×(14/20) = 1/2.
 
-The next such arrangement, for which there is exactly 50% chance of taking two 
-blue discs at random, is a box containing eighty-five blue discs and thirty-five 
+The next such arrangement, for which there is exactly 50% chance of taking two
+blue discs at random, is a box containing eighty-five blue discs and thirty-five
 red discs.
 
-By finding the first arrangement to contain over 10^12 = 1,000,000,000,000 discs 
+By finding the first arrangement to contain over 10^12 = 1,000,000,000,000 discs
 in total, determine the number of blue discs that the box would contain.
 
 Solution:
@@ -75,8 +75,8 @@ typename std::enable_if<std::is_unsigned<T>::value, T>::type GCD(T u, T v) {
 auto pell(ll n) {
 	ll sqrtn = sqrt(n);
 	if (sqrtn*sqrtn == n)
-		return make_pair( ll(0), ll(0) );
-	
+		return make_pair(ll(0), ll(0));
+
 	ll p = 0, q = 1, a = sqrtn;
 	ll x0 = 1, y0 = 0, x1 = a, y1 = 1;
 	while (x1*x1 - n*y1*y1 != 1) {
@@ -122,7 +122,7 @@ auto solve(ll p, ll q, ll lim) {
 	if (!primitive.size())
 		return solns;
 
-	for(auto& base: primitive){
+	for (auto& base : primitive) {
 		ll x = base.first, y = base.second;
 		while (abs(y) < 2 * lim) {
 			if (x%q == 0) {
@@ -146,7 +146,7 @@ auto solveBF(ll p, ll q, ll lim) {
 	for (ll b = 1; b <= lim; b++)
 		for (ll t = b + 1; t <= lim; t++)
 			if (q*b*(b - 1) == p*t*(t - 1))
-				solns.insert({b, t});
+				solns.insert({ b, t });
 
 	return solns;
 }
