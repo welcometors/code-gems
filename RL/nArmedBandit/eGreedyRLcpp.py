@@ -19,7 +19,8 @@ def main():
     avg_rewards, optimal_actions = [], []
     legends = []
 
-    for m, p in parameters:
+    for i, (m, p) in enumerate(parameters):
+        print('\r {0:03.2f}%'.format(100*i/len(parameters)), end='')
         r, a = experiment(n_runs, n_machines, n_steps, m, p)
         avg_rewards.append(r)
         optimal_actions.append(a)

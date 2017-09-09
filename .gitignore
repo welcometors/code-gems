@@ -196,3 +196,6 @@ ModelManifest.xml
 /Hackerrank/input
 /Hackerrank/main.exe
 *.exe
+*.db
+/.vs/MyCodingGems/v15
+/.vs/slnx.sqlite
