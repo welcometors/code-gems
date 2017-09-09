@@ -93,7 +93,6 @@
     <None Include="Documents\073_overview.pdf">
       <Filter>Documents</Filter>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Data\p022_names.txt">
