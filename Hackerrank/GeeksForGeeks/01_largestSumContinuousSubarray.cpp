@@ -5,19 +5,22 @@
 #include <vector>
 using namespace std;
 
-template<class T>
-auto largestSumContinuousSubarray(const vector<T>& ary) {
-	if (!ary.size())
+template<class Iterator,
+	class T = typename std::iterator_traits<Iterator>::value_type,
+	typename Comparator = std::less<T>>
+
+auto largestSumContinuousSubarray(Iterator start, Iterator end, Comparator comp = Comparator()) {
+	if (start == end)
 		return T(0);
 
-	T maxSoFar = *ary.front(), currentMax = T(0);
+	T currentMax = *start, maxSoFar = *start;
 
-	for (auto x: ary) {
-		currentMax += x;
-		if (maxSoFar < currentMax)
+	while (++start != end) {
+		currentMax = currentMax + *start;
+		if (comp(maxSoFar, currentMax))
 			maxSoFar = currentMax;
-		if (currentMax < 0)
-			currentMax = 0;
+		if (comp(currentMax, T(0)))
+			currentMax = T(0);
 	}
 
 	return maxSoFar;
@@ -28,5 +31,5 @@ int main() {
 	cin.tie(0);
 
 	vector<int> ary = {-2, -3, 4, -1, -2, 1, 5, -3};
-	cout << largestSumContinuousSubarray(ary) << endl;
+	cout << largestSumContinuousSubarray(ary.begin(), ary.end()) << endl;
 }
