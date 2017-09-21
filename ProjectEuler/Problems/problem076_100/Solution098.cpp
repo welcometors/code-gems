@@ -35,10 +35,45 @@ Solution:
 using namespace std;
 using wordHash = unsigned long long;
 
-const int primes[26] = { 
-	 2,   3,   5,   7,  11,  13,  17,  19,  23,  29,
-	31,  37,  41,  43,  47,  53,  59,  61,  67,  71,
-	73,  79,  83,  89,  97,  101 };
+#ifdef _MSC_VER
+#include <intrin.h>
+#include <cstdint>
+uint32_t __inline __builtin_clz(uint32_t value) {
+	unsigned long leading_zero = 0;
+
+	if (_BitScanReverse(&leading_zero, value))
+		return 31 - leading_zero;
+
+	// Undefined, 32 seems better than 0
+	return 32;
+}
+#endif
+
+// undefined for 0
+auto encodeEliasDelta32(uint32_t x) {
+	uint32_t n = 31 - __builtin_clz(x);
+	x = ((n + 1) << n) | (x - (1 << n));
+	n = n + 1 + ((31 - __builtin_clz(n + 1)) << 1);
+	return make_pair(x, n);
+}
+
+// supports 10 characters without collision
+auto getEliasDeltaHash64(const string& str) {
+	uint32_t freq[26] = {};
+	for (auto& c : str)
+		++freq[c - 'A'];
+
+	wordHash h = 0;
+	for (uint32_t i = 0; i < 26; ++i)
+		if (freq[i]) {
+			h <<= 5;
+			h |= i;
+			auto[x, l] = encodeEliasDelta32(freq[i]);
+			h <<= l;
+			h |= x;
+		}
+	return h;
+}
 
 auto getWordsFromFile(const string& filename) {
 	unordered_map<wordHash, vector<string>> wordMap;
@@ -46,16 +81,13 @@ auto getWordsFromFile(const string& filename) {
 	if (infile.good()) {
 		string content{ istreambuf_iterator<char>(infile), istreambuf_iterator<char>() };
 		string word;
-		wordHash hash = 1;
 		for (char c : content) {
 			if (c == ',') {
-				wordMap[hash].push_back(word);
+				wordMap[getEliasDeltaHash64(word)].push_back(word);
 				word.clear();
-				hash = 1;
 			}
 			else if (c != '"') {
 				word += c;
-				hash *= primes[c - 'A'];
 			}
 		}
 	}
