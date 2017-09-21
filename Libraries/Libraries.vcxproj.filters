@@ -96,6 +96,9 @@
     <ClCompile Include="Arrays\BitArray.cpp">
       <Filter>Arrays</Filter>
     </ClCompile>
+    <ClCompile Include="IO\basicOutput.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="IO\Enormous Input.cpp">

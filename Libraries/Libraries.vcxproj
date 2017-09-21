@@ -85,6 +85,7 @@
     <ClCompile Include="ConditionallyBoundedArray.cpp" />
     <ClCompile Include="GCD.cpp" />
     <ClCompile Include="Intrinsics.cpp" />
+    <ClCompile Include="IO\basicOutput.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map\hash.cpp" />
     <ClCompile Include="Math\Integer.cpp" />
