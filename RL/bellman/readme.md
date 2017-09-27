@@ -64,6 +64,9 @@ always be to bet 1$.
 
 References:  
 1	[](#rlbook)
-	[Reinforcement Learning: An Introduction by Sutton & Barto](https://mitpress.mit.edu/books/reinforcement-learning)  
+	<a href="https://mitpress.mit.edu/books/reinforcement-learning" target="_blank">
+    "Reinforcement Learning: An Introduction" by Sutton & Barto</a>.
+
 2	[](#johnweb)
-	[John Weatherwax's Code](http://waxworksmath.com/Authors/N_Z/Sutton/WWW/chapter_4.html)
+    <a href="http://waxworksmath.com/Authors/N_Z/Sutton/WWW/chapter_4.html" target="_blank">
+    John Weatherwax's Code</a>.

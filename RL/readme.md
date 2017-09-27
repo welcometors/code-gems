@@ -5,16 +5,16 @@ Reinforment Learning
 
 ## Projects
 
-* [__nArmedBandit__](./nArmedBandit/readme.md)  
+* [__nArmedBandit__](./nArmedBandit/)  
   Classic n-armed bandit problem with e-greedy and softmax
   policies.
 
-* [__bellman__](./bellman/readme.md)  
-  Some problems listed in the 4th Chapter of ["Reinforcement 
-  Learning: An Introduction" by Sutton & Barto](
-  https://mitpress.mit.edu/books/reinforcement-learning).
+* [__bellman__](./bellman/)  
+  Some problems listed in the 4th Chapter of 
+  <a href="https://mitpress.mit.edu/books/reinforcement-learning" target="_blank">
+  "Reinforcement Learning: An Introduction" by Sutton & Barto</a>.
 
-* [__randomWalk__](./randomWalk/readme.md)  
+* [__randomWalk__](./randomWalk/)  
   Some classic reinforment techniques like monte-carlo, 
   sarsa, q-learning, TD-lambda.
 
