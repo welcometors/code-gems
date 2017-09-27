@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>544cd56e-476a-4e1d-8709-4e393affd979</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>nArmedBandit\eGreedy.py</StartupFile>
+    <StartupFile>gridWorld\gamblerProblem.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,22 +22,56 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="bellman\gamblersProblem.py" />
+    <Compile Include="bellman\jackCarRental.py" />
+    <Compile Include="bellman\jackCarRentalCpp.py" />
+    <Compile Include="cppLib\bellman.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="cppLib\libImporter.py" />
+    <Compile Include="cppLib\nArmedBandit.py" />
+    <Compile Include="cppLib\__init__.py" />
+    <Compile Include="gridWorld\gamblerProblem.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="gridWorld\jackCarRentalCpp.py" />
+    <Compile Include="gridWorld\jackCarRental.py" />
     <Compile Include="nArmedBandit\eDecrease.py" />
-    <Compile Include="nArmedBandit\eGreedyRLcpp.py" />
+    <Compile Include="nArmedBandit\eGreedySoftmaxCpp.py" />
     <Compile Include="nArmedBandit\eGreedySoftMaxOptimistic.py" />
     <Compile Include="nArmedBandit\eGreedySoftMax.py" />
     <Compile Include="nArmedBandit\eGreedy.py" />
-    <Compile Include="RL.py" />
+    <Compile Include="randomWalk\qLearning.py" />
+    <Compile Include="randomWalk\TDLambda.py" />
+    <Compile Include="randomWalk\sarsa.py" />
+    <Compile Include="randomWalk\monteCarlo.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bellman\" />
+    <Folder Include="bellman\plots\" />
+    <Folder Include="cppLib\" />
+    <Folder Include="gridWorld\plots\" />
     <Folder Include="nArmedBandit\" />
     <Folder Include="nArmedBandit\plots\" />
+    <Folder Include="bellman\" />
+    <Folder Include="cppLib\" />
+    <Folder Include="randomWalk\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bellman\readme.md" />
+    <Content Include="gridWorld\plots\jacksCarRental_bugged.png" />
+    <Content Include="gridWorld\plots\jacksCarRental_corrected.png" />
+    <Content Include="nArmedBandit\plots\eDecrease_averageReward.png" />
+    <Content Include="nArmedBandit\plots\eDecrease_percentOptimal.png" />
+    <Content Include="nArmedBandit\plots\eGreedyOptimistic_averageReward.png" />
+    <Content Include="nArmedBandit\plots\eGreedyOptimistic_percentOptimal.png" />
     <Content Include="nArmedBandit\plots\eGreedy_averageReward.png" />
     <Content Include="nArmedBandit\plots\eGreedy_percentOptimal.png" />
     <Content Include="nArmedBandit\plots\softmax_averageReward.png" />
     <Content Include="nArmedBandit\plots\softmax_percentOptimal.png" />
+    <Content Include="nArmedBandit\readme.md" />
+    <Content Include="randomWalk\readme.md" />
+    <Content Include="readme.md" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

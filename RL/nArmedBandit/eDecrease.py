@@ -15,7 +15,7 @@ class agent():
     def action(self):
         best = self.machines.argmax()
         # exponential decay
-        e = self.exploration * np.exp(self.steps*self.decay)
+        e = self.exploration / np.exp(self.steps*self.decay)
         if np.random.random_sample() < e:
             chosen = np.random.random_integers(0, len(self.machines) - 2)
             return chosen if chosen < best else chosen + 1
@@ -56,21 +56,24 @@ def experiment(n_runs, n_machines, n_steps, exploration, decay_rate):
 
 
 def main():
-    parameters = [(.1,0), (.25,.00001)]
+    n_machines = 10
+    n_runs = 1000
+    parameters = [(.1,0), (.1,0.0003)]
     avg_rewards, optimal_actions = [], []
     legends = []
 
     for e,r in parameters:
-        ar, oa = experiment(n_runs=2000, n_machines=10, n_steps=1000, exploration=e, decay_rate=r)
+        ar, oa = experiment(n_runs=n_runs, n_machines=n_machines, n_steps=1000, exploration=e, decay_rate=r)
         avg_rewards.append(ar)
         optimal_actions.append(oa)
-        legends.append('explore {0}%, rate = {1}'.format(e*100, r))
+        legends.append('explore {0}%, decay-rate = {1}'.format(e*100, r))
 
     for avg_reward in avg_rewards:
         plt.plot(avg_reward)
     plt.legend(legends, loc='upper left')
     plt.ylabel('Average Reward')
     plt.xlabel('Steps')
+    plt.title('Machines = {0}, Runs = {1}'.format(n_machines, n_runs))
     plt.show()
 
     for optimal_action in optimal_actions:
@@ -79,6 +82,7 @@ def main():
     plt.legend(legends, loc='upper left')
     plt.ylabel('% Optimal Action')
     plt.xlabel('Steps')
+    plt.title('Machines = {0}, Runs = {1}'.format(n_machines, n_runs))
     plt.show()
 
 

@@ -1,30 +1,30 @@
-import sys
-sys.path.append('../x64/Release')
-
-# using cpp implementation for around 15x speed-up
-import RLcpp as rl
+import time
 from matplotlib import pyplot as plt
+from cppLib.nArmedBandit import e_greedy, softmax
+
 
 def experiment(n_runs, n_machines, n_steps, method='softmax', param=.1):
     if method == 'softmax':
-        return rl.softmax(n_runs, n_machines, n_steps, param)
-    return rl.e_greedy(n_runs, n_machines, n_steps, param)
+        return softmax.run(n_runs, n_machines, n_steps, param)
+    return e_greedy.run(n_runs, n_machines, n_steps, param)
 
 
 def main():
     n_runs = 10000
     n_machines = 10
     n_steps = 1000
-    parameters = [('softmax', .2), ('softmax', .15), ('softmax', .3), ('e_greedy', 0), ('e_greedy', .1)]
+    parameters = [('e_greedy', 0), ('e_greedy', .01), ('softmax', .2), ('e_greedy', .1)]
     avg_rewards, optimal_actions = [], []
     legends = []
 
+    start_time = time.time()
     for i, (m, p) in enumerate(parameters):
         print('\r {0:03.2f}%'.format(100*i/len(parameters)), end='')
         r, a = experiment(n_runs, n_machines, n_steps, m, p)
         avg_rewards.append(r)
         optimal_actions.append(a)
         legends.append('{0} param= {1}'.format(m, p))
+    print("\r{0} seconds.".format(time.time() - start_time))
 
     for avg_reward in avg_rewards:
         plt.plot(avg_reward)

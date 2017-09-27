@@ -1,4 +1,4 @@
-#include "include.h"
+#include "rlcpp.hpp"
 
 PyMODINIT_FUNC
 PyInit_RLcpp(void)

@@ -64,7 +64,7 @@ def experiment(n_runs, n_machines, n_steps, method, param, optimism):
 
 
 def main():
-    n_runs = 1000
+    n_runs = 10000
     n_machines = 10
     n_steps = 1000
     parameters = [('uniform', .1, 0), ('uniform', .1, 5), ('softmax', .2, 0), ('softmax', .2, 5)]

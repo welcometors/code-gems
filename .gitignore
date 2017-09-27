@@ -197,5 +197,7 @@ ModelManifest.xml
 /Hackerrank/main.exe
 *.exe
 *.db
+*.pyc
 /.vs/MyCodingGems/v15
 /.vs/slnx.sqlite
+/.vs

@@ -89,7 +89,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Python36\include;$(IncludePath)</IncludePath>
+    <IncludePath>.\include;C:\Python36\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Python36\libs;$(LibraryPath)</LibraryPath>
     <TargetExt>.pyd</TargetExt>
   </PropertyGroup>
@@ -161,11 +161,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\bellman\jacksCarRental.cpp" />
+    <ClCompile Include="src\nArmedBandit\eGreedyAgent.cpp" />
+    <ClCompile Include="src\nArmedBandit\environment.cpp" />
+    <ClCompile Include="src\nArmedBandit\experiments.cpp" />
+    <ClCompile Include="src\nArmedBandit\softmaxAgent.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\include.h" />
-    <ClInclude Include="src\nArmedBandit\eGreedy.h" />
-    <ClInclude Include="src\nArmedBandit\softmax.h" />
+    <ClInclude Include="include\bellman.hpp" />
+    <ClInclude Include="include\bellman\jacksCarRental.hpp" />
+    <ClInclude Include="include\nArmedBandit\eGreedyAgent.hpp" />
+    <ClInclude Include="include\nArmedBandit\environment.hpp" />
+    <ClInclude Include="include\nArmedBandit\experiments.hpp" />
+    <ClInclude Include="include\nArmedBandit\expTypes.hpp" />
+    <ClInclude Include="include\nArmedBandit\softmaxAgent.hpp" />
+    <ClInclude Include="include\rlcpp.hpp" />
+    <ClInclude Include="include\nArmedBandit.hpp" />
+    <ClInclude Include="include\utils\pyconverter.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
