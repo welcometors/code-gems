@@ -15,57 +15,50 @@ Jump to:
 *  [Solutions](#solutions)
 *  [Plots](#plots)
 
-
 ---
 
-[](#solutions)
 ## Solutions
 
 * [__eGreedy.py__](./eGreedy.py)  
   e-greedy solution to n-armed bandit. The agent will explore the environment
   with probability _e_ and exploit with _1-e_.  
-  [plots](#eGreedyPlots)
+  [plots](#e-greedy)
 
 * [__eDecrease.py__](./eDecrease.py)  
   The exploration probability will decay exponentially over time. So that the
   agent will exploit more as time passes.  
-  [plots](#eDecreasePlots)
+  [plots](#e-greedy-vs-e-decrease)
 
 * [__eGreedySoftMax.py__](./eGreedySoftMax.py)  
   softmax solution to n-armed bandit. The agent will explore the environment
   with probability _e_ and exploit with _1-e_.  
-  [plots](#eGreedySoftMaxPlots)
+  [plots](#e-greedy-vs-softmax)
 
 * [__eGreedySoftMaxOptimistic.py__](./eGreedySoftMaxOptimistic.py)  
   An optimistic start for e-greedy or softmax. It assumes the average reward of 
   bandits to 5 instead of 0.  
-  [plots](#eGreedySoftMaxOptimistic)
+  [plots](#zero-start-vs-optimistic)
 
 * [__eGreedySoftmaxCpp.py__](./eGreedySoftmaxCpp.py)  
   _eGreedySoftMax_ solution by using cppLib for better performance.  
-  [plots](#eGreedySoftMaxPlots)
+  [plots](#e-greedy-vs-softmax)
 
 ---
 
-[](#plots)
 ## Plots
 
-[](#eGreedyPlots)
-### greedy vs e-greedy
+### e-greedy
 ![alt text](./plots/eGreedy_averageReward.png)
 ![alt text](./plots/eGreedy_percentOptimal.png)
 
-[](#eDecreasePlots)
 ### e-greedy vs e-decrease
 ![alt text](./plots/eDecrease_averageReward.png)
 ![alt text](./plots/eDecrease_percentOptimal.png)
 
-[](#eGreedySoftMaxPlots)
-### greedy vs e-greedy vs softmax
+### e-greedy vs softmax
 ![alt text](./plots/softmax_averageReward.png)
 ![alt text](./plots/softmax_percentOptimal.png)
 
-[](#eGreedySoftMaxOptimistic)
 ### zero-start vs optimistic
 ![alt text](./plots/eGreedyOptimistic_averageReward.png)
 ![alt text](./plots/eGreedyOptimistic_percentOptimal.png)

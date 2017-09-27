@@ -6,12 +6,11 @@ is a very popular equation used to solve MDP (Markov Decision Process)
 based RL problems.
 
 Jump to:  
-*  [Jack's Car Rental](#jacksCarRental)
-*  [Gambler's Problem](#gamblersProblem)
+*  [Jack's Car Rental](#jacks-car-rental)
+*  [Gambler's Problem](#gamblers-problem)
 
 ---
 
-[](#jacksCarRental)
 ## Jack's Car Rental
 Implementation of Example 4.2: Jack’s Car Rental from the [book](#rlbook).
 
@@ -43,7 +42,6 @@ New Plots:
 
 ---
 
-[](#gamblersProblem)
 ## Gambler's Problem
 Implementation of Example 4.3: Gambler’s Problem from the [book](#rlbook).
 
@@ -63,10 +61,10 @@ always be to bet 1$.
 ---
 
 References:  
-1	[](#rlbook)
+1	<a name="rlbook"></a>
 	<a href="https://mitpress.mit.edu/books/reinforcement-learning" target="_blank">
     "Reinforcement Learning: An Introduction" by Sutton & Barto</a>.
 
-2	[](#johnweb)
+2	<a name="johnsweb"></a>
     <a href="http://waxworksmath.com/Authors/N_Z/Sutton/WWW/chapter_4.html" target="_blank">
     John Weatherwax's Code</a>.
