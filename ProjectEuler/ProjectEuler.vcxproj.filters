@@ -93,6 +93,7 @@
     <None Include="Documents\073_overview.pdf">
       <Filter>Documents</Filter>
     </None>
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Data\p022_names.txt">
@@ -101,7 +102,6 @@
     <Text Include="Data\p042_words.txt">
       <Filter>Data</Filter>
     </Text>
-    <Text Include="copying.txt" />
     <Text Include="Data\p054_poker.txt">
       <Filter>Data</Filter>
     </Text>

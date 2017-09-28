@@ -170,6 +170,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <None Include="readme.md" />
     <Text Include="Data\p081_matrix.txt" />
     <Text Include="Data\p089_roman.txt" />
     <Text Include="Data\p096_sudoku.txt" />
@@ -300,7 +301,6 @@
     <Text Include="Problems\problem051_075\Solution066.py" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="copying.txt" />
     <Text Include="Data\p022_names.txt" />
     <Text Include="Data\p042_words.txt" />
     <Text Include="Data\p054_poker.txt" />
