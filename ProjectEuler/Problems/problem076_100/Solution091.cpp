@@ -108,6 +108,7 @@ namespace BitArray {
 	}
 
 #ifdef _MSC_VER
+#include <nmmintrin.h>
 	uint32_t popcnt(uint32_t x) { return _mm_popcnt_u32(x); }
 #else
 	uint32_t popcnt(uint32_t x) { return __builtin_popcount(x); }
@@ -205,19 +206,18 @@ auto compute() {
 	return calcV3(50);
 }
 
-template <class T>
-inline void DoNotOptimize(const T &value) {
-	__asm { lea ebx, value }
+template<typename Function, class ... Types>
+decltype(auto) timeit(Function f, Types ... args) {
+    using namespace chrono;
+    auto start = high_resolution_clock::now();
+    auto result = f(args...);
+    double duration = duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1e6;
+    return std::make_pair(result, duration);
 }
 
 int main() {
-	using namespace std;
-	using namespace chrono;
-	auto start = high_resolution_clock::now();
-	auto result = compute();
-	DoNotOptimize(result);
-	cout << "Done in "
-		<< duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1e6
-		<< " miliseconds." << endl;
-	cout << result << endl;
+    using namespace std;
+    auto[result, time] = timeit(compute);
+    cout << result << " Calculated in " << time << " miliseconds." << '\n';
+    return 0;
 }

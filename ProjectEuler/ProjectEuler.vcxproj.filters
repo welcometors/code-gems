@@ -435,6 +435,9 @@
     <Text Include="Problems\problem076_100\Solution100.cpp">
       <Filter>Problems\problem076_100</Filter>
     </Text>
+    <Text Include="Problems\problem076_100\Solution093.cpp">
+      <Filter>Problems\problem076_100</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

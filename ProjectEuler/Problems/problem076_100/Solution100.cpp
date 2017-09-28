@@ -190,26 +190,18 @@ auto compute() {
 	return b;
 }
 
-#ifdef _MSC_VER
-	template <class T>
-	inline void DoNotOptimize(const T &value) {
-		__asm { lea ebx, value }
-	}
-#else
-	template <class T>
-	__attribute__((always_inline)) inline void DoNotOptimize(const T &value) {
-		asm volatile("" : "+m"(const_cast<T &>(value)));
-	}
-#endif
+template<typename Function, class ... Types>
+decltype(auto) timeit(Function f, Types ... args) {
+    using namespace chrono;
+    auto start = high_resolution_clock::now();
+    auto result = f(args...);
+    double duration = duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1e6;
+    return std::make_pair(result, duration);
+}
 
 int main() {
-	using namespace std;
-	using namespace chrono;
-	auto start = high_resolution_clock::now();
-	auto result = compute();
-	DoNotOptimize(result);
-	cout << "Done in "
-		<< duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1e6
-		<< " miliseconds." << endl;
-	cout << result << endl;
+    using namespace std;
+    auto[result, time] = timeit(compute);
+    cout << result << " Calculated in " << time << " miliseconds." << '\n';
+    return 0;
 }
