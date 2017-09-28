@@ -91,6 +91,7 @@
     <ClCompile Include="Math\Integer.cpp" />
     <ClCompile Include="Math\Permutation.cpp" />
     <ClCompile Include="Misc.cpp" />
+    <ClCompile Include="Misc\time.cpp" />
     <ClCompile Include="Modular.cpp" />
     <ClCompile Include="ModularMacros.cpp" />
     <ClCompile Include="mst.cpp" />

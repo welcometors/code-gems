@@ -34,6 +34,9 @@
     <Filter Include="Tree">
       <UniqueIdentifier>{2fa8608d-827d-4a4f-9e10-e8947103ecdb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{04cdacec-a795-4661-9860-8f4f91ff4e32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -98,6 +101,9 @@
     </ClCompile>
     <ClCompile Include="IO\basicOutput.cpp">
       <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="Misc\time.cpp">
+      <Filter>Misc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
