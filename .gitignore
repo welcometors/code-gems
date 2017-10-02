@@ -201,3 +201,7 @@ ModelManifest.xml
 /.vs/MyCodingGems/v15
 /.vs/slnx.sqlite
 /.vs
+/ML/data
+/ML/.ipynb_checkpoints
+/RL/games/.ipynb_checkpoints
+*.h5

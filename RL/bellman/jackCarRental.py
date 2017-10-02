@@ -24,21 +24,19 @@ def poisson(l, n):
 
 class Station:
     def __init__(self, rent, avg_request, avg_return, max_capacity, max_transfer):
-        max_limit = max_capacity + max_transfer
-        self.reward = np.zeros(max_limit + 1)
-        self.probability = np.zeros((max_limit + 1, max_capacity + 1))
-        for cars in range(max_limit + 1):
-            for n_request, p_request in enumerate(poisson(avg_request, max_limit)):
-                for n_return, p_return in enumerate(poisson(avg_return, max_limit)):
+        self.reward = np.zeros(max_capacity + 1)
+        self.probability = np.zeros((max_capacity + 1, max_capacity + 1))
+        for cars in range(max_capacity + 1):
+            for n_request, p_request in enumerate(poisson(avg_request, max_capacity)):
+                for n_return, p_return in enumerate(poisson(avg_return, max_capacity)):
                     #old bugged version
-                    #n_rented = min(cars, n_request)
-                    n_rented = min(cars + n_return, n_request)
+                    n_rented = min(cars, n_request)
+                    #n_rented = min(cars + n_return, n_request)
                     self.reward[cars] += rent*n_rented*p_request*p_return
                     gone = min(cars, n_request)
                     cars_eod = min(cars + n_return - gone, max_capacity)
                     self.probability[cars,cars_eod] += p_request*p_return
         self.max_capacity = max_capacity
-        self.max_limit = max_limit
 
 
 class Environment():
@@ -49,18 +47,16 @@ class Environment():
 
     def next(self, state, values, moved, discount):
         cars_a, cars_b = state
-        cars_a -= moved
-        cars_b += moved
+        cars_a = min(cars_a - moved, self.station_a.max_capacity)
+        cars_b = min(cars_b + moved, self.station_b.max_capacity)
         if cars_a < 0 or cars_b < 0:
             return -9999999
         else:
-            new_value = -math.fabs(moved)*self.transfer_cost
+            new_value = self.station_a.reward[cars_a] + self.station_b.reward[cars_b] \
+                - math.fabs(moved)*self.transfer_cost
             next_states = np.outer(self.station_a.probability[cars_a,:], self.station_b.probability[cars_b,:])
             for next_state, probability in np.ndenumerate(next_states):
-                new_value += probability * ( \
-                    + self.station_a.reward[cars_a] \
-                    + self.station_b.reward[cars_b] \
-                    + discount*values[next_state])
+                new_value += probability * discount * values[next_state]
             return new_value
 
 

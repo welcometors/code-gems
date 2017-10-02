@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>544cd56e-476a-4e1d-8709-4e393affd979</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>gridWorld\gamblerProblem.py</StartupFile>
+    <StartupFile>bellman\gamblerProblem.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -31,11 +31,9 @@
     <Compile Include="cppLib\libImporter.py" />
     <Compile Include="cppLib\nArmedBandit.py" />
     <Compile Include="cppLib\__init__.py" />
-    <Compile Include="gridWorld\gamblerProblem.py">
+    <Compile Include="games\test.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="gridWorld\jackCarRentalCpp.py" />
-    <Compile Include="gridWorld\jackCarRental.py" />
     <Compile Include="nArmedBandit\eDecrease.py" />
     <Compile Include="nArmedBandit\eGreedySoftmaxCpp.py" />
     <Compile Include="nArmedBandit\eGreedySoftMaxOptimistic.py" />
@@ -50,17 +48,15 @@
     <Folder Include="bellman\" />
     <Folder Include="bellman\plots\" />
     <Folder Include="cppLib\" />
-    <Folder Include="gridWorld\plots\" />
     <Folder Include="nArmedBandit\" />
     <Folder Include="nArmedBandit\plots\" />
     <Folder Include="bellman\" />
     <Folder Include="cppLib\" />
     <Folder Include="randomWalk\" />
+    <Folder Include="games\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bellman\readme.md" />
-    <Content Include="gridWorld\plots\jacksCarRental_bugged.png" />
-    <Content Include="gridWorld\plots\jacksCarRental_corrected.png" />
     <Content Include="nArmedBandit\plots\eDecrease_averageReward.png" />
     <Content Include="nArmedBandit\plots\eDecrease_percentOptimal.png" />
     <Content Include="nArmedBandit\plots\eGreedyOptimistic_averageReward.png" />
