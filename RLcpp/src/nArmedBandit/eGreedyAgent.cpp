@@ -3,7 +3,7 @@
 namespace nArmedBandit {
 
 	eGreedyAgent::eGreedyAgent(number machines, real exploration) {
-		eng.seed(chrono::system_clock::now().time_since_epoch().count());
+		eng.seed((unsigned int)chrono::system_clock::now().time_since_epoch().count());
 		_exploration = exploration;
 		_counts.resize(machines, 0);
 		_machines.resize(machines, 0.0);
@@ -24,7 +24,7 @@ namespace nArmedBandit {
 		_counts[machine]++;
 		_machines[machine] += (reward - _machines[machine]) / _counts[machine];
 		if (machine == bestAction && _machines[machine] < bestActionValue)
-			bestActionValue = _machines[bestAction = max_element(_machines.begin(), _machines.end()) - _machines.begin()];
+			bestActionValue = _machines[bestAction = (number)(max_element(_machines.begin(), _machines.end()) - _machines.begin())];
 		else if (_machines[machine] > bestActionValue)
 			bestActionValue = _machines[bestAction = machine];
 	}

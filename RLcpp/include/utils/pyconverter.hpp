@@ -7,6 +7,14 @@ static PyObject* toPyObject(int x) {
 	return PyLong_FromLong(x);
 }
 
+static PyObject* toPyObject(long x) {
+    return PyLong_FromLong(x);
+}
+
+static PyObject* toPyObject(float x) {
+    return PyFloat_FromDouble(x);
+}
+
 static PyObject* toPyObject(double x) {
 	return PyFloat_FromDouble(x);
 }

@@ -9,7 +9,7 @@ namespace nArmedBandit {
 	namespace expTypes {
 		using namespace std;
 
-		using real = double;
+		using real = float;
 		using number = uint32_t;
 		using experimentResults = pair<vector<real>, vector<real>>;
 	}

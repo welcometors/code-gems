@@ -2,11 +2,11 @@
 
 namespace nArmedBandit {
 	environment::environment(number machines) {
-		eng.seed(chrono::system_clock::now().time_since_epoch().count());
+		eng.seed((unsigned int)(chrono::system_clock::now().time_since_epoch().count()));
 		_machines.resize(machines);
 		for (auto& machine : _machines)
 			machine = gaussian(eng);
-		_optimal = max_element(_machines.begin(), _machines.end()) - _machines.begin();
+		_optimal = (number)(max_element(_machines.begin(), _machines.end()) - _machines.begin());
 	}
 
 	real environment::reward(number machine) {

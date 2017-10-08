@@ -99,7 +99,7 @@ namespace bellman::jacksCarRental {
 					vector<double> qi(aMaxTransfer + bMaxTransfer + 1);
 					for (int transfer = -bMaxTransfer; transfer <= aMaxTransfer; ++transfer)
 						qi[bMaxTransfer + transfer] = bellmanValue(aCars, bCars, transfer);
-					int bestAction = max_element(qi.begin(), qi.end()) - qi.begin() - bMaxTransfer;
+					int bestAction = (int)(max_element(qi.begin(), qi.end()) - qi.begin() - bMaxTransfer);
 					if (bestAction != policy[aCars][bCars]) {
 						policy[aCars][bCars] = bestAction;
 						++changes;

@@ -45,10 +45,10 @@ namespace nArmedBandit {
 		vector<real> optimals(n_steps, 0.0);
 
 		for (auto& e : experiments) {
-			auto result = e.get();
+			auto [reward, optimal] = e.get();
 			for (number step = 0; step < n_steps; step++) {
-				rewards[step] += result.first[step];
-				optimals[step] += result.second[step];
+				rewards[step] += reward[step];
+				optimals[step] += optimal[step];
 			}
 		}
 

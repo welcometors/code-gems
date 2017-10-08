@@ -9,7 +9,7 @@ namespace nArmedBandit_py {
 		int n_runs, n_machines, n_steps;
 		double exploration;
 		if (PyArg_ParseTuple(args, "iiid", &n_runs, &n_machines, &n_steps, &exploration))
-			return toPyTuple(nArmedBandit::experiments::eGreedy(n_runs, n_machines, n_steps, exploration));
+			return toPyTuple(nArmedBandit::experiments::eGreedy(n_runs, n_machines, n_steps, (nArmedBandit::real)exploration));
 		return 0;
 	}
 
@@ -18,7 +18,7 @@ namespace nArmedBandit_py {
 		int n_runs, n_machines, n_steps;
 		double temperature;
 		if (PyArg_ParseTuple(args, "iiid", &n_runs, &n_machines, &n_steps, &temperature))
-			return toPyTuple(nArmedBandit::experiments::softmax(n_runs, n_machines, n_steps, temperature));
+			return toPyTuple(nArmedBandit::experiments::softmax(n_runs, n_machines, n_steps, (nArmedBandit::real)temperature));
 		return 0;
 	}
 }
