@@ -80,8 +80,10 @@
   <ItemGroup>
     <ClCompile Include="Arrays\BitArray.cpp" />
     <ClCompile Include="Arrays\Inversion.cpp" />
+    <ClCompile Include="Arrays\matrix.cpp" />
     <ClCompile Include="Arrays\Search.cpp" />
     <ClCompile Include="Bits.cpp" />
+    <ClCompile Include="Class\forwardConstructor.cpp" />
     <ClCompile Include="ConditionallyBoundedArray.cpp" />
     <ClCompile Include="GCD.cpp" />
     <ClCompile Include="Intrinsics.cpp" />

@@ -37,6 +37,9 @@
     <Filter Include="Misc">
       <UniqueIdentifier>{04cdacec-a795-4661-9860-8f4f91ff4e32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Class">
+      <UniqueIdentifier>{d91661e7-fc95-4eba-84a5-4bfd4a6403b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,6 +107,12 @@
     </ClCompile>
     <ClCompile Include="Misc\time.cpp">
       <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrays\matrix.cpp">
+      <Filter>Arrays</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\forwardConstructor.cpp">
+      <Filter>Class</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
