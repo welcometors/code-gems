@@ -42,14 +42,18 @@ namespace Sieves {
 		}
 
 		auto countPrimes(const size_t minSieveSize) {
-			const size_t numOfElementsInArray = 1 + minSieveSize / sizeOfElementInBits;
+			const size_t lastIdx = minSieveSize / sizeOfElementInBits;
 			uint32_t sum = 0;
-			for (size_t i = 0; i < numOfElementsInArray; ++i)
-#ifdef _MSC_VER
-				sum += _mm_popcnt_u32(m_sieve[i]);
-#else
-				sum += __builtin_popcount(m_sieve[i]);
-#endif		
+			for (size_t i = 0; i < lastIdx; ++i)
+		#ifdef _MSC_VER
+			    sum += _mm_popcnt_u32(m_sieve[i]);
+		#else
+			    sum += __builtin_popcount(m_sieve[i]);
+		#endif		
+			const size_t remaining = minSieveSize & (sizeOfElementInBits - 1);
+			for (size_t i = 0; i < remaining; ++i)
+			    if((m_sieve[lastIdx] >> i) & 1)
+				sum++;
 			return sum;
 		}
 	};
