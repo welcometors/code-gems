@@ -48,6 +48,18 @@
     <Filter Include="Contests\Booking.com">
       <UniqueIdentifier>{90e64a76-8c01-4715-9b01-c2568d671d0a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Codefights">
+      <UniqueIdentifier>{f01c89b2-dcd1-425d-9c98-9004491dca29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CodeForces">
+      <UniqueIdentifier>{0c4ba965-81d7-4612-ac72-43cd93a0b860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contests\WeekOfCode">
+      <UniqueIdentifier>{4169f532-3017-4b45-8e52-d624f82298c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeeksForGeeks">
+      <UniqueIdentifier>{31563857-e882-4a3b-8948-30ef060f6ec8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -131,6 +143,78 @@
     </Text>
     <Text Include="Problems\Combinatorics\Count Fox Sequences.cpp">
       <Filter>Problems\Combinatorics</Filter>
+    </Text>
+    <Text Include="Attribute Parser XML.cpp">
+      <Filter>Problems\Search</Filter>
+    </Text>
+    <Text Include="Codefights Challenge\matchstick equation.cpp">
+      <Filter>Codefights</Filter>
+    </Text>
+    <Text Include="CodeForces\problem.cpp">
+      <Filter>CodeForces</Filter>
+    </Text>
+    <Text Include="Problems\Search\Gravity Tree.cpp">
+      <Filter>Problems\Search</Filter>
+    </Text>
+    <Text Include="Contests\WeekOfCode\minichess.cpp">
+      <Filter>Contests\WeekOfCode</Filter>
+    </Text>
+    <Text Include="Contests\WeekOfCode\gravitytree.cpp">
+      <Filter>Contests\WeekOfCode</Filter>
+    </Text>
+    <Text Include="Contests\WeekOfCode\poles.cpp">
+      <Filter>Contests\WeekOfCode</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\01_largestSumContinuousSubarray.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\02_uglyNumber.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\03_maximumSubSquareMatrixWithAll1s.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\04_longestMonotonicallyIncreasingSubsequence.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\05_longestCommonSubsequence.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\06_editDistance.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\07_minCostPath.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\08_longestSubstringWithoutRepeatingCharacters.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\09_minimumJumpsToEnd.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\10_coinChange.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\11_matrixChainMultiplication.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\12_eggDropping.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\13_longestPalindromicSubsequence.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\14_rodCutting.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="GeeksForGeeks\15_maximumSumMonotonicallyIncreasingSubsequence.cpp">
+      <Filter>GeeksForGeeks</Filter>
+    </Text>
+    <Text Include="Contests\WeekOfCode\maxGcdPairSum.cpp">
+      <Filter>Contests\WeekOfCode</Filter>
+    </Text>
+    <Text Include="Contests\WeekOfCode\numOfSubarraysWithSameCounts.cpp">
+      <Filter>Contests\WeekOfCode</Filter>
     </Text>
   </ItemGroup>
 </Project>

@@ -1,64 +1,207 @@
+// https://projecteuler.net/problem=100
+/*
+Problem 100
+
+Arranged probability
+
+If a box contains twenty-one coloured discs, composed of fifteen blue discs 
+and six red discs, and two discs were taken at random, it can be seen that 
+the probability of taking two blue discs, P(BB) = (15/21)×(14/20) = 1/2.
+
+The next such arrangement, for which there is exactly 50% chance of taking two 
+blue discs at random, is a box containing eighty-five blue discs and thirty-five 
+red discs.
+
+By finding the first arrangement to contain over 10^12 = 1,000,000,000,000 discs 
+in total, determine the number of blue discs that the box would contain.
+
+Solution:
+For current case:
+https://www.alpertron.com.ar/QUAD.HTM
+
+For generalized case i.e. probability = p/q
+Solving General Pell's Equation
+http://www.jpr2718.org/FundSoln.pdf
+
+*/
+
 #include <iostream>
-#include <cstdint>
-
+#include <tuple>
+#include <set>
+#include <vector>
+#include <cmath>
+#include <cstdlib>
+#include <algorithm>
+#include <chrono>
 using namespace std;
-typedef unsigned long long natural;
 
-const int spanLength = 13;
-const string number =
-"73167176531330624919225119674426574742355349194934"
-"96983520312774506326239578318016984801869478851843"
-"85861560789112949495459501737958331952853208805511"
-"12540698747158523863050715693290963295227443043557"
-"66896648950445244523161731856403098711121722383113"
-"62229893423380308135336276614282806444486645238749"
-"30358907296290491560440772390713810515859307960866"
-"70172427121883998797908792274921901699720888093776"
-"65727333001053367881220235421809751254540594752243"
-"52584907711670556013604839586446706324415722155397"
-"53697817977846174064955149290862569321978468622482"
-"83972241375657056057490261407972968652414535100474"
-"82166370484403199890008895243450658541227588666881"
-"16427171479924442928230863465674813919123162824586"
-"17866458359124566529476545682848912883142607690042"
-"24219022671055626321111109370544217506941658960408"
-"07198403850962455444362981230987879927244284909188"
-"84580156166097919133875499200524063689912560717606"
-"05886116467109405077541002256983155200055935729725"
-"71636269561882670428252483600823257530420752963450";
+using ll = long long;
 
-int main(){
-	int totalDigits = number.length();
-	natural max = 0, mul = 1; 
-	int zeros = 0;
-		
-	for (int i = 0; i < spanLength; i++){
-		if (number[i] != '0')
-			mul *= (number[i] - '0');
-		else
-			zeros++;
+template<class T, class V>
+ostream& operator << (ostream& out, const pair<T, V>& val) {
+	out << val.first << ' ' << val.second;
+	return out;
+}
+
+template<class T>
+typename std::enable_if<std::is_unsigned<T>::value, T>::type GCD(T u, T v) {
+	int shift;
+	if (u == 0) return v;
+	if (v == 0) return u;
+
+	for (shift = 0; ((u | v) & 1) == 0; ++shift) {
+		u >>= 1;
+		v >>= 1;
 	}
 
-	if (!zeros && mul > max)
-		max = mul;
+	while ((u & 1) == 0)
+		u >>= 1;
 
-	for (int i = spanLength; i < totalDigits; i++){
-		if (number[i] != '0' && number[i - spanLength] != '0'){
-			mul = (mul / (number[i - spanLength] - '0')) * (number[i] - '0');
+	do {
+		while ((v & 1) == 0)
+			v >>= 1;
+		if (u > v) {
+			T t = v;
+			v = u;
+			u = t;
 		}
-		else if (number[i] != '0'){
-			mul *= (number[i] - '0');
-			zeros--;
-		}
-		else if (number[i - spanLength] != '0'){
-			mul /= (number[i - spanLength] - '0');
-			zeros++;
-		}
-			
-		if (!zeros && mul > max)
-			max = mul;
+		v = v - u;
+	} while (v != 0);
+
+	return u << shift;
+}
+
+// x ^ 2 - n.y ^ 2 = 1
+auto pell(ll n) {
+	ll sqrtn = sqrt(n);
+	if (sqrtn*sqrtn == n)
+		return make_pair( ll(0), ll(0) );
+	
+	ll p = 0, q = 1, a = sqrtn;
+	ll x0 = 1, y0 = 0, x1 = a, y1 = 1;
+	while (x1*x1 - n*y1*y1 != 1) {
+		p = q*a - p;
+		q = (n - p*p) / q;
+		a = (sqrtn + p) / q;
+		tie(x0, y0, x1, y1) = make_tuple(x1, y1, a*x1 + x0, a*y1 + y0);
+	}
+	return make_pair(x1, y1);
+}
+
+// x ^ 2 - p.y ^ 2 = q
+auto generalPell(ll p, ll q) {
+	vector<pair<ll, ll>> solns;
+
+	ll m, n;
+	tie(m, n) = pell(p);
+
+	if (m) {
+		ll ubx = sqrt((m + 1.0)*q / 2.0);
+		ll uby = sqrt(q / (2.0 * (m + 1.0)))*n;
+		ll nx = 0, ny = 0;
+		for (ll y = 0; y <= uby; y++)
+			for (ll x = 1; x <= ubx; x++)
+				if (x*x - p*y*y == q) {
+					solns.push_back({ x, y });
+					solns.push_back({ -x, y });
+				}
 	}
 
-	cout << max << endl;
-	system("pause");
+	return make_tuple(solns, m, n);
+}
+
+auto solve(ll p, ll q, ll lim) {
+	ll g = GCD<unsigned long long>(q, p);
+	p /= g;
+	q /= g;
+	set<pair<ll, ll>> solns;
+
+	ll m, n;
+	vector<pair<ll, ll>> primitive;
+	tie(primitive, m, n) = generalPell(p*q, q*(q - p));
+	if (!primitive.size())
+		return solns;
+
+	for(auto& base: primitive){
+		ll x = base.first, y = base.second;
+		while (abs(y) < 2 * lim) {
+			if (x%q == 0) {
+				ll t = abs(y) + 1, b = abs(x / q) + 1;
+				if (!(t & 1) && !(b & 1)) {
+					t >>= 1;
+					b >>= 1;
+					if (1 < t && t <= lim)
+						solns.insert({ b, t });
+				}
+			}
+			tie(x, y) = make_pair(m*x + n*p*q*y, n*x + m*y);
+		}
+	}
+	return solns;
+}
+
+auto solveBF(ll p, ll q, ll lim) {
+	set<pair<ll, ll>> solns;
+
+	for (ll b = 1; b <= lim; b++)
+		for (ll t = b + 1; t <= lim; t++)
+			if (q*b*(b - 1) == p*t*(t - 1))
+				solns.insert({b, t});
+
+	return solns;
+}
+
+void test(int t, int r, ll l) {
+	int f = 0;
+	for (int i = 0; i < t; i++) {
+		ll q = 2 + rand() % (r - 1);
+		ll p = 1 + rand() % (q - 1);
+		auto r1 = solve(p, q, l);
+		auto r2 = solveBF(p, q, l);
+		bool diff = r1.size() != r2.size();
+		if (!diff)
+			for (auto& s : r2)
+				if (r1.find(s) == r1.end()) {
+					diff = true;
+					break;
+				}
+		if (diff) {
+			cout << p << "/" << q << ", pell: " << pell(p*q) << '\n';
+			cout << "algo: " << '\n';
+			for (auto& p : r1)
+				cout << p << '\n';
+			cout << "bf: " << '\n';
+			for (auto& p : r2)
+				cout << p << '\n';
+			cout << "-------------" << '\n';
+			f++;
+		}
+	}
+	cout << f << " failed out of " << t << '\n';
+}
+
+auto compute() {
+	ll b = 15, n = 21;
+	ll lim = 1'000'000'000'000LL;
+
+	while (n < lim)
+		tie(b, n) = make_pair(3 * b + 2 * n - 2, 4 * b + 3 * n - 3);
+
+	return b;
+}
+
+template<typename Function, class ... Types>
+decltype(auto) timeit(Function f, Types ... args) {
+    using namespace chrono;
+    auto start = high_resolution_clock::now();
+    auto result = f(args...);
+    double duration = duration_cast<nanoseconds>(high_resolution_clock::now() - start).count() / 1e6;
+    return std::make_pair(result, duration);
+}
+
+int main() {
+    using namespace std;
+    auto[result, time] = timeit(compute);
+    cout << result << " Calculated in " << time << " miliseconds." << '\n';
+    return 0;
 }

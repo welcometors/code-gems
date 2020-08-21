@@ -22,6 +22,24 @@
     <Filter Include="Math">
       <UniqueIdentifier>{f6b5c253-3c08-4822-879b-897728e1d5bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graph">
+      <UniqueIdentifier>{ade2164c-103c-4f2c-9f05-b1b1624185ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arrays">
+      <UniqueIdentifier>{64fddd16-9f4b-417d-ac12-a416a61c8046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{6a403a2a-c4c0-4249-80b7-db50670c0ee7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tree">
+      <UniqueIdentifier>{2fa8608d-827d-4a4f-9e10-e8947103ecdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{04cdacec-a795-4661-9860-8f4f91ff4e32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class">
+      <UniqueIdentifier>{d91661e7-fc95-4eba-84a5-4bfd4a6403b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,9 +60,6 @@
     <ClCompile Include="Misc.cpp">
       <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="BigInt.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
     <ClCompile Include="Trie.cpp">
       <Filter>Strings</Filter>
     </ClCompile>
@@ -57,6 +72,48 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mst.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrays\Inversion.cpp">
+      <Filter>Arrays</Filter>
+    </ClCompile>
+    <ClCompile Include="SubArray.cpp">
+      <Filter>Arrays</Filter>
+    </ClCompile>
+    <ClCompile Include="ConditionallyBoundedArray.cpp">
+      <Filter>Arrays</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrays\Search.cpp">
+      <Filter>Arrays</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Permutation.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Sieves.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Map\hash.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Integer.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrays\BitArray.cpp">
+      <Filter>Arrays</Filter>
+    </ClCompile>
+    <ClCompile Include="IO\basicOutput.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="Misc\time.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrays\matrix.cpp">
+      <Filter>Arrays</Filter>
+    </ClCompile>
+    <ClCompile Include="Class\forwardConstructor.cpp">
+      <Filter>Class</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="IO\Enormous Input.cpp">
@@ -64,6 +121,12 @@
     </Text>
     <Text Include="Strings\Common Strings.cpp">
       <Filter>Strings</Filter>
+    </Text>
+    <Text Include="Tree\binaryheap.cpp">
+      <Filter>Tree</Filter>
+    </Text>
+    <Text Include="Math\Fraction.cpp">
+      <Filter>Math</Filter>
     </Text>
   </ItemGroup>
 </Project>

@@ -1,31 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FBC88679-6091-4300-99E7-77FAC202F7A7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ProjectEuler</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -35,51 +57,227 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <Linkage-mpir>static</Linkage-mpir>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>
+      </Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FavorSizeOrSpeed>
+      </FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>
+      </Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <FavorSizeOrSpeed>
+      </FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <EnableEnhancedInstructionSet>
+      </EnableEnhancedInstructionSet>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <None Include="readme.md" />
+    <Text Include="Data\p081_matrix.txt" />
+    <Text Include="Data\p089_roman.txt" />
+    <Text Include="Data\p096_sudoku.txt" />
+    <Text Include="Data\p098_words.txt" />
+    <Text Include="Data\p099_base_exp.txt" />
+    <Text Include="Problems\problem001_025\Solution001.cpp" />
+    <Text Include="Problems\problem001_025\Solution002.cpp" />
+    <Text Include="Problems\problem001_025\Solution003.cpp" />
+    <Text Include="Problems\problem001_025\Solution004.cpp" />
+    <Text Include="Problems\problem001_025\Solution005.cpp" />
+    <Text Include="Problems\problem001_025\Solution006.cpp" />
+    <Text Include="Problems\problem001_025\Solution007.cpp" />
+    <Text Include="Problems\problem001_025\Solution008.cpp" />
+    <Text Include="Problems\problem001_025\Solution009.cpp" />
+    <Text Include="Problems\problem001_025\Solution010.cpp" />
+    <Text Include="Problems\problem001_025\Solution011.cpp" />
+    <Text Include="Problems\problem001_025\Solution012.cpp" />
+    <Text Include="Problems\problem001_025\Solution013.cpp" />
+    <Text Include="Problems\problem001_025\Solution014.cpp" />
+    <Text Include="Problems\problem001_025\Solution015.cpp" />
+    <Text Include="Problems\problem001_025\Solution016.cpp" />
+    <Text Include="Problems\problem001_025\Solution017.cpp" />
+    <Text Include="Problems\problem001_025\Solution018.cpp" />
+    <Text Include="Problems\problem001_025\Solution020.cpp" />
+    <Text Include="Problems\problem001_025\Solution021.cpp" />
+    <Text Include="Problems\problem001_025\Solution022.cpp" />
+    <Text Include="Problems\problem001_025\Solution023.cpp" />
+    <Text Include="Problems\problem001_025\Solution024.cpp" />
+    <Text Include="Problems\problem001_025\Solution025.cpp" />
+    <Text Include="Problems\problem026_050\Solution026.cpp" />
+    <Text Include="Problems\problem026_050\Solution027.cpp" />
+    <Text Include="Problems\problem026_050\Solution028.cpp" />
+    <Text Include="Problems\problem026_050\Solution029.cpp" />
+    <Text Include="Problems\problem026_050\Solution030.cpp" />
+    <Text Include="Problems\problem026_050\Solution031.cpp" />
+    <Text Include="Problems\problem026_050\Solution032.cpp" />
+    <Text Include="Problems\problem026_050\Solution033.cpp" />
+    <Text Include="Problems\problem026_050\Solution034.cpp" />
+    <Text Include="Problems\problem026_050\Solution035.cpp" />
+    <Text Include="Problems\problem026_050\Solution036.cpp" />
+    <Text Include="Problems\problem026_050\Solution037.cpp" />
+    <Text Include="Problems\problem026_050\Solution038.cpp" />
+    <Text Include="Problems\problem026_050\Solution039.cpp" />
+    <Text Include="Problems\problem026_050\Solution040.cpp" />
+    <Text Include="Problems\problem026_050\Solution041.cpp" />
+    <Text Include="Problems\problem026_050\Solution042.cpp" />
+    <Text Include="Problems\problem026_050\Solution043.cpp" />
+    <Text Include="Problems\problem026_050\Solution044.cpp" />
+    <Text Include="Problems\problem026_050\Solution045.cpp" />
+    <Text Include="Problems\problem026_050\Solution046.cpp" />
+    <Text Include="Problems\problem026_050\Solution047.cpp" />
+    <Text Include="Problems\problem026_050\Solution048.cpp" />
+    <Text Include="Problems\problem026_050\Solution049.cpp" />
+    <Text Include="Problems\problem026_050\Solution050.cpp" />
+    <Text Include="Problems\problem051_075\Solution051.cpp" />
+    <Text Include="Problems\problem051_075\Solution052.cpp" />
+    <Text Include="Problems\problem051_075\Solution053.cpp" />
+    <Text Include="Problems\problem051_075\Solution054.cpp" />
+    <Text Include="Problems\problem051_075\Solution055.cpp" />
+    <Text Include="Problems\problem051_075\Solution056.cpp" />
+    <Text Include="Problems\problem051_075\Solution057.cpp" />
+    <Text Include="Problems\problem051_075\Solution058.cpp" />
+    <Text Include="Problems\problem051_075\Solution059.cpp" />
+    <Text Include="Problems\problem051_075\Solution060.cpp" />
+    <Text Include="Problems\problem051_075\Solution061.cpp" />
+    <Text Include="Problems\problem051_075\Solution062.cpp" />
+    <Text Include="Problems\problem051_075\Solution063.cpp" />
+    <Text Include="Problems\problem051_075\Solution064.cpp" />
+    <Text Include="Problems\problem051_075\Solution065.cpp" />
+    <Text Include="Problems\problem051_075\Solution066.cpp" />
+    <Text Include="Problems\problem051_075\Solution068.cpp" />
+    <Text Include="Problems\problem051_075\Solution069.cpp" />
+    <Text Include="Problems\problem051_075\Solution070.cpp" />
+    <Text Include="Problems\problem051_075\Solution071.cpp" />
+    <Text Include="Problems\problem051_075\Solution072.cpp" />
+    <Text Include="Problems\problem051_075\Solution073.cpp" />
+    <Text Include="Problems\problem051_075\Solution074.cpp" />
+    <Text Include="Problems\problem051_075\Solution075.cpp" />
+    <Text Include="Problems\problem076_100\Solution076.cpp" />
+    <Text Include="Problems\problem076_100\Solution077.cpp" />
+    <Text Include="Problems\problem076_100\Solution078.cpp" />
+    <Text Include="Problems\problem076_100\Solution079.cpp" />
+    <Text Include="Problems\problem076_100\Solution080.py" />
+    <Text Include="Problems\problem076_100\Solution080.cpp" />
+    <Text Include="Problems\problem076_100\Solution081.cpp" />
+    <Text Include="Problems\problem076_100\Solution082.cpp" />
+    <Text Include="Problems\problem076_100\Solution083.cpp" />
+    <Text Include="Problems\problem076_100\Solution084.cpp" />
+    <Text Include="Problems\problem076_100\Solution085.cpp" />
+    <Text Include="Problems\problem076_100\Solution086.cpp" />
+    <Text Include="Problems\problem076_100\Solution087.cpp" />
+    <Text Include="Problems\problem076_100\Solution088.cpp" />
+    <Text Include="Problems\problem076_100\Solution089.cpp" />
+    <Text Include="Problems\problem076_100\Solution090.cpp" />
+    <Text Include="Problems\problem076_100\Solution091.cpp" />
+    <Text Include="Problems\problem076_100\Solution092.cpp" />
+    <Text Include="Problems\problem076_100\Solution093.py" />
+    <Text Include="Problems\problem076_100\Solution093.cpp" />
+    <Text Include="Problems\problem076_100\Solution094.cpp" />
+    <Text Include="Problems\problem076_100\Solution095.cpp" />
+    <Text Include="Problems\problem076_100\Solution096.cpp" />
+    <Text Include="Problems\problem076_100\Solution097.cpp" />
+    <Text Include="Problems\problem076_100\Solution098.cpp" />
+    <Text Include="Problems\problem076_100\Solution099.cpp" />
+    <Text Include="Problems\problem076_100\Solution100.cpp" />
+    <Text Include="Problems\problem201_225\Solution206.cpp" />
     <None Include="Documents\001_overview.pdf" />
     <None Include="Documents\002_overview.pdf" />
     <None Include="Documents\003_overview.pdf" />
@@ -95,19 +293,20 @@
     <None Include="Documents\036_overview.pdf" />
     <None Include="Documents\053_overview.pdf" />
     <None Include="Documents\069_overview.pdf" />
-    <None Include="Problems\Solution001.cpp" />
+    <None Include="Documents\071_overview.pdf" />
+    <None Include="Documents\072_overview.pdf" />
+    <None Include="Documents\073_overview.pdf" />
+    <Text Include="Problems\problem001_025\Solution019.py" />
+    <Text Include="Problems\problem001_025\Solution020.py" />
+    <Text Include="Problems\problem051_075\Solution065.py" />
+    <Text Include="Problems\problem051_075\Solution066.py" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Problems\Solution002.cpp" />
-    <Text Include="Problems\Solution003.cpp" />
-    <Text Include="Problems\Solution004.cpp" />
-    <Text Include="Problems\Solution005.cpp" />
-    <Text Include="Problems\Solution006.cpp" />
-    <Text Include="Problems\Solution007.cpp" />
-    <Text Include="Problems\Solution008.cpp" />
-    <Text Include="Problems\Solution009.cpp" />
+    <Text Include="Data\p022_names.txt" />
+    <Text Include="Data\p042_words.txt" />
+    <Text Include="Data\p054_poker.txt" />
+    <Text Include="Data\p059_cipher.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>

@@ -12,22 +12,19 @@ using namespace std;
 #define modINV(x) modPOW(x, Modulus-2)
 #define modDIV(x, y) (((x) * modINV(y)) % Modulus)
 
-natural modPOW(natural i, natural j){
+natural modPOW(natural i, natural j) {
 	if (!j)
 		return 1;
-
 	if (i < 2)
 		return i;
 
 	natural p = 1;
-
-	while (j){
+	while (j) {
 		if (j & 1)
 			p = (p * i) % Modulus;
 		i = (i * i) % Modulus;
 		j >>= 1;
 	}
-
 	return p;
 }
 

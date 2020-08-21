@@ -50,3 +50,33 @@ unsigned long long digsumodd(int n) {
 	sum += presumodd[n];
 	return sum;
 }
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#include <cstdint>
+uint32_t __inline __builtin_clz(uint32_t value) {
+	unsigned long leading_zero = 0;
+
+	if (_BitScanReverse(&leading_zero, value))
+		return 31 - leading_zero;
+
+	// Undefined, 32 seems better than 0
+	return 32;
+}
+#endif
+
+#include <tuple>
+
+// undefined for 0
+auto encodeEliasDelta32(uint32_t x) {
+	uint32_t n = 31 - __builtin_clz(x);
+	x = ((n + 1) << n) | (x - (1 << n));
+	n = n + 1 + ((31 - __builtin_clz(n + 1)) << 1);
+	return std::make_pair(x, n);
+}
+
+uint32_t decodeEliasDelta32(uint32_t x) {
+	uint32_t l = __builtin_clz(x);
+	uint32_t n = (x >> (32 - 2 * l - 1)) - 1;
+	return (1 << n) | ((x >> (32 - 2 * l - 1 - n)) & ((1 << n) - 1));
+}

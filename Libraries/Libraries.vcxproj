@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -19,13 +19,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -78,23 +78,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Arrays\BitArray.cpp" />
     <ClCompile Include="Arrays\Inversion.cpp" />
-    <ClCompile Include="BigInt.cpp" />
+    <ClCompile Include="Arrays\matrix.cpp" />
+    <ClCompile Include="Arrays\Search.cpp" />
     <ClCompile Include="Bits.cpp" />
+    <ClCompile Include="Class\forwardConstructor.cpp" />
+    <ClCompile Include="ConditionallyBoundedArray.cpp" />
     <ClCompile Include="GCD.cpp" />
     <ClCompile Include="Intrinsics.cpp" />
+    <ClCompile Include="IO\basicOutput.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map\hash.cpp" />
+    <ClCompile Include="Math\Integer.cpp" />
+    <ClCompile Include="Math\Permutation.cpp" />
     <ClCompile Include="Misc.cpp" />
+    <ClCompile Include="Misc\time.cpp" />
     <ClCompile Include="Modular.cpp" />
     <ClCompile Include="ModularMacros.cpp" />
     <ClCompile Include="mst.cpp" />
     <ClCompile Include="Prime.cpp" />
+    <ClCompile Include="Sieves.cpp" />
+    <ClCompile Include="SubArray.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Trie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="IO\Enormous Input.cpp" />
+    <Text Include="Math\Fraction.cpp" />
     <Text Include="Strings\Common Strings.cpp" />
+    <Text Include="Tree\binaryheap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

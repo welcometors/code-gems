@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -14,18 +14,19 @@
     <ProjectGuid>{63D83F66-93BA-4093-96A0-CCB147F9EC1A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Hackerrank</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -56,6 +57,7 @@
       <SDLCheck>true</SDLCheck>
       <EnableEnhancedInstructionSet>
       </EnableEnhancedInstructionSet>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -77,6 +79,7 @@
       </EnableParallelCodeGeneration>
       <OpenMPSupport>true</OpenMPSupport>
       <AdditionalOptions>/Qvec-report:1 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -97,8 +100,17 @@
     <None Include="Readings\On the circle and divisor problems.pdf" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Contests\WeekOfCode\maxGcdPairSum.cpp" />
+    <Text Include="Contests\WeekOfCode\numOfSubarraysWithSameCounts.cpp" />
+    <Text Include="GeeksForGeeks\06_editDistance.cpp" />
+    <Text Include="GeeksForGeeks\01_largestSumContinuousSubarray.cpp" />
+    <Text Include="GeeksForGeeks\05_longestCommonSubsequence.cpp" />
+    <Text Include="GeeksForGeeks\04_longestMonotonicallyIncreasingSubsequence.cpp" />
+    <Text Include="GeeksForGeeks\07_minCostPath.cpp" />
+    <Text Include="GeeksForGeeks\08_longestSubstringWithoutRepeatingCharacters.cpp" />
     <Text Include="Attribute Parser XML.cpp" />
     <Text Include="Codefights Challenge\matchstick equation.cpp" />
+    <Text Include="CodeForces\problem.cpp" />
     <Text Include="Contests\Booking.com\Facilities Extraction.cpp" />
     <Text Include="Contests\Booking.com\Nearby Attractions.cpp" />
     <Text Include="Contests\Booking.com\Similar Destinations.cpp" />
@@ -110,6 +122,18 @@
     <Text Include="Contests\Quora Haqathon\Schedule.cpp" />
     <Text Include="Contests\Quora Haqathon\Upvotes.cpp" />
     <Text Include="Contests\Quora Haqathon\Wombats.cpp" />
+    <Text Include="Contests\WeekOfCode\gravitytree.cpp" />
+    <Text Include="Contests\WeekOfCode\minichess.cpp" />
+    <Text Include="Contests\WeekOfCode\poles.cpp" />
+    <Text Include="GeeksForGeeks\03_maximumSubSquareMatrixWithAll1s.cpp" />
+    <Text Include="GeeksForGeeks\02_uglyNumber.cpp" />
+    <Text Include="GeeksForGeeks\09_minimumJumpsToEnd.cpp" />
+    <Text Include="GeeksForGeeks\10_coinChange.cpp" />
+    <Text Include="GeeksForGeeks\11_matrixChainMultiplication.cpp" />
+    <Text Include="GeeksForGeeks\12_eggDropping.cpp" />
+    <Text Include="GeeksForGeeks\13_longestPalindromicSubsequence.cpp" />
+    <Text Include="GeeksForGeeks\14_rodCutting.cpp" />
+    <Text Include="GeeksForGeeks\15_maximumSumMonotonicallyIncreasingSubsequence.cpp" />
     <Text Include="Problems\Combinatorics\Choose and Calculate.cpp" />
     <Text Include="Problems\Combinatorics\Coinage.cpp" />
     <Text Include="Problems\Combinatorics\Count Fox Sequences.cpp" />
@@ -118,6 +142,7 @@
     <Text Include="Problems\Graphs\Snakes and Ladders.cpp" />
     <Text Include="Problems\Misc\Fraud Prevention.cpp" />
     <Text Include="Problems\Search\Count Luck.cpp" />
+    <Text Include="Problems\Search\Gravity Tree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

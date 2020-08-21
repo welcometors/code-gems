@@ -4,7 +4,8 @@ using namespace std;
 
 #pragma region "BINARY GCD"
 
-natural GCD(natural u, natural v){
+template<class T>
+typename std::enable_if<std::is_unsigned<T>::value, T>::type GCD(T u, T v) {
 	int shift;
 	if (u == 0) return v;
 	if (v == 0) return u;
@@ -21,7 +22,7 @@ natural GCD(natural u, natural v){
 		while ((v & 1) == 0)
 			v >>= 1;
 		if (u > v) {
-			natural t = v;
+			T t = v;
 			v = u;
 			u = t;
 		}
@@ -56,4 +57,26 @@ unsigned int fastGCD(unsigned int u, unsigned int v){
 	return u << shift;
 }
 
+#pragma endregion
+
+#pragma region "FACTORS"
+
+template<class T>
+T getFactors(T n) {
+	T factors = 1;
+	for (auto prime : primes) {
+		T power = 0;
+		while (n % prime == 0) {
+			n /= prime;
+			power++;
+		}
+		if (power)
+			factors *= power + 1;
+		if (n == 1)
+			break;
+	}
+	if (n > 1)
+		factors *= 2;
+	return factors;
+}
 #pragma endregion
